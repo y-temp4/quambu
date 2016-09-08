@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import fetchJsonp from 'fetch-jsonp';
 
-const ENDPOINT = 'https://qiita.com/api/v1';
-const NEW_ITEMS_URI = ENDPOINT + '/items';
-const USER_DATA_URI = ENDPOINT + '/users';
-const SEARCH_ITEMS_URI = ENDPOINT + '/search';
+const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
+const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
+const USER_DATA_URI = QIITA_API_ENDPOINT + '/users';
+const SEARCH_ITEMS_URI = QIITA_API_ENDPOINT + '/search';
+const BOOKMARK_COUNT_URI = 'http://api.b.st-hatena.com/entry.count?url=';
 
 export default class App extends Component {
   constructor(props) {
@@ -61,6 +63,11 @@ export default class App extends Component {
     // fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
+        json.forEach((item) => {
+          fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+            .then((response) => response.json() )
+            .then((jsonp) => {item.bookmark_count = jsonp} );
+        });
         this.setState({following_tags_related_items: json});
       }).catch((ex) => { console.log('parsing failed', ex); });
 
@@ -73,6 +80,11 @@ export default class App extends Component {
     // fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
+          json.forEach((item) => {
+            fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+              .then((response) => response.json() )
+              .then((jsonp) => {item.bookmark_count = jsonp} );
+          });
         this.setState({following_users_related_items: json});
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
@@ -85,13 +97,18 @@ export default class App extends Component {
         <ol>
           {
             this.state.following_tags_related_items.map((item) => {
-              console.log(item.tags[0].url_name)
-             return (
-               <li key={item.id}>
-                 <a href={item.url} target="_blank">
-                  <img src={item.tags[0].icon_url} alt=""/>
-                  {item.title}
-                 </a>
+              return (
+                <li key={item.id}>
+                  <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
+                    <img src={item.tags[0].icon_url} alt=""/>
+                    {item.title}
+                  </a>
+                  <span style={{marginRight: '1em'}}>
+                    ストック数：{item.stock_users.length}
+                  </span>
+                  <span>
+                    はてぶ数：{item.bookmark_count}
+                  </span>
                </li>
              )
            })
@@ -111,10 +128,16 @@ export default class App extends Component {
             this.state.following_users_related_items.map((item) => {
              return (
                <li key={item.id}>
-                 <a href={item.url} target="_blank">
+                 <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
                   <img src={item.user.profile_image_url} alt="" width="30"/>
                   {item.title}
                  </a>
+                 <span style={{marginRight: '1em'}}>
+                   ストック数：{item.stock_users.length}
+                 </span>
+                 <span>
+                   はてぶ数：{item.bookmark_count}
+                 </span>
                </li>
              )
            })
