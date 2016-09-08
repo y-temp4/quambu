@@ -27,8 +27,10 @@ export default class App extends Component {
 
   _handleChange(e) {
     this.setState({username: this.refs.userName.value})
-    // fetch('../../mock/following_tags.json')
-    fetch(USER_DATA_URI + '/' + this.refs.userName.value + '/following_tags')
+
+    // ユーザーがフォローしているタグをstateに保存
+    fetch('../../mock/following_tags.json')
+    // fetch(USER_DATA_URI + '/' + this.refs.userName.value + '/following_tags')
       .then((response) => response.json() )
       .then((json) => {
         const tags = []
