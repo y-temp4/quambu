@@ -12,7 +12,8 @@ export default class App extends Component {
     this.state = {
       username: '',
       items: [],
-      following_tags: []
+      following_tags: [],
+      following_users: []
     }
   }
 
@@ -26,17 +27,27 @@ export default class App extends Component {
   }
 
   _handleChange(e) {
+    const GOT_USER_DATA_URI = USER_DATA_URI + '/' + this.refs.userName.value
     this.setState({username: this.refs.userName.value})
 
     // ユーザーがフォローしているタグをstateに保存
     fetch('../../mock/following_tags.json')
-    // fetch(USER_DATA_URI + '/' + this.refs.userName.value + '/following_tags')
+    // fetch(GOT_USER_DATA_URI + '/following_tags')
       .then((response) => response.json() )
       .then((json) => {
         const tags = []
         json.map((tag) => { tags.push(tag.url_name) })
         this.setState({following_tags: tags})
-        console.log('parsed json', this.state.tags)
+      }).catch((ex) => { console.log('parsing failed', ex) })
+
+    // ユーザーがフォローしているユーザーをstateに保存
+    fetch('../../mock/following_users.json')
+    // fetch(GOT_USER_DATA_URI + '/following_users')
+      .then((response) => response.json() )
+      .then((json) => {
+        const users = []
+        json.map((user) => { users.push(user.url_name) })
+        this.setState({following_users: users})
       }).catch((ex) => { console.log('parsing failed', ex) })
   }
 
