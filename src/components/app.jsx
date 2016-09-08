@@ -64,11 +64,11 @@ export default class App extends Component {
     fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
-        json.forEach((item) => {
-          fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
-            .then((response) => response.json() )
-            .then((jsonp) => {item.bookmark_count = jsonp} );
-        });
+        // json.forEach((item) => {
+        //   fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+        //     .then((response) => response.json() )
+        //     .then((jsonp) => {item.bookmark_count = jsonp} );
+        // });
         this.setState({following_tags_related_items: json});
       }).catch((ex) => { console.log('parsing failed', ex); });
 
@@ -81,11 +81,11 @@ export default class App extends Component {
     fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
-          json.forEach((item) => {
-            fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
-              .then((response) => response.json() )
-              .then((jsonp) => {item.bookmark_count = jsonp} );
-          });
+          // json.forEach((item) => {
+          //   fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+          //     .then((response) => response.json() )
+          //     .then((jsonp) => {item.bookmark_count = jsonp} );
+          // });
         this.setState({following_users_related_items: json});
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
