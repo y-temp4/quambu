@@ -18,13 +18,14 @@ export default class App extends Component {
       following_tags: [],
       following_users: [],
       following_tags_related_items: [],
-      following_users_related_items: []
+      following_users_related_items: [],
+      refine_by_bookmark: 0
     };
   }
 
   componentDidMount() {
-    fetch('../../mock/items.json')
-    // fetch(NEW_ITEMS_URI)
+    // fetch('../../mock/items.json')
+    fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
       .then((json) => { this.setState({items: json}); })
       .catch((ex) => { console.log('parsing failed', ex); });
@@ -35,8 +36,8 @@ export default class App extends Component {
     this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
-    fetch('../../mock/following_tags.json')
-    // fetch(GOT_USER_DATA_URI + '/following_tags')
+    // fetch('../../mock/following_tags.json')
+    fetch(GOT_USER_DATA_URI + '/following_tags')
       .then((response) => response.json() )
       .then((json) => {
         const tags = [];
@@ -45,8 +46,8 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex) });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    fetch('../../mock/following_users.json')
-    // fetch(GOT_USER_DATA_URI + '/following_users')
+    // fetch('../../mock/following_users.json')
+    fetch(GOT_USER_DATA_URI + '/following_users')
       .then((response) => response.json() )
       .then((json) => {
         const users = [];
@@ -59,8 +60,8 @@ export default class App extends Component {
     this.state.following_tags.map((tag) => {
       tagQuery += `tag%3A${tag}+OR+`;
     });
-    fetch('../../mock/following_tags_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + tagQuery)
+    // fetch('../../mock/following_tags_related_items.json')
+    fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
         json.forEach((item) => {
@@ -76,8 +77,8 @@ export default class App extends Component {
     this.state.following_users.map((tag) => {
       userQuery += `user%3A${tag}+OR+`;
     });
-    fetch('../../mock/following_users_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + userQuery)
+    // fetch('../../mock/following_users_related_items.json')
+    fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
           json.forEach((item) => {
@@ -89,6 +90,10 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
 
+  _handleItemChange(e) {
+    this.setState({refine_by_bookmark: e.target.value});
+  }
+
   _showTagRelatedItems() {
     if (!this.state.following_tags.length) {
       return <span>タグないです</span>;
@@ -97,20 +102,22 @@ export default class App extends Component {
         <ol>
           {
             this.state.following_tags_related_items.map((item) => {
-              return (
-                <li key={item.id}>
-                  <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
-                    <img src={item.tags[0].icon_url} alt=""/>
-                    {item.title}
-                  </a>
-                  <span style={{marginRight: '1em'}}>
-                    ストック数：{item.stock_users.length}
-                  </span>
-                  <span>
-                    はてぶ数：{item.bookmark_count}
-                  </span>
-               </li>
-             )
+              if (this.state.refine_by_bookmark <= item.bookmark_count) {
+                return (
+                  <li key={item.id}>
+                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
+                      <img src={item.tags[0].icon_url} alt=""/>
+                      {item.title}
+                    </a>
+                    <span style={{marginRight: '1em'}}>
+                      ストック数：{item.stock_users.length}
+                    </span>
+                    <span>
+                      はてぶ数：{item.bookmark_count}
+                    </span>
+                  </li>
+                )
+              }
            })
          }
         </ol>
@@ -126,20 +133,22 @@ export default class App extends Component {
         <ol>
           {
             this.state.following_users_related_items.map((item) => {
-             return (
-               <li key={item.id}>
-                 <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
-                  <img src={item.user.profile_image_url} alt="" width="30"/>
-                  {item.title}
-                 </a>
-                 <span style={{marginRight: '1em'}}>
-                   ストック数：{item.stock_users.length}
-                 </span>
-                 <span>
-                   はてぶ数：{item.bookmark_count}
-                 </span>
-               </li>
-             )
+              if (this.state.refine_by_bookmark <= item.bookmark_count) {
+                return (
+                  <li key={item.id}>
+                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
+                      <img src={item.user.profile_image_url} alt="" width="30"/>
+                      {item.title}
+                    </a>
+                    <span style={{marginRight: '1em'}}>
+                       ストック数：{item.stock_users.length}
+                    </span>
+                    <span>
+                       はてぶ数：{item.bookmark_count}
+                    </span>
+                  </li>
+                )
+              }
            })
          }
         </ol>
@@ -150,6 +159,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <input type="number" onChange={this._handleItemChange.bind(this)} />
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
         <h1>User following tags items</h1>
