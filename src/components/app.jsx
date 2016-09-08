@@ -6,7 +6,6 @@ const NEW_ITEMS_URI = ENDPOINT + '/items';
 const USER_DATA_URI = ENDPOINT + '/users';
 const SEARCH_ITEMS_URI = ENDPOINT + '/search';
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -17,52 +16,52 @@ export default class App extends Component {
       following_tags: [],
       following_users: [],
       following_tags_related_items: []
-    }
+    };
   }
 
   componentDidMount() {
     fetch('../../mock/items.json')
     // fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
-      .then((json) => { this.setState({items: json}) })
-      .catch((ex) => { console.log('parsing failed', ex) })
+      .then((json) => { this.setState({items: json}); })
+      .catch((ex) => { console.log('parsing failed', ex); });
   }
 
   _handleChange(e) {
-    const GOT_USER_DATA_URI = USER_DATA_URI + '/' + this.refs.userName.value
-    this.setState({username: this.refs.userName.value})
+    const GOT_USER_DATA_URI = `${USER_DATA_URI}/${this.refs.userName.value}`;
+    this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
     fetch('../../mock/following_tags.json')
     // fetch(GOT_USER_DATA_URI + '/following_tags')
       .then((response) => response.json() )
       .then((json) => {
-        const tags = []
-        json.map((tag) => { tags.push(tag.url_name) })
-        this.setState({following_tags: tags})
-      }).catch((ex) => { console.log('parsing failed', ex) })
+        const tags = [];
+        json.map((tag) => { tags.push(tag.url_name); });
+        this.setState({following_tags: tags});
+      }).catch((ex) => { console.log('parsing failed', ex) });
 
     // ユーザーがフォローしているユーザーをstateに保存
     fetch('../../mock/following_users.json')
     // fetch(GOT_USER_DATA_URI + '/following_users')
       .then((response) => response.json() )
       .then((json) => {
-        const users = []
-        json.map((user) => { users.push(user.url_name) })
-        this.setState({following_users: users})
-      }).catch((ex) => { console.log('parsing failed', ex) })
+        const users = [];
+        json.map((user) => { users.push(user.url_name) });
+        this.setState({following_users: users});
+      }).catch((ex) => { console.log('parsing failed', ex); })
 
-    let query = '?q='
+    let query = '?q=';
     this.state.following_tags.map((tag) => {
-      query += `tag%3A${tag}+OR+`
-    })
+      query += `tag%3A${tag}+OR+`;
+    });
 
     // fetch('../../mock/following_tags_related_items.json')
     fetch(SEARCH_ITEMS_URI + query)
       .then((response) => response.json() )
       .then((json) => {
-        this.setState({following_tags_related_items: json})
-      }).catch((ex) => { console.log('parsing failed', ex) })
+        this.setState({following_tags_related_items: json});
+      }).catch((ex) => { console.log('parsing failed', ex); });
   }
 
   _showTagRelatedItems() {
@@ -81,7 +80,7 @@ export default class App extends Component {
            })
          }
         </ol>
-      )
+      );
     }
   }
 
@@ -100,7 +99,7 @@ export default class App extends Component {
                 <li key={item.id}>
                   <a href={item.url} target="_blank">{item.title}</a>
                 </li>
-              )
+              );
             })
           }
         </ol>
