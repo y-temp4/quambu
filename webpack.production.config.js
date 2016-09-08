@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:3333',
+    'webpack-dev-server/client?http://0.0.0.0:3333',
     'webpack/hot/only-dev-server',
     './src/index'
   ],
