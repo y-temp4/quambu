@@ -7,6 +7,15 @@ module.exports = {
     path: 'docs',
     filename: 'bundle.js'
   },
+  module: {
+    loaders: [
+      {
+        test: /.jsx?$/,
+        loader: 'babel',
+        exclude: /node_modules/
+      }
+    ]
+  },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
