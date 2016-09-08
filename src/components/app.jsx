@@ -9,6 +9,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
+      username: '',
       items: []
     }
   }
@@ -22,10 +23,15 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex) })
   }
 
+  _handleChange(e) {
+    this.setState({username: e.target.value})
+  }
+
   render() {
     return (
       <div>
         <h1>New Articles</h1>
+        <input type="text" onChange={this._handleChange.bind(this)}/>
         <ol>
           {
             this.state.items.map((item) => {
