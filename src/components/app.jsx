@@ -15,7 +15,8 @@ export default class App extends Component {
       items: [],
       following_tags: [],
       following_users: [],
-      following_tags_related_items: []
+      following_tags_related_items: [],
+      following_users_related_items: []
     };
   }
 
@@ -51,16 +52,28 @@ export default class App extends Component {
         this.setState({following_users: users});
       }).catch((ex) => { console.log('parsing failed', ex); })
 
-    let query = '?q=';
+    // ユーザーがフォローしているタグに紐づく記事をstateに保存
+    let tagQuery = '?q=';
     this.state.following_tags.map((tag) => {
-      query += `tag%3A${tag}+OR+`;
+      tagQuery += `tag%3A${tag}+OR+`;
     });
-
-    // fetch('../../mock/following_tags_related_items.json')
-    fetch(SEARCH_ITEMS_URI + query)
+    fetch('../../mock/following_tags_related_items.json')
+    // fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
         this.setState({following_tags_related_items: json});
+      }).catch((ex) => { console.log('parsing failed', ex); });
+
+    // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
+    let userQuery = '?q=';
+    this.state.following_users.map((tag) => {
+      userQuery += `user%3A${tag}+OR+`;
+    });
+    fetch('../../mock/following_users_related_items.json')
+    // fetch(SEARCH_ITEMS_URI + userQuery)
+      .then((response) => response.json() )
+      .then((json) => {
+        this.setState({following_users_related_items: json});
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
 
@@ -84,6 +97,26 @@ export default class App extends Component {
     }
   }
 
+  _showUserRelatedItems() {
+    if (!this.state.following_users.length) {
+      return <span>ユーザーないです</span>;
+    } else {
+      return (
+        <ol>
+          {
+            this.state.following_users_related_items.map((item) => {
+             return (
+               <li key={item.id}>
+                 <a href={item.url} target="_blank">{item.title}</a>
+               </li>
+             )
+           })
+         }
+        </ol>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
@@ -91,6 +124,8 @@ export default class App extends Component {
         <button onClick={this._handleChange.bind(this)}>ok</button>
         <h1>User following tags items</h1>
           {this._showTagRelatedItems()}
+        <h1>User following users items</h1>
+          {this._showUserRelatedItems()}
         <h1>New Articles</h1>
         <ol>
           {
