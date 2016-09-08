@@ -2,10 +2,13 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     path: 'docs',
     filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -19,8 +22,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.template.ejs',
-      inject: 'body',
+      template: './src/index.template.html',
+      filename: 'index.html'
     })
   ],
   devtool: 'source-map'
