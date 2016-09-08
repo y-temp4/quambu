@@ -1,0 +1,977 @@
+[{
+    "body": "<p>例えばmacなら、<code>View &gt; Indentation &gt; Convert Indentation to Spaces (か、 Tabs)</code>　でタブとスペースを変換できるのですが、デフォでショートカットキーが設定されていないのでやや不便です。</p>\n\n<p>そこで、メニューバー（左上）の<code>Sublime Text &gt; Preferences &gt; Key Bindings - User</code> にて、以下の記述を追加するとラクに変換できるようになります。</p>\n\n<div class=\"code-frame\" data-lang=\"javascript\">\n<div class=\"code-lang\"><span class=\"bold\">Default(OSX).sublime-keymap</span></div>\n<div class=\"highlight\"><pre>\n<span class=\"p\">[</span>\n    <span class=\"c1\">// スペースをタブに変換</span>\n    <span class=\"p\">{</span> <span class=\"s2\">\"keys\"</span><span class=\"o\">:</span> <span class=\"p\">[</span><span class=\"s2\">\"ctrl+shift+x\"</span><span class=\"p\">],</span> <span class=\"s2\">\"command\"</span><span class=\"o\">:</span> <span class=\"s2\">\"unexpand_tabs\"</span><span class=\"p\">,</span> <span class=\"s2\">\"args\"</span><span class=\"o\">:</span> <span class=\"p\">{</span> <span class=\"s2\">\"set_translate_tabs\"</span><span class=\"o\">:</span> <span class=\"kc\">false</span> <span class=\"p\">}</span> <span class=\"p\">},</span>\n    <span class=\"c1\">// タブをスペースに変換</span>\n    <span class=\"p\">{</span> <span class=\"s2\">\"keys\"</span><span class=\"o\">:</span> <span class=\"p\">[</span><span class=\"s2\">\"ctrl+shift+y\"</span><span class=\"p\">],</span> <span class=\"s2\">\"command\"</span><span class=\"o\">:</span> <span class=\"s2\">\"expand_tabs\"</span><span class=\"p\">,</span> <span class=\"s2\">\"args\"</span><span class=\"o\">:</span> <span class=\"p\">{</span> <span class=\"s2\">\"set_translate_tabs\"</span><span class=\"o\">:</span> <span class=\"kc\">true</span> <span class=\"p\">}</span> <span class=\"p\">}</span>\n<span class=\"p\">]</span>\n</pre></div>\n</div>\n\n<ul>\n<li>参考\n\n<ul>\n<li><a href=\"http://stackoverflow.com/questions/14388223/how-to-set-a-keyboard-shortcut-for-converting-from-tabs-to-spaces-in-sublimetext\" class=\"autolink\" rel=\"nofollow\" target=\"_blank\">http://stackoverflow.com/questions/14388223/how-to-set-a-keyboard-shortcut-for-converting-from-tabs-to-spaces-in-sublimetext</a></li>\n</ul>\n</li>\n</ul>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1440519505,
+    "created_at_in_words": "約1年",
+    "created_at": "2015-08-26 01:18:25 +0900",
+    "gist_url": null,
+    "id": 324634,
+    "private": false,
+    "raw_body": "\n例えばmacなら、`View > Indentation > Convert Indentation to Spaces (か、 Tabs)`　でタブとスペースを変換できるのですが、デフォでショートカットキーが設定されていないのでやや不便です。\n\nそこで、メニューバー（左上）の`Sublime Text > Preferences > Key Bindings - User` にて、以下の記述を追加するとラクに変換できるようになります。\n\n```Default(OSX).sublime-keymap\n[\n\t// スペースをタブに変換\n\t{ \"keys\": [\"ctrl+shift+x\"], \"command\": \"unexpand_tabs\", \"args\": { \"set_translate_tabs\": false } },\n\t// タブをスペースに変換\n\t{ \"keys\": [\"ctrl+shift+y\"], \"command\": \"expand_tabs\", \"args\": { \"set_translate_tabs\": true } }\n]\n```\n\n- 参考\n\t- http://stackoverflow.com/questions/14388223/how-to-set-a-keyboard-shortcut-for-converting-from-tabs-to-spaces-in-sublimetext\n",
+    "stock_count": 2,
+    "stock_users": [
+        "Noboruhi",
+        "__4"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/f3182741ed4ee870c40648c5226d5de094785886/medium.jpg?1398661821",
+        "name": "SublimeText",
+        "url_name": "sublimetext",
+        "versions": []
+    }],
+    "title": "SublimeTextでタブとスペースを変換するショートカットを設定",
+    "tweet": false,
+    "updated_at_in_words": "約1年",
+    "updated_at": "2015-08-26 01:19:11 +0900",
+    "url": "http://qiita.com/y-temp4/items/dfd83ba10dea8b295c56",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "dfd83ba10dea8b295c56"
+}, {
+    "body": "<p>タブを複製するというピンポイントのショートカットがなく、いつもやっているので共有しておきます。</p>\n\n<p>macであれば、<code>command + l</code>でchromeの検索バーが選択状態になるので、その後<code>command + shift + return</code>で新しく現在表示しているページのタブが生成されます。</p>\n\n<p>windowsの場合、<code>ctrl + l</code>, <code>alt + enter</code>で確か大丈夫です。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1440520232,
+    "created_at_in_words": "約1年",
+    "created_at": "2015-08-26 01:30:32 +0900",
+    "gist_url": null,
+    "id": 324635,
+    "private": false,
+    "raw_body": "\nタブを複製するというピンポイントのショートカットがなく、いつもやっているので共有しておきます。\n\nmacであれば、`command + l`でchromeの検索バーが選択状態になるので、その後`command + shift + return`で新しく現在表示しているページのタブが生成されます。\n\nwindowsの場合、`ctrl + l`, `alt + enter`で確か大丈夫です。\n\n",
+    "stock_count": 8,
+    "stock_users": [
+        "morika-t",
+        "dirablue",
+        "shiyoh",
+        "sh1sh1da",
+        "__2",
+        "takaakitanaka",
+        "chil_lazy",
+        "strawberry-shortcake"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/9af01a641a7b8761b171fef40b3ed0e2adb937bf/medium.jpg?1447575268",
+        "name": "Chrome",
+        "url_name": "chrome",
+        "versions": []
+    }],
+    "title": "chromeで擬似的に「タブを複製」をするショートカット",
+    "tweet": false,
+    "updated_at_in_words": "11ヶ月",
+    "updated_at": "2015-10-01 19:37:44 +0900",
+    "url": "http://qiita.com/y-temp4/items/ecdcefee7aeacbc7829e",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "ecdcefee7aeacbc7829e"
+}, {
+    "body": "<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/bcb039ab-56c1-e1f3-3166-cdf0e791a740.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/bcb039ab-56c1-e1f3-3166-cdf0e791a740.png\" alt=\"15321198.png\" title=\"15321198.png\"></a></p>\n\n<p><a href=\"https://github.com/sdogruyol/kemal\" rel=\"nofollow\" target=\"_blank\">Kemal</a>をご存知でしょうか？Kemalは<a href=\"http://crystal-lang.org/\" rel=\"nofollow\" target=\"_blank\">Crystal</a>製<a href=\"http://www.sinatrarb.com/intro-ja.html\" rel=\"nofollow\" target=\"_blank\">Sinatra</a>風の<a href=\"https://github.com/sdogruyol/kemal#super-fast-3\" rel=\"nofollow\" target=\"_blank\">超高速</a>マイクロフレームワークらしいです。</p>\n\n<p>今回は、公式のチュートリアルをやってみたのでご紹介します。では、いきましょう！</p>\n\n<h2>\n<span id=\"crystalインストール\" class=\"fragment\"></span><a href=\"#crystal%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\"><i class=\"fa fa-link\"></i></a>Crystalインストール</h2>\n\n<p>Crystalを入れていない人はまずこちらから。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ brew update\n$ brew install crystal-lang\n</pre></div></div>\n\n<p>または、<a href=\"https://github.com/pine613/crenv\" rel=\"nofollow\" target=\"_blank\">crenv</a>でもいいと思います。</p>\n\n<p>インストールが終わったら、バージョンを確認してみましょう。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ crystal -v\nCrystal 0.9.1 (Fri Oct 30 13:49:46 UTC 2015)\n</pre></div></div>\n\n<p>これで準備は整いました。</p>\n\n<h2>\n<span id=\"kemalインストール\" class=\"fragment\"></span><a href=\"#kemal%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\"><i class=\"fa fa-link\"></i></a>Kemalインストール</h2>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ crystal init app your_app\n$ cd your_app\n</pre></div></div>\n\n<p><code>shard.yml</code>ができていると思うので、以下の内容を追加してください。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\ndependencies:\n  kemal:\n    github: sdogruyol/kemal\n    branch: master\n</pre></div></div>\n\n<p>そうしたら、以下のコマンドを実行します。ちなみに、<a href=\"https://github.com/ysbaddaden/shards\" rel=\"nofollow\" target=\"_blank\">Shards</a>はCrystalのパッケージマネージャーです。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ shards install\n</pre></div></div>\n\n<p>これで、Kemalが使えるようになりました。</p>\n\n<h2>\n<span id=\"動かす\" class=\"fragment\"></span><a href=\"#%E5%8B%95%E3%81%8B%E3%81%99\"><i class=\"fa fa-link\"></i></a>動かす</h2>\n\n<p><code>src/your_app.cr</code>を編集しましょう。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\nrequire \"kemal\"\n\nget \"/\" do\n  \"Hello World!\"\nend\n</pre></div></div>\n\n<p>そしたら、以下のコマンドでビルド&amp;実行です！</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ crystal build --release src/your_app.cr\n$ ./your_app\n</pre></div></div>\n\n<p><a href=\"http://0.0.0.0:3000\" rel=\"nofollow\" target=\"_blank\">http://0.0.0.0:3000</a>にアクセスすると、「Hello World!」と表示されていると思います。</p>\n\n<p>改めてコード見ると本当にRubyっぽい...というかそのままって感じですね。</p>\n\n<p>ちなみに、404はこんなのです。</p>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/f06bd02c-49f3-89e8-3a80-33c51fdbd20f.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/f06bd02c-49f3-89e8-3a80-33c51fdbd20f.png\" alt=\"スクリーンショット 2015-12-23 22.51.52.png\" title=\"スクリーンショット 2015-12-23 22.51.52.png\"></a></p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ ./your_app\n[development] Kemal is ready to lead at http://0.0.0.0:3000\n2015-12-23 22:53:56 +0900 | 200 | GET / - (856µs)\n2015-12-23 22:54:00 +0900 | 404 | GET /hoge - (40µs)\n2015-12-23 22:54:00 +0900 | 200 | GET /__kemal__/404.png - (165µs)\n</pre></div></div>\n\n<p>（かわいい）</p>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>どうでしたか？個人的には404がお気に入りです。</p>\n\n<p>余談ですが、本当は<a href=\"https://github.com/Codcore/Amethyst\" rel=\"nofollow\" target=\"_blank\">Amethyst</a>の記事を書こうと思っていました。ただ、やってみると色々と問題がありやめてしまいました･･･。そんな中、<a href=\"http://crystalshards.herokuapp.com/\" rel=\"nofollow\" target=\"_blank\">Crystalshards</a>を眺めていると、上から３番目にKemalがあったので記事にしようと思ったわけです。</p>\n\n<p>CrystalはRuby風のシンタックスで結構いい感じだと思うので、今後も動向に注目していきたいです。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1450879862,
+    "created_at_in_words": "9ヶ月",
+    "created_at": "2015-12-23 23:11:02 +0900",
+    "gist_url": null,
+    "id": 356063,
+    "private": false,
+    "raw_body": "\n![15321198.png](https://qiita-image-store.s3.amazonaws.com/0/90682/bcb039ab-56c1-e1f3-3166-cdf0e791a740.png \"15321198.png\")\n\n\n[Kemal](https://github.com/sdogruyol/kemal)をご存知でしょうか？Kemalは[Crystal](http://crystal-lang.org/)製[Sinatra](http://www.sinatrarb.com/intro-ja.html)風の[超高速](https://github.com/sdogruyol/kemal#super-fast-3)マイクロフレームワークらしいです。\n\n今回は、公式のチュートリアルをやってみたのでご紹介します。では、いきましょう！\n\n\n## Crystalインストール\nCrystalを入れていない人はまずこちらから。\n\n```\n$ brew update\n$ brew install crystal-lang\n```\n\nまたは、[crenv](https://github.com/pine613/crenv)でもいいと思います。\n\n\nインストールが終わったら、バージョンを確認してみましょう。\n\n```\n$ crystal -v\nCrystal 0.9.1 (Fri Oct 30 13:49:46 UTC 2015)\n```\n\nこれで準備は整いました。\n\n## Kemalインストール\n\n```\n$ crystal init app your_app\n$ cd your_app\n```\n\n`shard.yml`ができていると思うので、以下の内容を追加してください。\n\n```\ndependencies:\n  kemal:\n    github: sdogruyol/kemal\n    branch: master\n```\n\nそうしたら、以下のコマンドを実行します。ちなみに、[Shards](https://github.com/ysbaddaden/shards)はCrystalのパッケージマネージャーです。\n\n```\n$ shards install\n```\n\nこれで、Kemalが使えるようになりました。\n\n## 動かす\n\n`src/your_app.cr`を編集しましょう。\n\n```\nrequire \"kemal\"\n\nget \"/\" do\n  \"Hello World!\"\nend\n```\n\nそしたら、以下のコマンドでビルド&実行です！\n\n```\n$ crystal build --release src/your_app.cr\n$ ./your_app\n```\n\n[http://0.0.0.0:3000](http://0.0.0.0:3000)にアクセスすると、「Hello World!」と表示されていると思います。\n\n改めてコード見ると本当にRubyっぽい...というかそのままって感じですね。\n\nちなみに、404はこんなのです。\n\n![スクリーンショット 2015-12-23 22.51.52.png](https://qiita-image-store.s3.amazonaws.com/0/90682/f06bd02c-49f3-89e8-3a80-33c51fdbd20f.png \"スクリーンショット 2015-12-23 22.51.52.png\")\n\n```\n$ ./your_app\n[development] Kemal is ready to lead at http://0.0.0.0:3000\n2015-12-23 22:53:56 +0900 | 200 | GET / - (856µs)\n2015-12-23 22:54:00 +0900 | 404 | GET /hoge - (40µs)\n2015-12-23 22:54:00 +0900 | 200 | GET /__kemal__/404.png - (165µs)\n```\n\n（かわいい）\n\n## さいごに\n\nどうでしたか？個人的には404がお気に入りです。\n\n余談ですが、本当は[Amethyst](https://github.com/Codcore/Amethyst)の記事を書こうと思っていました。ただ、やってみると色々と問題がありやめてしまいました･･･。そんな中、[Crystalshards](http://crystalshards.herokuapp.com/)を眺めていると、上から３番目にKemalがあったので記事にしようと思ったわけです。\n\nCrystalはRuby風のシンタックスで結構いい感じだと思うので、今後も動向に注目していきたいです。\n\n",
+    "stock_count": 14,
+    "stock_users": [
+        "takiuchi",
+        "sakura_bird1",
+        "Noboruhi",
+        "haiju",
+        "raydive",
+        "IzumiSy",
+        "noel9109",
+        "marsa746079",
+        "tos-miyake",
+        "tbpgr",
+        "pine613",
+        "ucmsky",
+        "wataru23",
+        "yahhonob"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/fe120ab586606abaa18541d93873fc9ca578dd6d/medium.jpg?1445184679",
+        "name": "crystal",
+        "url_name": "crystal",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/cfb434168d288458f0ec931720279b4ad4d6c888/medium.jpg?1457520226",
+        "name": "Kemal",
+        "url_name": "kemal",
+        "versions": []
+    }],
+    "title": "Sinatra風の超高速マイクロフレームワーク - Kemal：事始め",
+    "tweet": false,
+    "updated_at_in_words": "9ヶ月",
+    "updated_at": "2015-12-24 00:45:07 +0900",
+    "url": "http://qiita.com/y-temp4/items/59c2c6a8f6f64e21dfbf",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "59c2c6a8f6f64e21dfbf"
+}, {
+    "body": "<p>さて、Sequel Proでも使うか...と思って接続しようとしたら何やらエラーが出て接続できなかったので、その対処法を残しておきます。</p>\n\n<p>今回のエラーの原因はMySQLのバージョンが5.7.x系によるもので、わりとすぐに直りました。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ mysql --version\nmysql  Ver 14.14 Distrib 5.7.10, for osx10.10 (x86_64) using  EditLine wrapper\n</pre></div></div>\n\n<h2>\n<span id=\"解決策\" class=\"fragment\"></span><a href=\"#%E8%A7%A3%E6%B1%BA%E7%AD%96\"><i class=\"fa fa-link\"></i></a>解決策</h2>\n\n<p>以下のコマンドでOKです。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ mysql_upgrade -u root -p\n$ mysql.server restart\n</pre></div></div>\n\n<p>おそらく、下のようなメッセージが表示されるはずです。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ mysql_upgrade -u root -p\nEnter password:\nChecking if update is needed.\nChecking server version.\nRunning queries to upgrade MySQL server.\nChecking system database.\nmysql.columns_priv                                 OK\nmysql.db                                           OK\n･･･\nUpgrade process completed successfully.\nChecking if update is needed.\n</pre></div></div>\n\n<p>これで無事、Sequel Proが使えるようになりました<img class=\"emoji\" title=\":+1:\" alt=\":+1:\" src=\"https://cdn.qiita.com/emoji/unicode/1f44d.png\" height=\"20\" width=\"20\" align=\"absmiddle\"> </p>\n\n<h2>\n<span id=\"参考\" class=\"fragment\"></span><a href=\"#%E5%8F%82%E8%80%83\"><i class=\"fa fa-link\"></i></a>参考</h2>\n\n<ul>\n<li><a href=\"https://github.com/sequelpro/sequelpro/issues/2302\" class=\"autolink\" rel=\"nofollow\" target=\"_blank\">https://github.com/sequelpro/sequelpro/issues/2302</a></li>\n<li><a href=\"https://dev.mysql.com/doc/refman/5.6/ja/mysql-upgrade.html\" class=\"autolink\" rel=\"nofollow\" target=\"_blank\">https://dev.mysql.com/doc/refman/5.6/ja/mysql-upgrade.html</a></li>\n</ul>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1450939293,
+    "created_at_in_words": "9ヶ月",
+    "created_at": "2015-12-24 15:41:33 +0900",
+    "gist_url": null,
+    "id": 356357,
+    "private": false,
+    "raw_body": "\nさて、Sequel Proでも使うか...と思って接続しようとしたら何やらエラーが出て接続できなかったので、その対処法を残しておきます。\n\n今回のエラーの原因はMySQLのバージョンが5.7.x系によるもので、わりとすぐに直りました。\n\n```\n$ mysql --version\nmysql  Ver 14.14 Distrib 5.7.10, for osx10.10 (x86_64) using  EditLine wrapper\n```\n\n## 解決策\n\n以下のコマンドでOKです。\n\n```\n$ mysql_upgrade -u root -p\n$ mysql.server restart\n```\n\nおそらく、下のようなメッセージが表示されるはずです。\n\n\n```\n$ mysql_upgrade -u root -p\nEnter password:\nChecking if update is needed.\nChecking server version.\nRunning queries to upgrade MySQL server.\nChecking system database.\nmysql.columns_priv                                 OK\nmysql.db                                           OK\n･･･\nUpgrade process completed successfully.\nChecking if update is needed.\n```\n\nこれで無事、Sequel Proが使えるようになりました:+1: \n\n## 参考\n- https://github.com/sequelpro/sequelpro/issues/2302\n- https://dev.mysql.com/doc/refman/5.6/ja/mysql-upgrade.html\n\n",
+    "stock_count": 7,
+    "stock_users": [
+        "hiro_matsuno2",
+        "ox3Bcpz4dO",
+        "OniB",
+        "wanko",
+        "BathingMiloaHolic5150",
+        "sugichan_16",
+        "kwsmhr"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/40df0bc9694a8fee7f36324f121044124f12688c/medium.jpg?1436171273",
+        "name": "MySQL",
+        "url_name": "mysql",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "SequelPro",
+        "url_name": "sequelpro",
+        "versions": []
+    }],
+    "title": "MySQL5.7でSequel Proに接続できない時の対処法",
+    "tweet": false,
+    "updated_at_in_words": "9ヶ月",
+    "updated_at": "2015-12-24 15:41:33 +0900",
+    "url": "http://qiita.com/y-temp4/items/472f90a9e74d67af359f",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "472f90a9e74d67af359f"
+}, {
+    "body": "<p><a href=\"http://y-temp4.hatenablog.com/entry/I_made_a_Web_service_that_bookmark_to_Hatena_bookmark_the_article_you_have_stock_in_Qiita\" rel=\"nofollow\" target=\"_blank\">Qiitaでストックしている記事をはてなブックマークにブックマークするWebサービスを作りました</a></p>\n\n<p>で触れた、参考にした記事やgemなどをまとめておきます。</p>\n\n<h2>\n<span id=\"記事まとめ\" class=\"fragment\"></span><a href=\"#%E8%A8%98%E4%BA%8B%E3%81%BE%E3%81%A8%E3%82%81\"><i class=\"fa fa-link\"></i></a>記事まとめ</h2>\n\n<h3>\n<span id=\"はてブapiでwebサービスを作りたい全ての人に向けて書きました\" class=\"fragment\"></span><a href=\"#%E3%81%AF%E3%81%A6%E3%83%96api%E3%81%A7web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E5%85%A8%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E6%9B%B8%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F\"><i class=\"fa fa-link\"></i></a><a href=\"https://syncer.jp/hatebu-api-matome\" rel=\"nofollow\" target=\"_blank\">はてブAPIでwebサービスを作りたい全ての人に向けて書きました</a>\n</h3>\n\n<p>一番下にapi利用サービス例があるのが良い。</p>\n\n<h3>\n<span id=\"consumer-key-を取得して-oauth-開発をはじめよう---hatena-developer-center\" class=\"fragment\"></span><a href=\"#consumer-key-%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6-oauth-%E9%96%8B%E7%99%BA%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%82%88%E3%81%86---hatena-developer-center\"><i class=\"fa fa-link\"></i></a><a href=\"http://developer.hatena.ne.jp/ja/documents/auth/apis/oauth/consumer\" rel=\"nofollow\" target=\"_blank\">Consumer key を取得して OAuth 開発をはじめよう - Hatena Developer Center</a>\n</h3>\n\n<p>基本です。一番下にあるrubyのサンプルがかなり役立ちました。</p>\n\n<h3>\n<span id=\"ruby-ではてな-oauth-のアクセストークンを取得する---kymmts-note\" class=\"fragment\"></span><a href=\"#ruby-%E3%81%A7%E3%81%AF%E3%81%A6%E3%81%AA-oauth-%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B---kymmts-note\"><i class=\"fa fa-link\"></i></a><a href=\"http://kymmt90.hatenablog.com/entry/hatena_oauth\" rel=\"nofollow\" target=\"_blank\">Ruby ではてな OAuth のアクセストークンを取得する - kymmt's note</a>\n</h3>\n\n<p>サンプルがあり、わかりやすい。</p>\n\n<h3>\n<span id=\"railsでいろんなsnsとoauth連携ログインする方法---qiita\" class=\"fragment\"></span><a href=\"#rails%E3%81%A7%E3%81%84%E3%82%8D%E3%82%93%E3%81%AAsns%E3%81%A8oauth%E9%80%A3%E6%90%BA%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95---qiita\"><i class=\"fa fa-link\"></i></a><a href=\"http://qiita.com/awakia/items/03dd68dea5f15dc46c15\" id=\"reference-c88f6aed76dccb42664b\">RailsでいろんなSNSとOAuth連携/ログインする方法 - Qiita</a>\n</h3>\n\n<p>deviseとomniauthを使った、各種SNSとの連携まとめ。もちろんはてなも含まれている。<br>\nただ、自分は今回deviseやomniauthを使っていないので、本当に軽く参考にしただけ。</p>\n\n<h2>\n<span id=\"gemまとめ\" class=\"fragment\"></span><a href=\"#gem%E3%81%BE%E3%81%A8%E3%82%81\"><i class=\"fa fa-link\"></i></a>gemまとめ</h2>\n\n<h3>\n<span id=\"hatena-bookmark\" class=\"fragment\"></span><a href=\"#hatena-bookmark\"><i class=\"fa fa-link\"></i></a><a href=\"https://github.com/kkosuge/hatena-bookmark\" rel=\"nofollow\" target=\"_blank\">hatena-bookmark</a>\n</h3>\n\n<p>非常にシンプルで使いやすかった。</p>\n\n<h3>\n<span id=\"oauth\" class=\"fragment\"></span><a href=\"#oauth\"><i class=\"fa fa-link\"></i></a><a href=\"https://github.com/oauth-xx/oauth-ruby\" rel=\"nofollow\" target=\"_blank\">oauth</a>\n</h3>\n\n<p><a href=\"http://developer.hatena.ne.jp/ja/documents/auth/apis/oauth/consumer\" rel=\"nofollow\" target=\"_blank\">Consumer key を取得して OAuth 開発をはじめよう - Hatena Developer Center</a>の方法でやるなら入れておく必要がある。</p>\n\n<h3>\n<span id=\"omniauth-hatena\" class=\"fragment\"></span><a href=\"#omniauth-hatena\"><i class=\"fa fa-link\"></i></a><a href=\"https://github.com/mururu/omniauth-hatena\" rel=\"nofollow\" target=\"_blank\">omniauth-hatena</a>\n</h3>\n\n<p>普通はこれを使うのだと思う。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1451305059,
+    "created_at_in_words": "8ヶ月",
+    "created_at": "2015-12-28 21:17:39 +0900",
+    "gist_url": null,
+    "id": 357662,
+    "private": false,
+    "raw_body": "[Qiitaでストックしている記事をはてなブックマークにブックマークするWebサービスを作りました](http://y-temp4.hatenablog.com/entry/I_made_a_Web_service_that_bookmark_to_Hatena_bookmark_the_article_you_have_stock_in_Qiita)\n\nで触れた、参考にした記事やgemなどをまとめておきます。\n\n## 記事まとめ\n\n### [はてブAPIでwebサービスを作りたい全ての人に向けて書きました](https://syncer.jp/hatebu-api-matome)\n\n一番下にapi利用サービス例があるのが良い。\n\n### [Consumer key を取得して OAuth 開発をはじめよう - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/auth/apis/oauth/consumer)\n\n基本です。一番下にあるrubyのサンプルがかなり役立ちました。\n\n### [Ruby ではてな OAuth のアクセストークンを取得する - kymmt's note](http://kymmt90.hatenablog.com/entry/hatena_oauth)\n\nサンプルがあり、わかりやすい。\n\n### [RailsでいろんなSNSとOAuth連携/ログインする方法 - Qiita](http://qiita.com/awakia/items/03dd68dea5f15dc46c15)\n\ndeviseとomniauthを使った、各種SNSとの連携まとめ。もちろんはてなも含まれている。\nただ、自分は今回deviseやomniauthを使っていないので、本当に軽く参考にしただけ。\n\n## gemまとめ\n\n### [hatena-bookmark](https://github.com/kkosuge/hatena-bookmark)\n\n非常にシンプルで使いやすかった。\n\n### [oauth](https://github.com/oauth-xx/oauth-ruby)\n\n[Consumer key を取得して OAuth 開発をはじめよう - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/auth/apis/oauth/consumer)の方法でやるなら入れておく必要がある。\n\n### [omniauth-hatena](https://github.com/mururu/omniauth-hatena)\n\n普通はこれを使うのだと思う。\n",
+    "stock_count": 10,
+    "stock_users": [
+        "morika-t",
+        "hiro_matsuno2",
+        "Ago2_0727",
+        "ZaK3939",
+        "tos-miyake",
+        "nhayato",
+        "ticonz",
+        "hotu_ta",
+        "dafuyafu",
+        "hirotsuru"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/0337fbcbff62fb8fa5d0b8be5c3b47d1115d91fc/medium.jpg?1418548649",
+        "name": "Ruby",
+        "url_name": "ruby",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/5310a6d3a8555d87a7060deec2c9e128bf3b3372/medium.jpg?1364838150",
+        "name": "Rails",
+        "url_name": "rails",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "はてなAPI",
+        "url_name": "%e3%81%af%e3%81%a6%e3%81%aaapi",
+        "versions": []
+    }],
+    "title": "Railsではてなapiを使うときに参考にした記事やgemのまとめ",
+    "tweet": false,
+    "updated_at_in_words": "8ヶ月",
+    "updated_at": "2015-12-28 21:19:24 +0900",
+    "url": "http://qiita.com/y-temp4/items/8f21104068e4b06a0e0b",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "8f21104068e4b06a0e0b"
+}, {
+    "body": "<p><a href=\"http://y-temp4.hatenablog.com/entry/I_made_a_Web_service_that_bookmark_to_Hatena_bookmark_the_article_you_have_stock_in_Qiita\" rel=\"nofollow\" target=\"_blank\">最近やった開発</a>で、つまづいたことなどを共有しておきます。</p>\n\n<h2>\n<span id=\"dbを使わない時の設定\" class=\"fragment\"></span><a href=\"#db%E3%82%92%E4%BD%BF%E3%82%8F%E3%81%AA%E3%81%84%E6%99%82%E3%81%AE%E8%A8%AD%E5%AE%9A\"><i class=\"fa fa-link\"></i></a>DBを使わない時の設定</h2>\n\n<p>色々と参考記事を見つけた。</p>\n\n<p><a href=\"http://qiita.com/h7kayama/items/8b0870716777494f8c31\" id=\"reference-e5cf12d4a1ed8f4fbfa1\">DB不要のRailsアプリの作り方</a></p>\n\n<p><a href=\"http://d.hatena.ne.jp/ux00ff/20120229/1330502390\" rel=\"nofollow\" target=\"_blank\">rails new で作成したテンプレートの、DBを使わない設定とそうでない場合の違い - ux00ffの日記</a></p>\n\n<p>最終的には後者でやりました。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ rails new APP_NAME -O \n</pre></div></div>\n\n<p>便利。</p>\n\n<h2>\n<span id=\"rails開発環境の構築mac\" class=\"fragment\"></span><a href=\"#rails%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%AE%E6%A7%8B%E7%AF%89mac\"><i class=\"fa fa-link\"></i></a>Rails開発環境の構築(Mac)</h2>\n\n<p><a href=\"http://qiita.com/emadurandal/items/e43c4896be1df60caef0\" id=\"reference-a5d28c05b4d2744ac44c\">Rails開発環境の構築（複数バージョン共存可能）（Homebrew編）</a></p>\n\n<p>を参考にして今回は環境構築した。</p>\n\n<p>今まではvagrantを使うか、使わない時はmac環境でやるにしてもかなり適当だったため、かなり参考になった。</p>\n\n<h2>\n<span id=\"ymlファイルの読み込み\" class=\"fragment\"></span><a href=\"#yml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF\"><i class=\"fa fa-link\"></i></a>Ymlファイルの読み込み</h2>\n\n<p><code>config/hoge.yml</code>の読み込みは以下のように行う。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\nHoge = YAML.load(File.read(\"#{Rails.root}/config/hoge.yml\"))[Rails.env]\n</pre></div></div>\n\n<p>このファイルは<code>config/initializers</code>に配置する。</p>\n\n<h2>\n<span id=\"dbと関係がないform\" class=\"fragment\"></span><a href=\"#db%E3%81%A8%E9%96%A2%E4%BF%82%E3%81%8C%E3%81%AA%E3%81%84form\"><i class=\"fa fa-link\"></i></a>DBと関係がないform</h2>\n\n<p><a href=\"http://tanihiro.hatenablog.com/entry/2014/01/09/193720\" rel=\"nofollow\" target=\"_blank\">【ruby】ActiveModelを使ってDBと関係ないFormを作成する【Rails】</a></p>\n\n<p><a href=\"http://qiita.com/shunsuke227ono/items/7accec12eef6d89b0aa9\" id=\"reference-d0fb41f9a5a16cdb74d8\">【Rails】formヘルパーを徹底的に理解する</a></p>\n\n<p><code>form_tag</code>を使うのがまぁ便利。</p>\n\n<h2>\n<span id=\"scssでbackground-imageを使うとき\" class=\"fragment\"></span><a href=\"#scss%E3%81%A7background-image%E3%82%92%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D\"><i class=\"fa fa-link\"></i></a>scssでbackground-imageを使うとき</h2>\n\n<p>例えば、</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\nh1 {\n  background-image: url(\"icon.png\");\n}\n</pre></div></div>\n\n<p>のように書いていると、ローカルでは表示されても本番環境（自分の場合heroku）では表示されなかった。</p>\n\n<p>このように記述するべき。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\nh1 {\n  background-image: image-url(\"icon.png\");\n}\n</pre></div></div>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1451306644,
+    "created_at_in_words": "8ヶ月",
+    "created_at": "2015-12-28 21:44:04 +0900",
+    "gist_url": null,
+    "id": 357667,
+    "private": false,
+    "raw_body": "\n[最近やった開発](http://y-temp4.hatenablog.com/entry/I_made_a_Web_service_that_bookmark_to_Hatena_bookmark_the_article_you_have_stock_in_Qiita)で、つまづいたことなどを共有しておきます。\n\n## DBを使わない時の設定\n\n色々と参考記事を見つけた。\n\n[DB不要のRailsアプリの作り方](http://qiita.com/h7kayama/items/8b0870716777494f8c31)\n\n[rails new で作成したテンプレートの、DBを使わない設定とそうでない場合の違い - ux00ffの日記](http://d.hatena.ne.jp/ux00ff/20120229/1330502390)\n\n最終的には後者でやりました。\n\n```\n$ rails new APP_NAME -O \n```\n\n便利。\n\n## Rails開発環境の構築(Mac)\n\n[Rails開発環境の構築（複数バージョン共存可能）（Homebrew編）](http://qiita.com/emadurandal/items/e43c4896be1df60caef0)\n\nを参考にして今回は環境構築した。\n\n今まではvagrantを使うか、使わない時はmac環境でやるにしてもかなり適当だったため、かなり参考になった。\n\n## Ymlファイルの読み込み\n\n`config/hoge.yml`の読み込みは以下のように行う。\n\n```\nHoge = YAML.load(File.read(\"#{Rails.root}/config/hoge.yml\"))[Rails.env]\n```\n\nこのファイルは`config/initializers`に配置する。\n\n## DBと関係がないform\n\n[【ruby】ActiveModelを使ってDBと関係ないFormを作成する【Rails】](http://tanihiro.hatenablog.com/entry/2014/01/09/193720)\n\n[【Rails】formヘルパーを徹底的に理解する](http://qiita.com/shunsuke227ono/items/7accec12eef6d89b0aa9)\n\n`form_tag`を使うのがまぁ便利。\n\n## scssでbackground-imageを使うとき\n\n例えば、\n\n```\nh1 {\n  background-image: url(\"icon.png\");\n}\n```\nのように書いていると、ローカルでは表示されても本番環境（自分の場合heroku）では表示されなかった。\n\nこのように記述するべき。\n\n```\nh1 {\n  background-image: image-url(\"icon.png\");\n}\n```\n\n",
+    "stock_count": 3,
+    "stock_users": [
+        "morika-t",
+        "hiro_matsuno2",
+        "utanaka"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/5310a6d3a8555d87a7060deec2c9e128bf3b3372/medium.jpg?1364838150",
+        "name": "Rails",
+        "url_name": "rails",
+        "versions": []
+    }],
+    "title": "Railsの開発でちょっと忘れそうなTipsまとめ",
+    "tweet": false,
+    "updated_at_in_words": "8ヶ月",
+    "updated_at": "2015-12-28 21:44:49 +0900",
+    "url": "http://qiita.com/y-temp4/items/82dd9ebb1100e9c7c77e",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "82dd9ebb1100e9c7c77e"
+}, {
+    "body": "<p><a href=\"https://www.oreilly.co.jp/books/9784873116730/\" rel=\"nofollow\" target=\"_blank\">シングルページWebアプリケーション――Node.js、MongoDBを活用したJavaScript SPA</a>の学習メモです。<br>\nプロトタイプチェーンの説明がわかりやすく、面白かったのでまとめました。</p>\n\n<h2>\n<span id=\"__proto__-プロパティを使ってプロトタイプチェーンを手動でさかのぼる\" class=\"fragment\"></span><a href=\"#__proto__-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%97%E3%83%AD%E3%83%88%E3%82%BF%E3%82%A4%E3%83%97%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E6%89%8B%E5%8B%95%E3%81%A7%E3%81%95%E3%81%8B%E3%81%AE%E3%81%BC%E3%82%8B\"><i class=\"fa fa-link\"></i></a>__proto__ プロパティを使ってプロトタイプチェーンを手動でさかのぼる</h2>\n\n<p>次のサンプルを見てみましょう。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">proto</span> <span class=\"o\">=</span> <span class=\"p\">{</span>\n  <span class=\"nx\">sentence</span>  <span class=\"o\">:</span> <span class=\"mi\">4</span><span class=\"p\">,</span>\n  <span class=\"nx\">probation</span> <span class=\"o\">:</span> <span class=\"mi\">2</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">makePrisoner</span> <span class=\"o\">=</span> <span class=\"kd\">function</span><span class=\"p\">(</span> <span class=\"nx\">name</span><span class=\"p\">,</span> <span class=\"nx\">id</span> <span class=\"p\">)</span> <span class=\"p\">{</span>\n\n  <span class=\"kd\">var</span> <span class=\"nx\">prisoner</span> <span class=\"o\">=</span> <span class=\"nb\">Object</span><span class=\"p\">.</span><span class=\"nx\">create</span><span class=\"p\">(</span> <span class=\"nx\">proto</span> <span class=\"p\">);</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">name</span> <span class=\"o\">=</span> <span class=\"nx\">name</span><span class=\"p\">;</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">id</span> <span class=\"o\">=</span> <span class=\"nx\">id</span><span class=\"p\">;</span>\n  <span class=\"k\">return</span> <span class=\"nx\">prisoner</span><span class=\"p\">;</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">firstPrisoner</span> <span class=\"o\">=</span> <span class=\"nx\">makePrisoner</span><span class=\"p\">(</span> <span class=\"s1\">'joe'</span><span class=\"p\">,</span> <span class=\"s1\">'12A'</span> <span class=\"p\">);</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span> <span class=\"p\">);</span>\n<span class=\"c1\">// { name: 'joe', id: '12A' }</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span> <span class=\"p\">);</span>\n<span class=\"c1\">// { sentence: 4, probation: 2 }</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">);</span>\n<span class=\"c1\">// {}</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span> <span class=\"p\">);</span>\n<span class=\"c1\">// null</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span> <span class=\"p\">);</span>\n<span class=\"c1\">// TypeError: Cannot read property '__proto__' of null</span>\n</pre></div></div>\n\n<p>さかのぼった時の挙動がわかりやすく確認できました。chromeのデベロッパーツールを使うと、より視覚的に構造がわかると思います。</p>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/3d389f1e-27da-2cf3-c7ac-3747e9e964b0.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/3d389f1e-27da-2cf3-c7ac-3747e9e964b0.png\" alt=\"スクリーンショット 2016-01-06 18.51.21.png\"></a></p>\n\n<h2>\n<span id=\"プロトタイプの上書きと属性の削除\" class=\"fragment\"></span><a href=\"#%E3%83%97%E3%83%AD%E3%83%88%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%8A%E6%9B%B8%E3%81%8D%E3%81%A8%E5%B1%9E%E6%80%A7%E3%81%AE%E5%89%8A%E9%99%A4\"><i class=\"fa fa-link\"></i></a>プロトタイプの上書きと属性の削除</h2>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">proto</span> <span class=\"o\">=</span> <span class=\"p\">{</span>\n  <span class=\"nx\">sentence</span>  <span class=\"o\">:</span> <span class=\"mi\">4</span><span class=\"p\">,</span>\n  <span class=\"nx\">probation</span> <span class=\"o\">:</span> <span class=\"mi\">2</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">makePrisoner</span> <span class=\"o\">=</span> <span class=\"kd\">function</span><span class=\"p\">(</span> <span class=\"nx\">name</span><span class=\"p\">,</span> <span class=\"nx\">id</span> <span class=\"p\">)</span> <span class=\"p\">{</span>\n\n  <span class=\"kd\">var</span> <span class=\"nx\">prisoner</span> <span class=\"o\">=</span> <span class=\"nb\">Object</span><span class=\"p\">.</span><span class=\"nx\">create</span><span class=\"p\">(</span> <span class=\"nx\">proto</span> <span class=\"p\">);</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">name</span> <span class=\"o\">=</span> <span class=\"nx\">name</span><span class=\"p\">;</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">id</span> <span class=\"o\">=</span> <span class=\"nx\">id</span><span class=\"p\">;</span>\n  <span class=\"k\">return</span> <span class=\"nx\">prisoner</span><span class=\"p\">;</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">firstPrisoner</span> <span class=\"o\">=</span> <span class=\"nx\">makePrisoner</span><span class=\"p\">(</span> <span class=\"s1\">'joe'</span><span class=\"p\">,</span> <span class=\"s1\">'12A'</span> <span class=\"p\">);</span>\n\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// どちらも4</span>\n\n<span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"o\">=</span> <span class=\"mi\">10</span><span class=\"p\">;</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// 10</span>\n<span class=\"c1\">// 4</span>\n\n<span class=\"k\">delete</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span><span class=\"p\">;</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// どちらも 4</span>\n\n<span class=\"k\">delete</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">sentence</span><span class=\"p\">;</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">__proto__</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// どちらも undefined</span>\n</pre></div></div>\n\n<p>いい感じにさかのぼっていっているのが確認できました。</p>\n\n<h2>\n<span id=\"プロトタイプの変更\" class=\"fragment\"></span><a href=\"#%E3%83%97%E3%83%AD%E3%83%88%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E5%A4%89%E6%9B%B4\"><i class=\"fa fa-link\"></i></a>プロトタイプの変更</h2>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">proto</span> <span class=\"o\">=</span> <span class=\"p\">{</span>\n  <span class=\"nx\">sentence</span>  <span class=\"o\">:</span> <span class=\"mi\">4</span><span class=\"p\">,</span>\n  <span class=\"nx\">probation</span> <span class=\"o\">:</span> <span class=\"mi\">2</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">makePrisoner</span> <span class=\"o\">=</span> <span class=\"kd\">function</span><span class=\"p\">(</span> <span class=\"nx\">name</span><span class=\"p\">,</span> <span class=\"nx\">id</span> <span class=\"p\">)</span> <span class=\"p\">{</span>\n\n  <span class=\"kd\">var</span> <span class=\"nx\">prisoner</span> <span class=\"o\">=</span> <span class=\"nb\">Object</span><span class=\"p\">.</span><span class=\"nx\">create</span><span class=\"p\">(</span> <span class=\"nx\">proto</span> <span class=\"p\">);</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">name</span> <span class=\"o\">=</span> <span class=\"nx\">name</span><span class=\"p\">;</span>\n  <span class=\"nx\">prisoner</span><span class=\"p\">.</span><span class=\"nx\">id</span> <span class=\"o\">=</span> <span class=\"nx\">id</span><span class=\"p\">;</span>\n  <span class=\"k\">return</span> <span class=\"nx\">prisoner</span><span class=\"p\">;</span>\n<span class=\"p\">};</span>\n\n<span class=\"kd\">var</span> <span class=\"nx\">firstPrisoner</span>  <span class=\"o\">=</span> <span class=\"nx\">makePrisoner</span><span class=\"p\">(</span> <span class=\"s1\">'joe'</span><span class=\"p\">,</span> <span class=\"s1\">'12A'</span> <span class=\"p\">);</span>\n<span class=\"kd\">var</span> <span class=\"nx\">secondPrisoner</span> <span class=\"o\">=</span> <span class=\"nx\">makePrisoner</span><span class=\"p\">(</span> <span class=\"s1\">'sam'</span><span class=\"p\">,</span> <span class=\"s1\">'2BC'</span> <span class=\"p\">);</span>\n\n<span class=\"nx\">proto</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"o\">=</span> <span class=\"mi\">5</span><span class=\"p\">;</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">secondPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// どちらも 5</span>\n\n<span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"o\">=</span> <span class=\"mi\">4</span><span class=\"p\">;</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">firstPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span> <span class=\"nx\">secondPrisoner</span><span class=\"p\">.</span><span class=\"nx\">sentence</span> <span class=\"p\">);</span>\n<span class=\"c1\">// 4</span>\n<span class=\"c1\">// 5</span>\n</pre></div></div>\n\n<p>こういった動作をすることを知っておくことが重要らしい（そりゃそうだ）。<br>\n確かに、この振る舞いは意図しない値の変更が生じそうで怖いです。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1452075410,
+    "created_at_in_words": "8ヶ月",
+    "created_at": "2016-01-06 19:16:50 +0900",
+    "gist_url": null,
+    "id": 359474,
+    "private": false,
+    "raw_body": "[シングルページWebアプリケーション――Node.js、MongoDBを活用したJavaScript SPA](https://www.oreilly.co.jp/books/9784873116730/)の学習メモです。\nプロトタイプチェーンの説明がわかりやすく、面白かったのでまとめました。\n\n## \\_\\_proto\\_\\_ プロパティを使ってプロトタイプチェーンを手動でさかのぼる\n\n次のサンプルを見てみましょう。\n\n```js\nvar proto = {\n  sentence  : 4,\n  probation : 2\n};\n\nvar makePrisoner = function( name, id ) {\n\n  var prisoner = Object.create( proto );\n  prisoner.name = name;\n  prisoner.id = id;\n  return prisoner;\n};\n\nvar firstPrisoner = makePrisoner( 'joe', '12A' );\n\nconsole.log( firstPrisoner );\n// { name: 'joe', id: '12A' }\n\nconsole.log( firstPrisoner.__proto__ );\n// { sentence: 4, probation: 2 }\n\nconsole.log( firstPrisoner.__proto__.__proto__);\n// {}\n\nconsole.log( firstPrisoner.__proto__.__proto__.__proto__ );\n// null\n\nconsole.log( firstPrisoner.__proto__.__proto__.__proto__.__proto__ );\n// TypeError: Cannot read property '__proto__' of null\n```\n\nさかのぼった時の挙動がわかりやすく確認できました。chromeのデベロッパーツールを使うと、より視覚的に構造がわかると思います。\n\n![スクリーンショット 2016-01-06 18.51.21.png](https://qiita-image-store.s3.amazonaws.com/0/90682/3d389f1e-27da-2cf3-c7ac-3747e9e964b0.png)\n\n## プロトタイプの上書きと属性の削除\n\n```js\nvar proto = {\n  sentence  : 4,\n  probation : 2\n};\n\nvar makePrisoner = function( name, id ) {\n\n  var prisoner = Object.create( proto );\n  prisoner.name = name;\n  prisoner.id = id;\n  return prisoner;\n};\n\nvar firstPrisoner = makePrisoner( 'joe', '12A' );\n\nconsole.log( firstPrisoner.sentence );\nconsole.log( firstPrisoner.__proto__.sentence );\n// どちらも4\n\nfirstPrisoner.sentence = 10;\nconsole.log( firstPrisoner.sentence );\nconsole.log( firstPrisoner.__proto__.sentence );\n// 10\n// 4\n\ndelete firstPrisoner.sentence;\nconsole.log( firstPrisoner.sentence );\nconsole.log( firstPrisoner.__proto__.sentence );\n// どちらも 4\n\ndelete firstPrisoner.__proto__.sentence;\nconsole.log( firstPrisoner.sentence );\nconsole.log( firstPrisoner.__proto__.sentence );\n// どちらも undefined\n```\n\nいい感じにさかのぼっていっているのが確認できました。\n\n## プロトタイプの変更\n\n```js\nvar proto = {\n  sentence  : 4,\n  probation : 2\n};\n\nvar makePrisoner = function( name, id ) {\n\n  var prisoner = Object.create( proto );\n  prisoner.name = name;\n  prisoner.id = id;\n  return prisoner;\n};\n\nvar firstPrisoner  = makePrisoner( 'joe', '12A' );\nvar secondPrisoner = makePrisoner( 'sam', '2BC' );\n\nproto.sentence = 5;\nconsole.log( firstPrisoner.sentence );\nconsole.log( secondPrisoner.sentence );\n// どちらも 5\n\nfirstPrisoner.sentence = 4;\nconsole.log( firstPrisoner.sentence );\nconsole.log( secondPrisoner.sentence );\n// 4\n// 5\n```\n\nこういった動作をすることを知っておくことが重要らしい（そりゃそうだ）。\n確かに、この振る舞いは意図しない値の変更が生じそうで怖いです。\n\n",
+    "stock_count": 3,
+    "stock_users": [
+        "hiro_matsuno2",
+        "shiroqma",
+        "tacar"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/58f69837141ae3efa0c530ed53de128cacb49b66/medium.jpg?1421232838",
+        "name": "JavaScript",
+        "url_name": "javascript",
+        "versions": []
+    }],
+    "title": "JavaScriptにおけるプロトタイプチェーンの動作確認",
+    "tweet": true,
+    "updated_at_in_words": "8ヶ月",
+    "updated_at": "2016-01-06 19:16:50 +0900",
+    "url": "http://qiita.com/y-temp4/items/bb79f7db51e6c96b61dc",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "bb79f7db51e6c96b61dc"
+}, {
+    "body": "<p>AtomのUI ThemeとSyntax Themeには、数多くのmonokai向けテーマがあります。<br>\nその中でも特におすすめのmonokaiテーマおよびその組み合わせをご紹介します。</p>\n\n<p>記事の構成は各項目のタイトルを「UI Theme名 + Syntax Theme名」とし、下にAtomのインストールコマンドを記載しています（もとから入っているものは省略）。</p>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/7ed9304d-9891-0d5f-9dc6-d78867a71570.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/7ed9304d-9891-0d5f-9dc6-d78867a71570.png\" alt=\"スクリーンショット 2016-01-11 1.50.53.png\"></a></p>\n\n<h2>\n<span id=\"one-dark--monokai\" class=\"fragment\"></span><a href=\"#one-dark--monokai\"><i class=\"fa fa-link\"></i></a>One Dark + Monokai</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/53ffdaab-6181-4d96-f8f8-1eda3f2dcd4f.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/53ffdaab-6181-4d96-f8f8-1eda3f2dcd4f.png\" alt=\"スクリーンショット 2016-01-11 1.18.28.png\"></a></p>\n\n<p>一般的なMonokaiという感じで、かなりおすすめです。<br>\n画像では、One DarkのLayout ModeをCompactにしています。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install monokai\n</pre></div></div>\n\n<h2>\n<span id=\"atom-material--monokai\" class=\"fragment\"></span><a href=\"#atom-material--monokai\"><i class=\"fa fa-link\"></i></a>Atom Material + Monokai</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/a86fa36a-398d-1c04-4497-82972104081e.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/a86fa36a-398d-1c04-4497-82972104081e.png\" alt=\"スクリーンショット 2016-01-11 1.23.22.png\"></a></p>\n\n<p>Material UI のUI Themeともわりと相性がいいです。<br>\nただ、個人的にはMaterial UIが主張しすぎている気がするので使用していません。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install atom-material-ui\n$ apm install monokai\n</pre></div></div>\n\n<h2>\n<span id=\"seti--monokai\" class=\"fragment\"></span><a href=\"#seti--monokai\"><i class=\"fa fa-link\"></i></a>Seti + Monokai</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/8e605dbb-a86e-e063-8e05-2ef73f4bb918.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/8e605dbb-a86e-e063-8e05-2ef73f4bb918.png\" alt=\"スクリーンショット 2016-01-11 1.30.12.png\"></a></p>\n\n<p>Seti UI との組み合わせです。コード部分がサイドバーと異なり、やや薄くなっているのが特徴的です。<br>\n色みをサイドバーとコード部分で変えたい方は、この組み合わせがおすすめです。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install seti-ui\n$ apm install monokai\n</pre></div></div>\n\n<h2>\n<span id=\"spacegray-monokai--monokai\" class=\"fragment\"></span><a href=\"#spacegray-monokai--monokai\"><i class=\"fa fa-link\"></i></a>Spacegray Monokai + Monokai</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/1e6e4ce2-bb23-91a2-9dde-b2cce2ecb431.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/1e6e4ce2-bb23-91a2-9dde-b2cce2ecb431.png\" alt=\"スクリーンショット 2016-01-11 1.33.51.png\"></a></p>\n\n<p>サイドバーとタブのあたりがうすめのグレーで、シンプルなUIです。<br>\n若干タブの境界がわかりにくいかも？</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install spacegray-monokai-ui\n$ apm install monokai\n</pre></div></div>\n\n<h2>\n<span id=\"one-dark--atom-monokai-dark\" class=\"fragment\"></span><a href=\"#one-dark--atom-monokai-dark\"><i class=\"fa fa-link\"></i></a>One Dark + Atom Monokai Dark</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/c3049160-e4c4-8686-f6b3-e344a30cf614.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/c3049160-e4c4-8686-f6b3-e344a30cf614.png\" alt=\"スクリーンショット 2016-01-11 1.40.26.png\"></a></p>\n\n<p>タブがすごい目立ちます。ただそれだけという感じ...</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install atom-monokai-dark\n</pre></div></div>\n\n<h2>\n<span id=\"one-dark--dark-monokai-batch\" class=\"fragment\"></span><a href=\"#one-dark--dark-monokai-batch\"><i class=\"fa fa-link\"></i></a>One Dark + Dark Monokai Batch</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/0b8949d8-39bd-b624-ab16-e3d4615a5418.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/0b8949d8-39bd-b624-ab16-e3d4615a5418.png\" alt=\"スクリーンショット 2016-01-11 1.44.29.png\"></a></p>\n\n<p>Dark Monokai Batchは少しクセのあるMonokaiテーマですが、これはこれで見やすいと思ったので掲載しておきます。<br>\n背景色が濃い黒色なのがいい感じです。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ apm install dark-monokai-batch\n</pre></div></div>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>どうでしたか？実は他にもmonokaiテーマはあって、まだ試していないものや組み合わせもあるので今後試していきたいです。</p>\n\n<p>ちなみに自分は「One Dark + Monokai」か「One Dark + Dark Monokai Batch」あたりをメインで使っていこうと思っています。</p>\n\n<h2>\n<span id=\"参考\" class=\"fragment\"></span><a href=\"#%E5%8F%82%E8%80%83\"><i class=\"fa fa-link\"></i></a>参考</h2>\n\n<blockquote>\n<p><a href=\"http://enrmarc.github.io/atom-theme-gallery/\" rel=\"nofollow\" target=\"_blank\">Atom theme gallery</a></p>\n</blockquote>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1452445032,
+    "created_at_in_words": "8ヶ月",
+    "created_at": "2016-01-11 01:57:12 +0900",
+    "gist_url": null,
+    "id": 360519,
+    "private": false,
+    "raw_body": "AtomのUI ThemeとSyntax Themeには、数多くのmonokai向けテーマがあります。\nその中でも特におすすめのmonokaiテーマおよびその組み合わせをご紹介します。\n\n記事の構成は各項目のタイトルを「UI Theme名 + Syntax Theme名」とし、下にAtomのインストールコマンドを記載しています（もとから入っているものは省略）。\n\n![スクリーンショット 2016-01-11 1.50.53.png](https://qiita-image-store.s3.amazonaws.com/0/90682/7ed9304d-9891-0d5f-9dc6-d78867a71570.png)\n\n## One Dark + Monokai\n![スクリーンショット 2016-01-11 1.18.28.png](https://qiita-image-store.s3.amazonaws.com/0/90682/53ffdaab-6181-4d96-f8f8-1eda3f2dcd4f.png)\n\n一般的なMonokaiという感じで、かなりおすすめです。\n画像では、One DarkのLayout ModeをCompactにしています。\n\n```\n$ apm install monokai\n```\n\n## Atom Material + Monokai\n![スクリーンショット 2016-01-11 1.23.22.png](https://qiita-image-store.s3.amazonaws.com/0/90682/a86fa36a-398d-1c04-4497-82972104081e.png)\n\nMaterial UI のUI Themeともわりと相性がいいです。\nただ、個人的にはMaterial UIが主張しすぎている気がするので使用していません。\n\n```\n$ apm install atom-material-ui\n$ apm install monokai\n```\n\n## Seti + Monokai\n\n![スクリーンショット 2016-01-11 1.30.12.png](https://qiita-image-store.s3.amazonaws.com/0/90682/8e605dbb-a86e-e063-8e05-2ef73f4bb918.png)\n\nSeti UI との組み合わせです。コード部分がサイドバーと異なり、やや薄くなっているのが特徴的です。\n色みをサイドバーとコード部分で変えたい方は、この組み合わせがおすすめです。\n\n\n```\n$ apm install seti-ui\n$ apm install monokai\n```\n\n## Spacegray Monokai + Monokai\n\n![スクリーンショット 2016-01-11 1.33.51.png](https://qiita-image-store.s3.amazonaws.com/0/90682/1e6e4ce2-bb23-91a2-9dde-b2cce2ecb431.png)\n\nサイドバーとタブのあたりがうすめのグレーで、シンプルなUIです。\n若干タブの境界がわかりにくいかも？\n\n```\n$ apm install spacegray-monokai-ui\n$ apm install monokai\n```\n\n## One Dark + Atom Monokai Dark\n\n![スクリーンショット 2016-01-11 1.40.26.png](https://qiita-image-store.s3.amazonaws.com/0/90682/c3049160-e4c4-8686-f6b3-e344a30cf614.png)\n\nタブがすごい目立ちます。ただそれだけという感じ...\n\n```\n$ apm install atom-monokai-dark\n```\n\n## One Dark + Dark Monokai Batch\n\n![スクリーンショット 2016-01-11 1.44.29.png](https://qiita-image-store.s3.amazonaws.com/0/90682/0b8949d8-39bd-b624-ab16-e3d4615a5418.png)\n\nDark Monokai Batchは少しクセのあるMonokaiテーマですが、これはこれで見やすいと思ったので掲載しておきます。\n背景色が濃い黒色なのがいい感じです。\n\n\n```\n$ apm install dark-monokai-batch\n```\n\n## さいごに\n\nどうでしたか？実は他にもmonokaiテーマはあって、まだ試していないものや組み合わせもあるので今後試していきたいです。\n\nちなみに自分は「One Dark + Monokai」か「One Dark + Dark Monokai Batch」あたりをメインで使っていこうと思っています。\n\n## 参考\n\n> \n[Atom theme gallery](http://enrmarc.github.io/atom-theme-gallery/)\n",
+    "stock_count": 9,
+    "stock_users": [
+        "morika-t",
+        "nekotank",
+        "Tatejimaru137",
+        "tk_wada",
+        "hibiki",
+        "tsuchimaru",
+        "t_mario_y",
+        "ksk_tngc",
+        "korosuke"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/eb53674e17b98c67498df8d79f9964569cc516f8/medium.jpg?1423241704",
+        "name": "ATOM",
+        "url_name": "atom",
+        "versions": []
+    }],
+    "title": "Atomでmonokaiテーマ使いたい人向けのおすすめテーマと組み合わせ集（UI Theme + Syntax Theme）",
+    "tweet": true,
+    "updated_at_in_words": "8ヶ月",
+    "updated_at": "2016-01-11 01:57:12 +0900",
+    "url": "http://qiita.com/y-temp4/items/d9cedcaa44cbd4c118e0",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "d9cedcaa44cbd4c118e0"
+}, {
+    "body": "<p>vimの使い方を学ぶ際、おすすめの方法の１つとして\"vimtutor\"コマンドを使う、というものがあります。</p>\n\n<p>今回はそのvimtuorについて、簡単に説明してみます。</p>\n\n<h2>\n<span id=\"対象読者\" class=\"fragment\"></span><a href=\"#%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85\"><i class=\"fa fa-link\"></i></a>対象読者</h2>\n\n<ul>\n<li>\n<code>h</code><code>j</code><code>k</code><code>l</code>で移動できることは知ってる</li>\n<li>\n<code>i</code>を打つと文字を打てるようになることは知ってる</li>\n<li>\n<code>:wq</code>で保存して終了することは知ってる</li>\n</ul>\n\n<p>要はvim初心者です（自分もですが）。vimで最低限のことはできるけど、もう少し編集効率を上げたい、色々な操作方法を知りたい、という人が取り組むと、ワンランク上のvimmerになれるかと思います。</p>\n\n<h2>\n<span id=\"vimtutorの使い方\" class=\"fragment\"></span><a href=\"#vimtutor%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9\"><i class=\"fa fa-link\"></i></a>vimtutorの使い方</h2>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ vimtutor\n</pre></div></div>\n\n<p>このコマンドを実行すると、簡単なvimの使い方が表示されます。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n===============================================================================\n=    V I M 教 本 (チュートリアル) へ よ う こ そ        -    Version 1.7      =\n===============================================================================\n\n     Vim は、このチュートリアルで説明するには多すぎる程のコマンドを備えた非常\n     に強力なエディターです。このチュートリアルは、あなたが Vim を万能エディ\n     ターとして使いこなせるようになるのに十分なコマンドについて説明をするよう\n     なっています。\n\n     チュートリアルを完了するのに必要な時間は、覚えたコマンドを試すのにどれだ\n     け時間を使うのかにもよりますが、およそ25から30分です。\n\n     ATTENTION:\n     以下の練習用コマンドにはこの文章を変更するものもあります。練習を始める前\n     にコピーを作成しましょう(\"vimtutor\"したならば、既にコピーされています)。\n\n     このチュートリアルが、使うことで覚えられる仕組みになっていることを、心し\n     ておかなければなりません。正しく学習するにはコマンドを実際に試さなければ\n     ならないのです。文章を読んだだけならば、きっと忘れてしまいます!。\n\n     さぁ、Capsロック(Shift-Lock)キーが押されていないことを確認した後、画面に\n     レッスン1.1 が全部表示されるところまで、j キーを押してカーソルを移動しま\n     しょう。\n</pre></div></div>\n\n<p>このチュートリアルの特徴は、チュートリアルの文章自体がvimで編集できる、という点です。そのため、理論だけではなく、実際に手を動かしてvimの使い方を学ぶことが出来ます。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n                         レッスン 1.1:  カーソルの移動\n\n\n       ** カーソルを移動するには、示される様に h,j,k,l を押します **\n             ^\n             k              ヒント:  h キーは左方向に移動します。\n       &lt; h       l &gt;                 l キーは右方向に移動します。\n             j                       j キーは下矢印キーのようなキーです。\n             v\n  1. 移動に慣れるまで、スクリーンでカーソル移動させましょう。\n\n  2. 下へのキー(j)を押しつづけると、連続して移動できます。\n     これで次のレッスンに移動する方法がわかりましたね。\n\n  3. 下へのキーを使って、レッスン1.2 に移動しましょう。\n\nNote: 何をタイプしているか判らなくなったら、&lt;ESC&gt;を押してノーマルモードにし\n      ます。それから入力しようとしていたコマンドを再入力しましょう。\n\nNote: カーソルキーでも移動できます。しかし hjkl に一度慣れてしまえば、はるか\n      に速く移動することができるでしょう。いやマジで!\n</pre></div></div>\n\n<p>最初の説明にもありますが、実際にコマンドを試しながらでも数十分で終わります。ですので、一気に終わらせるのがおすすめです。行数こそ900行を超えていますが、やってみると案外すぐ終わります。</p>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>vimを学ぼうとする際、最初から<a href=\"http://www.amazon.co.jp/%E5%AE%9F%E8%B7%B5Vim-%E6%80%9D%E8%80%83%E3%81%AE%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89%E3%81%A7%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86-Drew-Neil/dp/4048916599\" rel=\"nofollow\" target=\"_blank\">実践Vim</a>のような書籍に取り組むのではなく、基本となるコマンドを抑えたvimtutorをやるのは、vim初心者としては理にかなった学習方法だと思います。</p>\n\n<p>まぁ、自分も普段vimを使わないため偉そうなことは言えないのですが、そんな自分にとってもvimtutorは良い学習教材だと感じました。オススメです。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1453903247,
+    "created_at_in_words": "7ヶ月",
+    "created_at": "2016-01-27 23:00:47 +0900",
+    "gist_url": null,
+    "id": 364681,
+    "private": false,
+    "raw_body": "vimの使い方を学ぶ際、おすすめの方法の１つとして\"vimtutor\"コマンドを使う、というものがあります。\n\n今回はそのvimtuorについて、簡単に説明してみます。\n\n## 対象読者\n\n- `h``j``k``l`で移動できることは知ってる\n- `i`を打つと文字を打てるようになることは知ってる\n- `:wq`で保存して終了することは知ってる\n\n要はvim初心者です（自分もですが）。vimで最低限のことはできるけど、もう少し編集効率を上げたい、色々な操作方法を知りたい、という人が取り組むと、ワンランク上のvimmerになれるかと思います。\n\n## vimtutorの使い方\n\n```\n$ vimtutor\n```\n\nこのコマンドを実行すると、簡単なvimの使い方が表示されます。\n\n```\n===============================================================================\n=    V I M 教 本 (チュートリアル) へ よ う こ そ        -    Version 1.7      =\n===============================================================================\n\n     Vim は、このチュートリアルで説明するには多すぎる程のコマンドを備えた非常\n     に強力なエディターです。このチュートリアルは、あなたが Vim を万能エディ\n     ターとして使いこなせるようになるのに十分なコマンドについて説明をするよう\n     なっています。\n\n     チュートリアルを完了するのに必要な時間は、覚えたコマンドを試すのにどれだ\n     け時間を使うのかにもよりますが、およそ25から30分です。\n\n     ATTENTION:\n     以下の練習用コマンドにはこの文章を変更するものもあります。練習を始める前\n     にコピーを作成しましょう(\"vimtutor\"したならば、既にコピーされています)。\n\n     このチュートリアルが、使うことで覚えられる仕組みになっていることを、心し\n     ておかなければなりません。正しく学習するにはコマンドを実際に試さなければ\n     ならないのです。文章を読んだだけならば、きっと忘れてしまいます!。\n\n     さぁ、Capsロック(Shift-Lock)キーが押されていないことを確認した後、画面に\n     レッスン1.1 が全部表示されるところまで、j キーを押してカーソルを移動しま\n     しょう。\n```\n\nこのチュートリアルの特徴は、チュートリアルの文章自体がvimで編集できる、という点です。そのため、理論だけではなく、実際に手を動かしてvimの使い方を学ぶことが出来ます。\n\n```\n                         レッスン 1.1:  カーソルの移動\n\n\n       ** カーソルを移動するには、示される様に h,j,k,l を押します **\n             ^\n             k              ヒント:  h キーは左方向に移動します。\n       < h       l >                 l キーは右方向に移動します。\n             j                       j キーは下矢印キーのようなキーです。\n             v\n  1. 移動に慣れるまで、スクリーンでカーソル移動させましょう。\n\n  2. 下へのキー(j)を押しつづけると、連続して移動できます。\n     これで次のレッスンに移動する方法がわかりましたね。\n\n  3. 下へのキーを使って、レッスン1.2 に移動しましょう。\n\nNote: 何をタイプしているか判らなくなったら、<ESC>を押してノーマルモードにし\n      ます。それから入力しようとしていたコマンドを再入力しましょう。\n\nNote: カーソルキーでも移動できます。しかし hjkl に一度慣れてしまえば、はるか\n      に速く移動することができるでしょう。いやマジで!\n```\n\n最初の説明にもありますが、実際にコマンドを試しながらでも数十分で終わります。ですので、一気に終わらせるのがおすすめです。行数こそ900行を超えていますが、やってみると案外すぐ終わります。\n\n\n## さいごに\n\nvimを学ぼうとする際、最初から[実践Vim](http://www.amazon.co.jp/%E5%AE%9F%E8%B7%B5Vim-%E6%80%9D%E8%80%83%E3%81%AE%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89%E3%81%A7%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86-Drew-Neil/dp/4048916599)のような書籍に取り組むのではなく、基本となるコマンドを抑えたvimtutorをやるのは、vim初心者としては理にかなった学習方法だと思います。\n\nまぁ、自分も普段vimを使わないため偉そうなことは言えないのですが、そんな自分にとってもvimtutorは良い学習教材だと感じました。オススメです。\n",
+    "stock_count": 10,
+    "stock_users": [
+        "morika-t",
+        "greenhorn-TK@github",
+        "syokenz",
+        "macer_fkm",
+        "wivern888",
+        "KentaShindo",
+        "naoakiy",
+        "yizumi1012xxx",
+        "hiyorineko",
+        "Dearest_HINA"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/798b52773f9b91f4ffbf5a2e9d1ed6c4f91c88f4/medium.jpg?1364837741",
+        "name": "Vim",
+        "url_name": "vim",
+        "versions": []
+    }],
+    "title": "Vim初心者向け：Vimの使い方が分かるコマンド - &quot;vimtutor&quot;",
+    "tweet": true,
+    "updated_at_in_words": "7ヶ月",
+    "updated_at": "2016-01-27 23:00:47 +0900",
+    "url": "http://qiita.com/y-temp4/items/3032d22cb5cc6ae3117a",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "3032d22cb5cc6ae3117a"
+}, {
+    "body": "<p>一般的なリンクに対しては、マウスオーバーした時に勝手にカーソルが指マークになります。</p>\n\n<p>しかし、そうならない要素に対しては、cssで独自に指定をするとユーザーの利便性が向上すると思います。</p>\n\n<div class=\"code-frame\" data-lang=\"css\"><div class=\"highlight\"><pre>\n<span class=\"nc\">.yubi</span> <span class=\"p\">{</span>\n  <span class=\"k\">cursor</span> <span class=\"o\">:</span> <span class=\"k\">pointer</span><span class=\"p\">;</span>\n<span class=\"p\">}</span>\n</pre></div></div>\n\n<div class=\"code-frame\" data-lang=\"html\"><div class=\"highlight\"><pre>\n<span class=\"nt\">&lt;span</span> <span class=\"na\">class=</span><span class=\"s\">\"yubi\"</span><span class=\"nt\">&gt;</span>テキスト<span class=\"nt\">&lt;/span&gt;</span>\n</pre></div></div>\n\n<p>上記の例では「テキスト」とある部分にマウスを重ねると指マークになります。</p>\n\n<h2>\n<span id=\"cursorプロパティの値\" class=\"fragment\"></span><a href=\"#cursor%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AE%E5%80%A4\"><i class=\"fa fa-link\"></i></a>cursorプロパティの値</h2>\n\n<p>また、<code>cursor</code>プロパティの値ですが、<code>pointer</code>以外にも色々あるので、場合によって値を変えるとより利便性が増すと思います。</p>\n\n<p><a href=\"http://ginpen.com/2012/12/08/css-cursors/\" rel=\"nofollow\" target=\"_blank\">CSS3で使える35+α種類のカーソルの一覧表。（CSS おれおれ Advent Calendar 2012 – 07日目） | Ginpen.com</a></p>\n\n<p><code>help</code>で表示されるはてなマークなんかは使い勝手が良さそうですね。</p>\n\n<h2>\n<span id=\"オリジナルのカーソル\" class=\"fragment\"></span><a href=\"#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB\"><i class=\"fa fa-link\"></i></a>オリジナルのカーソル</h2>\n\n<p><code>pointer</code>と指定するだけでも十分かもしれませんが、実は画像も指定できます。</p>\n\n<p><a href=\"http://www.tagindex.com/stylesheet/page/cursor.html\" rel=\"nofollow\" target=\"_blank\">スタイルシート［CSS］/ページ全般/カーソルの形を変更する - TAG index Webサイト</a></p>\n\n<p>(一番下の福笑いみたいになっているやつがおもしろい)</p>\n\n<p>ちょっとした配慮で、より使いやすいWebサイトになると思うので、自分も積極的に使っていきたいです。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1454305620,
+    "created_at_in_words": "7ヶ月",
+    "created_at": "2016-02-01 14:47:00 +0900",
+    "gist_url": null,
+    "id": 365777,
+    "private": false,
+    "raw_body": "一般的なリンクに対しては、マウスオーバーした時に勝手にカーソルが指マークになります。\n\nしかし、そうならない要素に対しては、cssで独自に指定をするとユーザーの利便性が向上すると思います。\n\n```css\n.yubi {\n  cursor : pointer;\n}\n```\n\n```html\n<span class=\"yubi\">テキスト</span>\n```\n\n上記の例では「テキスト」とある部分にマウスを重ねると指マークになります。\n\n## cursorプロパティの値\n\nまた、`cursor`プロパティの値ですが、`pointer`以外にも色々あるので、場合によって値を変えるとより利便性が増すと思います。\n\n[CSS3で使える35+α種類のカーソルの一覧表。（CSS おれおれ Advent Calendar 2012 – 07日目） | Ginpen.com](http://ginpen.com/2012/12/08/css-cursors/)\n\n`help`で表示されるはてなマークなんかは使い勝手が良さそうですね。\n\n## オリジナルのカーソル\n\n`pointer`と指定するだけでも十分かもしれませんが、実は画像も指定できます。\n\n[スタイルシート［CSS］/ページ全般/カーソルの形を変更する - TAG index Webサイト](http://www.tagindex.com/stylesheet/page/cursor.html)\n\n(一番下の福笑いみたいになっているやつがおもしろい)\n\nちょっとした配慮で、より使いやすいWebサイトになると思うので、自分も積極的に使っていきたいです。\n",
+    "stock_count": 1,
+    "stock_users": [
+        "botchichi"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/9068c4ec90f73848c4c0cfeb25eb082d20484587/medium.jpg?1465035225",
+        "name": "HTML",
+        "url_name": "html",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/b4438ce0a78810256791a266e87c74a76b555de1/medium.jpg?1419699326",
+        "name": "CSS",
+        "url_name": "css",
+        "versions": []
+    }],
+    "title": "【HTML/CSS】要素にマウスカーソルを重ねた時にカーソルの形を指マークにする",
+    "tweet": true,
+    "updated_at_in_words": "4ヶ月",
+    "updated_at": "2016-05-05 21:01:34 +0900",
+    "url": "http://qiita.com/y-temp4/items/8db4a99c437e57ef59da",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "8db4a99c437e57ef59da"
+}, {
+    "body": "<p>よくあるソート</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">nums</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"mi\">4</span><span class=\"p\">,</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"mi\">2</span><span class=\"p\">,</span><span class=\"mi\">3</span><span class=\"p\">];</span>\n<span class=\"nx\">nums</span><span class=\"p\">.</span><span class=\"nx\">sort</span><span class=\"p\">(</span><span class=\"kd\">function</span><span class=\"p\">(</span><span class=\"nx\">a</span><span class=\"p\">,</span> <span class=\"nx\">b</span><span class=\"p\">){</span>\n  <span class=\"k\">return</span> <span class=\"nx\">a</span> <span class=\"o\">-</span> <span class=\"nx\">b</span><span class=\"p\">;</span>\n<span class=\"p\">});</span>\n<span class=\"c1\">// [1, 2, 3, 4]</span>\n</pre></div></div>\n\n<p>sort関数は引数に関数を与えると、その返り値によって昇順ソートになったり降順ソートになったりします。</p>\n\n<p>しかし、内部ではどういった動作をしているのかよく分からず、それが気になったため少し調べたのですが、結果的によくわからなかったため調べた結果をメモとして残しておきます。</p>\n\n<p>以下、console.logで変数nums, a, bを出力した時の記録です。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">nums</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"mi\">4</span><span class=\"p\">,</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"mi\">2</span><span class=\"p\">,</span><span class=\"mi\">3</span><span class=\"p\">];</span>\n<span class=\"nx\">nums</span><span class=\"p\">.</span><span class=\"nx\">sort</span><span class=\"p\">(</span><span class=\"kd\">function</span><span class=\"p\">(</span><span class=\"nx\">a</span><span class=\"p\">,</span> <span class=\"nx\">b</span><span class=\"p\">){</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'nums: '</span> <span class=\"o\">+</span> <span class=\"nx\">nums</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'a: '</span> <span class=\"o\">+</span> <span class=\"nx\">a</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'b: '</span> <span class=\"o\">+</span> <span class=\"nx\">b</span><span class=\"p\">);</span>\n  <span class=\"k\">return</span> <span class=\"nx\">a</span> <span class=\"o\">-</span> <span class=\"nx\">b</span><span class=\"p\">;</span>\n<span class=\"p\">});</span>\n<span class=\"c1\">// nums: 4,1,2,3</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 1</span>\n<span class=\"c1\">// nums: 1,4,2,3</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 2</span>\n<span class=\"c1\">// nums: 1,4,4,3</span>\n<span class=\"c1\">// a: 1</span>\n<span class=\"c1\">// b: 2</span>\n<span class=\"c1\">// nums: 1,2,4,3</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 3</span>\n<span class=\"c1\">// nums: 1,2,4,4</span>\n<span class=\"c1\">// a: 2</span>\n<span class=\"c1\">// b: 3</span>\n<span class=\"c1\">// [1, 2, 3, 4]</span>\n</pre></div></div>\n\n<p>[1,2,3,4]を与えた時</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">nums</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"mi\">1</span><span class=\"p\">,</span><span class=\"mi\">2</span><span class=\"p\">,</span><span class=\"mi\">3</span><span class=\"p\">,</span><span class=\"mi\">4</span><span class=\"p\">];</span>\n<span class=\"nx\">nums</span><span class=\"p\">.</span><span class=\"nx\">sort</span><span class=\"p\">(</span><span class=\"kd\">function</span><span class=\"p\">(</span><span class=\"nx\">a</span><span class=\"p\">,</span> <span class=\"nx\">b</span><span class=\"p\">){</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'nums: '</span> <span class=\"o\">+</span> <span class=\"nx\">nums</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'a: '</span> <span class=\"o\">+</span> <span class=\"nx\">a</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'b: '</span> <span class=\"o\">+</span> <span class=\"nx\">b</span><span class=\"p\">);</span>\n  <span class=\"k\">return</span> <span class=\"nx\">a</span> <span class=\"o\">-</span> <span class=\"nx\">b</span><span class=\"p\">;</span>\n<span class=\"p\">});</span>\n<span class=\"c1\">// nums: 1,2,3,4</span>\n<span class=\"c1\">// a: 1</span>\n<span class=\"c1\">// b: 2</span>\n<span class=\"c1\">// nums: 1,2,3,4</span>\n<span class=\"c1\">// a: 2</span>\n<span class=\"c1\">// b: 3</span>\n<span class=\"c1\">// nums: 1,2,3,4</span>\n<span class=\"c1\">// a: 3</span>\n<span class=\"c1\">// b: 4</span>\n<span class=\"c1\">// [1, 2, 3, 4]</span>\n</pre></div></div>\n\n<p>[4,3,2,1]を与えた時</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">nums</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"mi\">4</span><span class=\"p\">,</span><span class=\"mi\">3</span><span class=\"p\">,</span><span class=\"mi\">2</span><span class=\"p\">,</span><span class=\"mi\">1</span><span class=\"p\">];</span>\n<span class=\"nx\">nums</span><span class=\"p\">.</span><span class=\"nx\">sort</span><span class=\"p\">(</span><span class=\"kd\">function</span><span class=\"p\">(</span><span class=\"nx\">a</span><span class=\"p\">,</span> <span class=\"nx\">b</span><span class=\"p\">){</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'nums: '</span> <span class=\"o\">+</span> <span class=\"nx\">nums</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'a: '</span> <span class=\"o\">+</span> <span class=\"nx\">a</span><span class=\"p\">);</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'b: '</span> <span class=\"o\">+</span> <span class=\"nx\">b</span><span class=\"p\">);</span>\n  <span class=\"k\">return</span> <span class=\"nx\">a</span> <span class=\"o\">-</span> <span class=\"nx\">b</span><span class=\"p\">;</span>\n<span class=\"p\">});</span>\n<span class=\"c1\">// nums: 4,3,2,1</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 3</span>\n<span class=\"c1\">// nums: 3,4,2,1</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 2</span>\n<span class=\"c1\">// nums: 3,4,4,1</span>\n<span class=\"c1\">// a: 3</span>\n<span class=\"c1\">// b: 2</span>\n<span class=\"c1\">// nums: 2,3,4,1</span>\n<span class=\"c1\">// a: 4</span>\n<span class=\"c1\">// b: 1</span>\n<span class=\"c1\">// nums: 2,3,4,4</span>\n<span class=\"c1\">// a: 3</span>\n<span class=\"c1\">// b: 1</span>\n<span class=\"c1\">// nums: 2,3,3,4</span>\n<span class=\"c1\">// a: 2</span>\n<span class=\"c1\">// b: 1</span>\n<span class=\"c1\">// [1, 2, 3, 4]</span>\n</pre></div></div>\n\n<p>動作確認はchromeのconsoleで行っています。</p>\n",
+    "comment_count": 4,
+    "created_at_as_seconds": 1455570861,
+    "created_at_in_words": "7ヶ月",
+    "created_at": "2016-02-16 06:14:21 +0900",
+    "gist_url": null,
+    "id": 369859,
+    "private": false,
+    "raw_body": "よくあるソート\n\n```js\nvar nums = [4,1,2,3];\nnums.sort(function(a, b){\n  return a - b;\n});\n// [1, 2, 3, 4]\n```\n\nsort関数は引数に関数を与えると、その返り値によって昇順ソートになったり降順ソートになったりします。\n\nしかし、内部ではどういった動作をしているのかよく分からず、それが気になったため少し調べたのですが、結果的によくわからなかったため調べた結果をメモとして残しておきます。\n\n以下、console.logで変数nums, a, bを出力した時の記録です。\n\n```js\nvar nums = [4,1,2,3];\nnums.sort(function(a, b){\n  console.log('nums: ' + nums);\n  console.log('a: ' + a);\n  console.log('b: ' + b);\n  return a - b;\n});\n// nums: 4,1,2,3\n// a: 4\n// b: 1\n// nums: 1,4,2,3\n// a: 4\n// b: 2\n// nums: 1,4,4,3\n// a: 1\n// b: 2\n// nums: 1,2,4,3\n// a: 4\n// b: 3\n// nums: 1,2,4,4\n// a: 2\n// b: 3\n// [1, 2, 3, 4]\n```\n\n[1,2,3,4]を与えた時\n\n```js\nvar nums = [1,2,3,4];\nnums.sort(function(a, b){\n  console.log('nums: ' + nums);\n  console.log('a: ' + a);\n  console.log('b: ' + b);\n  return a - b;\n});\n// nums: 1,2,3,4\n// a: 1\n// b: 2\n// nums: 1,2,3,4\n// a: 2\n// b: 3\n// nums: 1,2,3,4\n// a: 3\n// b: 4\n// [1, 2, 3, 4]\n```\n\n[4,3,2,1]を与えた時\n\n```js\nvar nums = [4,3,2,1];\nnums.sort(function(a, b){\n  console.log('nums: ' + nums);\n  console.log('a: ' + a);\n  console.log('b: ' + b);\n  return a - b;\n});\n// nums: 4,3,2,1\n// a: 4\n// b: 3\n// nums: 3,4,2,1\n// a: 4\n// b: 2\n// nums: 3,4,4,1\n// a: 3\n// b: 2\n// nums: 2,3,4,1\n// a: 4\n// b: 1\n// nums: 2,3,4,4\n// a: 3\n// b: 1\n// nums: 2,3,3,4\n// a: 2\n// b: 1\n// [1, 2, 3, 4]\n```\n\n動作確認はchromeのconsoleで行っています。\n\n",
+    "stock_count": 4,
+    "stock_users": [
+        "hiro_matsuno2",
+        "jesushill",
+        "hachi8833",
+        "Takayu_T"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/58f69837141ae3efa0c530ed53de128cacb49b66/medium.jpg?1421232838",
+        "name": "JavaScript",
+        "url_name": "javascript",
+        "versions": []
+    }],
+    "title": "JavaScriptのsort関数の内部挙動がよくわからない",
+    "tweet": true,
+    "updated_at_in_words": "7ヶ月",
+    "updated_at": "2016-02-16 06:14:21 +0900",
+    "url": "http://qiita.com/y-temp4/items/cb14d4467e754ffa90b0",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "cb14d4467e754ffa90b0"
+}, {
+    "body": "<p><a href=\"http://morizyun.github.io/blog/elasticsearch-rails-tutorial/\" rel=\"nofollow\" target=\"_blank\">Elasticsearchを使ったRailsサンプルアプリの作成</a>をMac環境でやろうと思ったのですが、セットアップに手間取ってしまったのでその過程を残しておきます。</p>\n\n<h2>\n<span id=\"環境\" class=\"fragment\"></span><a href=\"#%E7%92%B0%E5%A2%83\"><i class=\"fa fa-link\"></i></a>環境</h2>\n\n<ul>\n<li>OS X Yosemite</li>\n</ul>\n\n<h2>\n<span id=\"elasticsearchのインストール\" class=\"fragment\"></span><a href=\"#elasticsearch%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\"><i class=\"fa fa-link\"></i></a>Elasticsearchのインストール</h2>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ brew update\n$ brew install elasticsearch\n</pre></div></div>\n\n<p>インストールが終わったら自動起動の設定をします。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents\n$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\n</pre></div></div>\n\n<h3>\n<span id=\"pathを通す\" class=\"fragment\"></span><a href=\"#path%E3%82%92%E9%80%9A%E3%81%99\"><i class=\"fa fa-link\"></i></a>PATHを通す</h3>\n\n<p>このままでは<code>plugin</code>コマンドが使えないので、パスを通します。人によってelasticsearchのバージョンが違うかもしれないので、注意してください（<code>brew info elasticsearch</code>で確認できる<code>plugin script</code>を参考にするといいと思います）。</p>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ brew info elasticsearch\nelasticsearch: stable 2.2.0, HEAD\nDistributed search &amp; analytics engine\nhttps://www.elastic.co/products/elasticsearch\n/usr/local/Cellar/elasticsearch/2.2.0_1 (211 files, 38.0M) *\n  Built from source\nFrom: https://github.com/Homebrew/homebrew/blob/master/Library/Formula/elasticsearch.rb\n==&gt; Caveats\nData:    /usr/local/var/elasticsearch/elasticsearch_yuki/\nLogs:    /usr/local/var/log/elasticsearch/elasticsearch_yuki.log\nPlugins: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/plugins/\nConfig:  /usr/local/etc/elasticsearch/\nplugin script: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin/plugin\n\nTo reload elasticsearch after an upgrade:\n  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\n  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\nOr, if you don't want/need launchctl, you can just run:\n</pre></div></div>\n\n<p>今回の場合だと<code>plugin script: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin/plugin</code>の部分を参考に.bash_profileとかにPATHの記述をすることになります。</p>\n\n<div class=\"code-frame\" data-lang=\"shell\">\n<div class=\"code-lang\"><span class=\"bold\">.bash_profileとか</span></div>\n<div class=\"highlight\"><pre>\nexport ELASTICPATH=/usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin\nexport PATH=$PATH:$ELASTICPATH\n</pre></div>\n</div>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ exec $SHELL -l\n</pre></div></div>\n\n<p>必ずしもPATHは通す必要はありませんが、今後<code>plugin</code>コマンドを多用する場合はパスを通していないと面倒かと思います。</p>\n\n<h2>\n<span id=\"elasticsearch-headのインストール\" class=\"fragment\"></span><a href=\"#elasticsearch-head%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\"><i class=\"fa fa-link\"></i></a>elasticsearch-headのインストール</h2>\n\n<div class=\"code-frame\" data-lang=\"text\"><div class=\"highlight\"><pre>\n$ plugin install mobz/elasticsearch-head\n</pre></div></div>\n\n<p><code>http://localhost:9200/_plugin/head/</code>を確認すると、それっぽい画面が表示されていると思います。</p>\n\n<p>以上です。</p>\n\n<h2>\n<span id=\"参考\" class=\"fragment\"></span><a href=\"#%E5%8F%82%E8%80%83\"><i class=\"fa fa-link\"></i></a>参考</h2>\n\n<ul>\n<li><a href=\"http://qiita.com/srockstyle/items/207506a79d20ec260926\" id=\"reference-742843b5e5ede1d4bad1\">Elasticsearch in OSX クイックスタート</a></li>\n<li><a href=\"http://morizyun.github.io/blog/elasticsearch-kibana-setup-mac/\" rel=\"nofollow\" target=\"_blank\">Elasticsearch 2.1 + Kibana 4.3 + Marvel のMacへのセットアップ</a></li>\n</ul>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1455571323,
+    "created_at_in_words": "7ヶ月",
+    "created_at": "2016-02-16 06:22:03 +0900",
+    "gist_url": null,
+    "id": 369860,
+    "private": false,
+    "raw_body": "[Elasticsearchを使ったRailsサンプルアプリの作成](http://morizyun.github.io/blog/elasticsearch-rails-tutorial/)をMac環境でやろうと思ったのですが、セットアップに手間取ってしまったのでその過程を残しておきます。\n\n## 環境\n- OS X Yosemite\n\n## Elasticsearchのインストール\n\n```\n$ brew update\n$ brew install elasticsearch\n```\n\nインストールが終わったら自動起動の設定をします。\n\n```\n$ ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents\n$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\n```\n\n### PATHを通す\n\nこのままでは`plugin`コマンドが使えないので、パスを通します。人によってelasticsearchのバージョンが違うかもしれないので、注意してください（`brew info elasticsearch`で確認できる`plugin script`を参考にするといいと思います）。\n\n```\n$ brew info elasticsearch\nelasticsearch: stable 2.2.0, HEAD\nDistributed search & analytics engine\nhttps://www.elastic.co/products/elasticsearch\n/usr/local/Cellar/elasticsearch/2.2.0_1 (211 files, 38.0M) *\n  Built from source\nFrom: https://github.com/Homebrew/homebrew/blob/master/Library/Formula/elasticsearch.rb\n==> Caveats\nData:    /usr/local/var/elasticsearch/elasticsearch_yuki/\nLogs:    /usr/local/var/log/elasticsearch/elasticsearch_yuki.log\nPlugins: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/plugins/\nConfig:  /usr/local/etc/elasticsearch/\nplugin script: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin/plugin\n\nTo reload elasticsearch after an upgrade:\n  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\n  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist\nOr, if you don't want/need launchctl, you can just run:\n```\n\n今回の場合だと`plugin script: /usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin/plugin`の部分を参考に.bash_profileとかにPATHの記述をすることになります。\n\n```shell:.bash_profileとか\nexport ELASTICPATH=/usr/local/Cellar/elasticsearch/2.2.0_1/libexec/bin\nexport PATH=$PATH:$ELASTICPATH\n```\n\n```\n$ exec $SHELL -l\n```\n\n\n必ずしもPATHは通す必要はありませんが、今後`plugin`コマンドを多用する場合はパスを通していないと面倒かと思います。\n\n## elasticsearch-headのインストール\n\n```\n$ plugin install mobz/elasticsearch-head\n```\n\n\n`http://localhost:9200/_plugin/head/`を確認すると、それっぽい画面が表示されていると思います。\n\n以上です。\n\n## 参考\n- [Elasticsearch in OSX クイックスタート](http://qiita.com/srockstyle/items/207506a79d20ec260926)\n- [Elasticsearch 2.1 + Kibana 4.3 + Marvel のMacへのセットアップ](http://morizyun.github.io/blog/elasticsearch-kibana-setup-mac/)\n",
+    "stock_count": 22,
+    "stock_users": [
+        "morika-t",
+        "yoppe",
+        "hiro_matsuno2",
+        "hiroeorz@github",
+        "YoshitsuguFujii",
+        "kmry2045",
+        "jj_naoyuki_jj",
+        "n-oshiro",
+        "tos-miyake",
+        "ryo55",
+        "heimusu",
+        "shun-k1331",
+        "mmyoji",
+        "hisahiko",
+        "magaya0403",
+        "mero",
+        "yuzuyuzu",
+        "h-imaoka",
+        "fujitora",
+        "yahatashunta",
+        "fujii-h",
+        "myuasa"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/ceb26984ced05353cd0bca892629f04ef6a487bb/medium.jpg?1422720109",
+        "name": "OSX",
+        "url_name": "osx",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/4e99cae0907b091a58f8782fa83d4ef5b6f13409/medium.jpg?1373503782",
+        "name": "Elasticsearch",
+        "url_name": "elasticsearch",
+        "versions": []
+    }],
+    "title": "MacにElasticsearchとelasticsearch-headをインストール",
+    "tweet": true,
+    "updated_at_in_words": "7ヶ月",
+    "updated_at": "2016-02-16 06:22:03 +0900",
+    "url": "http://qiita.com/y-temp4/items/ffafe1c0ea8a29ce8707",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "ffafe1c0ea8a29ce8707"
+}, {
+    "body": "<p>Macの複数デスクトップ機能...初めて使った時はかなり感動したのを覚えています。</p>\n\n<p>しかし、使っていくうちにもっと効率化したい！もっと楽をしたい！と思うようになりました。</p>\n\n<p>そんなMacの複数デスクトップ機能をより使いやすくするためのTipsです。</p>\n\n<h2>\n<span id=\"前提条件\" class=\"fragment\"></span><a href=\"#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6\"><i class=\"fa fa-link\"></i></a>前提条件</h2>\n\n<p>紹介の前に、前提条件を示しておきます。</p>\n\n<p>多分ほとんどの人は大丈夫だと思うので、見出しを見て大丈夫そうだったら飛ばしてください。</p>\n\n<h3>\n<span id=\"前提１bettertouchtoolが入っている\" class=\"fragment\"></span><a href=\"#%E5%89%8D%E6%8F%90%EF%BC%91bettertouchtool%E3%81%8C%E5%85%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B\"><i class=\"fa fa-link\"></i></a>前提１：BetterTouchToolが入っている</h3>\n\n<p>BetterTouchToolが入っていない人はまずインストールしましょう。</p>\n\n<div class=\"code-frame\" data-lang=\"sh\"><div class=\"highlight\"><pre>\n<span class=\"nv\">$ </span>brew cask install bettertouchtool\n</pre></div></div>\n\n<p>有料化しましたが、以下の記事を参考にすると安く済むそうです。自分は（そんなの知らずに）普通に買いました。</p>\n\n<ul>\n<li><a href=\"http://hitoriblog.com/?p=34863\" rel=\"nofollow\" target=\"_blank\">BetterTouchToolが有料化したがBTT Remoteがあれば無料で使える</a></li>\n</ul>\n\n<p>（一応、BettetTouchToolなしでできるものもありますが、できないものもあるので入れておいたほうがいいと思います。）</p>\n\n<h3>\n<span id=\"前提２caps-lock-を-controlにしている\" class=\"fragment\"></span><a href=\"#%E5%89%8D%E6%8F%90%EF%BC%92caps-lock-%E3%82%92-control%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B\"><i class=\"fa fa-link\"></i></a>前提２：caps lock を controlにしている</h3>\n\n<p>この設定の存在を知らずに、まだ設定していない人は今すぐ設定したほうがいいと思います。いろいろなショートカットを使うのがかなり楽になります。自分はもう元からあるcontrolキーは使っていません。</p>\n\n<p><code>システム環境設定 -&gt; キーボード -&gt; 修飾キー</code>から変えられます。</p>\n\n<p>ただ、設定していない他人のMacを触るためにあえて設定していない人もいると思いますが...。</p>\n\n<h2>\n<span id=\"設定一覧\" class=\"fragment\"></span><a href=\"#%E8%A8%AD%E5%AE%9A%E4%B8%80%E8%A6%A7\"><i class=\"fa fa-link\"></i></a>設定一覧</h2>\n\n<p>それでは、設定を紹介していきます。重要度が高そうなものから順番にしています。</p>\n\n<h3>\n<span id=\"複数デスクトップの切り替えcontrol----control--\" class=\"fragment\"></span><a href=\"#%E8%A4%87%E6%95%B0%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88control----control--\"><i class=\"fa fa-link\"></i></a>複数デスクトップの切り替え（<code>control + ;</code>,  <code>control + '</code>）</h3>\n\n<p>複数デスクトップの画面切り替えは通常<code>control + ←</code>、 <code>control + →</code>ですが、これだとホームポジションからかなり離れてしまうため困っていました。</p>\n\n<p>そこで<code>command + shift + h</code>、 <code>command + shift + l</code>や<code>contorol + h</code>、<code>contorol + l</code>などにしていたこともあったのですが、どうしても何らかのショートカットとバッティングしてしまったため、やめてしまいました。</p>\n\n<p>特に、<code>contorol + h</code>、<code>contorol + l</code>はコマンドライン利用時に困ってしまうため、打ちやすくていいかな〜と思ったのですがすぐにやめました（<code>contorol + h</code>はカーソルの左側の文字を削除、<code>contorol + l</code>は画面のクリア）。</p>\n\n<p>いろいろ考えた結果、<code>;</code>、<code>'</code>はcontrolとバッティングすることがないのでは？と思い、試しに設定してみました。すると、ホームポジションから手を動かさずに画面を切り替えられるようになったので、かなり重宝しています<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n\n<h4>\n<span id=\"設定方法\" class=\"fragment\"></span><a href=\"#%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95\"><i class=\"fa fa-link\"></i></a>設定方法</h4>\n\n<p>これだけ少し設定方法がややこしい（面倒）なので、設定方法を具体的に示しておきます。</p>\n\n<ol>\n<li><p>Macの<code>システム環境設定 -&gt; キーボード -&gt; ショートカットタブ -&gt; Mission Control</code> で左の操作スペースに移動、右のスペース操作に移動を<code>^;</code>, <code>^;</code>に変更</p></li>\n<li><p>BettetTouchToolでキーボードショートカットに<code>^←</code>, <code>^→</code>をMove Left a Space、Move right a Space として追加</p></li>\n</ol>\n\n<h3>\n<span id=\"ウィンドウ自体をとなりのデスクトップに移動control--shift--h-control--shift--l\" class=\"fragment\"></span><a href=\"#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E8%87%AA%E4%BD%93%E3%82%92%E3%81%A8%E3%81%AA%E3%82%8A%E3%81%AE%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%81%AB%E7%A7%BB%E5%8B%95control--shift--h-control--shift--l\"><i class=\"fa fa-link\"></i></a>ウィンドウ自体をとなりのデスクトップに移動（<code>control + shift + h</code>, <code>control + shift + l</code>）</h3>\n\n<p>１つのデスクトップにウィンドウが集まりすぎた時や、なんとなくウィンドウを移動したい時に使えます。</p>\n\n<p><code>control + shift + h</code>, <code>control + shift + l</code>にしていると、自分は他のショートカットとバッティングしませんでした。</p>\n\n<p>BettetTouchToolでMove Window One Space/Desktop Left(Right)を設定すればOKです。</p>\n\n<h3>\n<span id=\"ウィンドウを別のモニタに移動control--\" class=\"fragment\"></span><a href=\"#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%82%92%E5%88%A5%E3%81%AE%E3%83%A2%E3%83%8B%E3%82%BF%E3%81%AB%E7%A7%BB%E5%8B%95control--\"><i class=\"fa fa-link\"></i></a>ウィンドウを別のモニタに移動（<code>control + /</code>）</h3>\n\n<p>ディアルディスプレイにしたときに、ウィンドウを移動させるのが面倒だな〜と思い、調べて見つけた設定です。</p>\n\n<p>これは必ずしも<code>control + /</code>でなくてもいいと思いますが、バッティングしないのでとりあえずこれにしています。</p>\n\n<p>他の候補としては、<code>control + 使わない数字キー</code>でしょうか？</p>\n\n<p>BettetTouchToolでMove Window to Next MonitorとすればOKです。</p>\n\n<h3>\n<span id=\"ウィンドウのリサイズcontrol--数字キー\" class=\"fragment\"></span><a href=\"#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BAcontrol--%E6%95%B0%E5%AD%97%E3%82%AD%E3%83%BC\"><i class=\"fa fa-link\"></i></a>ウィンドウのリサイズ（<code>control + 数字キー</code>）</h3>\n\n<p>これはやっている方も多そうですね。というか、<code>control + 数字</code>だとバッティングする方も多いかもしれません...。</p>\n\n<p>自分は<code>command + 数字</code>だと困ることが多かったので、<code>control + 数字</code>を設定しています。</p>\n\n<p>設定しているのは</p>\n\n<ul>\n<li>\n<code>^1</code> Maximize Window Left (ウィンドウを左半分に最大化)</li>\n<li>\n<code>^2</code> Maximize Window Right (ウィンドウを右半分に最大化)</li>\n<li>\n<code>^3</code> Maximize Window (ウィンドウを最大化)</li>\n<li>\n<code>^4</code> Center Window (ウィンドウを中央に移動)</li>\n<li>\n<code>^5</code> Maximize Window to Top Half (ウィンドウを上半分に最大化)</li>\n<li>\n<code>^9</code> Restore old Window Size (ウィンドウを大きさを変える１つ前の大きさに戻す)</li>\n</ul>\n\n<p>の６つです。どの数字キーに何を割り当てるかは、好みでいいと思います。</p>\n\n<p>（今気づきましたが、複数デスクトップあまり関係ないですね...。）</p>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>どうでしたか？自分は今のところ、この設定で複数デスクトップまわりの操作は満足しています。</p>\n\n<p>ただ、複数デスクトップ自体を追加するショートカットが設定できていないのは少し心残りです（<code>control + ↑</code>の後、<code>option</code>で✕マークがすぐ表示されるくらいしか知りません）。</p>\n\n<p>複数デスクトップ自体を簡単に追加する方法や、もし他にも何かいい感じの設定があれば教えて下さい〜<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1455624788,
+    "created_at_in_words": "7ヶ月",
+    "created_at": "2016-02-16 21:13:08 +0900",
+    "gist_url": null,
+    "id": 370113,
+    "private": false,
+    "raw_body": "Macの複数デスクトップ機能...初めて使った時はかなり感動したのを覚えています。\n\nしかし、使っていくうちにもっと効率化したい！もっと楽をしたい！と思うようになりました。\n\nそんなMacの複数デスクトップ機能をより使いやすくするためのTipsです。\n\n## 前提条件\n\n紹介の前に、前提条件を示しておきます。\n\n多分ほとんどの人は大丈夫だと思うので、見出しを見て大丈夫そうだったら飛ばしてください。\n\n\n### 前提１：BetterTouchToolが入っている\n\nBetterTouchToolが入っていない人はまずインストールしましょう。\n\n```sh\n$ brew cask install bettertouchtool\n```\n\n有料化しましたが、以下の記事を参考にすると安く済むそうです。自分は（そんなの知らずに）普通に買いました。\n\n- [BetterTouchToolが有料化したがBTT Remoteがあれば無料で使える](http://hitoriblog.com/?p=34863)\n\n（一応、BettetTouchToolなしでできるものもありますが、できないものもあるので入れておいたほうがいいと思います。）\n\n### 前提２：caps lock を controlにしている\n\nこの設定の存在を知らずに、まだ設定していない人は今すぐ設定したほうがいいと思います。いろいろなショートカットを使うのがかなり楽になります。自分はもう元からあるcontrolキーは使っていません。\n\n`システム環境設定 -> キーボード -> 修飾キー`から変えられます。\n\nただ、設定していない他人のMacを触るためにあえて設定していない人もいると思いますが...。\n\n\n## 設定一覧\n\nそれでは、設定を紹介していきます。重要度が高そうなものから順番にしています。\n\n### 複数デスクトップの切り替え（`control + ;`,  `control + '`）\n\n複数デスクトップの画面切り替えは通常`control + ←`、 `control + →`ですが、これだとホームポジションからかなり離れてしまうため困っていました。\n\nそこで`command + shift + h`、 `command + shift + l`や`contorol + h`、`contorol + l`などにしていたこともあったのですが、どうしても何らかのショートカットとバッティングしてしまったため、やめてしまいました。\n\n特に、`contorol + h`、`contorol + l`はコマンドライン利用時に困ってしまうため、打ちやすくていいかな〜と思ったのですがすぐにやめました（`contorol + h`はカーソルの左側の文字を削除、`contorol + l`は画面のクリア）。\n\nいろいろ考えた結果、`;`、`'`はcontrolとバッティングすることがないのでは？と思い、試しに設定してみました。すると、ホームポジションから手を動かさずに画面を切り替えられるようになったので、かなり重宝しています:smile:\n\n#### 設定方法\n\nこれだけ少し設定方法がややこしい（面倒）なので、設定方法を具体的に示しておきます。\n\n1. Macの`システム環境設定 -> キーボード -> ショートカットタブ -> Mission Control` で左の操作スペースに移動、右のスペース操作に移動を`^;`, `^;`に変更\n\n2. BettetTouchToolでキーボードショートカットに`^←`, `^→`をMove Left a Space、Move right a Space として追加\n\n### ウィンドウ自体をとなりのデスクトップに移動（`control + shift + h`, `control + shift + l`）\n\n１つのデスクトップにウィンドウが集まりすぎた時や、なんとなくウィンドウを移動したい時に使えます。\n\n`control + shift + h`, `control + shift + l`にしていると、自分は他のショートカットとバッティングしませんでした。\n\nBettetTouchToolでMove Window One Space/Desktop Left(Right)を設定すればOKです。\n\n### ウィンドウを別のモニタに移動（`control + /`）\n\nディアルディスプレイにしたときに、ウィンドウを移動させるのが面倒だな〜と思い、調べて見つけた設定です。\n\nこれは必ずしも`control + /`でなくてもいいと思いますが、バッティングしないのでとりあえずこれにしています。\n\n他の候補としては、`control + 使わない数字キー`でしょうか？\n\nBettetTouchToolでMove Window to Next MonitorとすればOKです。\n\n### ウィンドウのリサイズ（`control + 数字キー`）\n\nこれはやっている方も多そうですね。というか、`control + 数字`だとバッティングする方も多いかもしれません...。\n\n自分は`command + 数字`だと困ることが多かったので、`control + 数字`を設定しています。\n\n設定しているのは\n\n- `^1` Maximize Window Left (ウィンドウを左半分に最大化)\n- `^2` Maximize Window Right (ウィンドウを右半分に最大化)\n- `^3` Maximize Window (ウィンドウを最大化)\n- `^4` Center Window (ウィンドウを中央に移動)\n- `^5` Maximize Window to Top Half (ウィンドウを上半分に最大化)\n- `^9` Restore old Window Size (ウィンドウを大きさを変える１つ前の大きさに戻す)\n\nの６つです。どの数字キーに何を割り当てるかは、好みでいいと思います。\n\n（今気づきましたが、複数デスクトップあまり関係ないですね...。）\n\n## さいごに\n\nどうでしたか？自分は今のところ、この設定で複数デスクトップまわりの操作は満足しています。\n\nただ、複数デスクトップ自体を追加するショートカットが設定できていないのは少し心残りです（`control + ↑`の後、`option`で✕マークがすぐ表示されるくらいしか知りません）。\n\n複数デスクトップ自体を簡単に追加する方法や、もし他にも何かいい感じの設定があれば教えて下さい〜:smile:\n\n\n\n\n\n",
+    "stock_count": 8,
+    "stock_users": [
+        "dohq",
+        "hisamekms",
+        "su_k",
+        "nilfigo",
+        "alice_night",
+        "tn-xyz",
+        "sako-j",
+        "panage"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/0cbda729ead4559760ec64ae744a5aef937e0b08/medium.jpg?1403645170",
+        "name": "Mac",
+        "url_name": "mac",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/ceb26984ced05353cd0bca892629f04ef6a487bb/medium.jpg?1422720109",
+        "name": "OSX",
+        "url_name": "osx",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/c78878d917bf422f983577a1366bcc6870848db8/medium.jpg?1387904862",
+        "name": "tips",
+        "url_name": "tips",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "BetterTouchTool",
+        "url_name": "bettertouchtool",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "ショートカット",
+        "url_name": "%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88",
+        "versions": []
+    }],
+    "title": "Macで複数デスクトップ利用時・移動時に極力ホームポジションを崩さないための設定集",
+    "tweet": true,
+    "updated_at_in_words": "7ヶ月",
+    "updated_at": "2016-02-16 21:13:08 +0900",
+    "url": "http://qiita.com/y-temp4/items/76ce0867987953601cff",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "76ce0867987953601cff"
+}, {
+    "body": "<p>「<a href=\"http://qiita.com/mizchi/items/4d25bc26def1719d52e6\" id=\"reference-1c5804dadaac216ee0df\">なぜ仮想DOMという概念が俺達の魂を震えさせるのか</a>」という記事の<a href=\"http://qiita.com/mizchi/items/4d25bc26def1719d52e6#%E5%AD%A6%E7%BF%92%E8%B3%87%E6%96%99\" id=\"reference-1c5804dadaac216ee0df\">学習資料</a>にある<a href=\"https://github.com/enaqx/awesome-react\" rel=\"nofollow\" target=\"_blank\">Awesome React</a>で、<a href=\"https://github.com/enaqx/awesome-react#react-general-tutorials\" rel=\"nofollow\" target=\"_blank\">React General Tutorials</a>の中の<a href=\"https://github.com/arkency/reactjs_koans\" rel=\"nofollow\" target=\"_blank\">React.js Koans</a>を一通りやったのでメモを残しておきます。リンクばかりですみません。</p>\n\n<p>React.js Koansは問題を解く形式で進めていくReactの学習教材です。日本語でざっくりとした概要を知りたい方は以下の記事あたりを読むといいかと思います。</p>\n\n<ul>\n<li><a href=\"http://qiita.com/morizotter/items/af65ec2bc50c2eb31e1e\" id=\"reference-56ad0a75bda563ee2ece\">Reactに慣れるためにReact.js Koansってのをやってみました（React初心者向け）</a></li>\n</ul>\n\n<h2>\n<span id=\"教材のインストール\" class=\"fragment\"></span><a href=\"#%E6%95%99%E6%9D%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\"><i class=\"fa fa-link\"></i></a>教材のインストール</h2>\n\n<div class=\"code-frame\" data-lang=\"sh\"><div class=\"highlight\"><pre>\n<span class=\"nv\">$ </span>git clone https://github.com/arkency/reactjs_koans.git\n<span class=\"nv\">$ </span><span class=\"nb\">cd </span>reactjs_koans\n<span class=\"nv\">$ </span>npm run setup\n</pre></div></div>\n\n<p>でセットアップをした後は、<code>npm run start</code>とか<code>npm run watch</code>などとして、後はブラウザとエディタを行き来しながら問題に答えていくだけなので楽です。</p>\n\n<p>exercises内のファイルをいじっていきます。</p>\n\n<h2>\n<span id=\"学習メモ\" class=\"fragment\"></span><a href=\"#%E5%AD%A6%E7%BF%92%E3%83%A1%E3%83%A2\"><i class=\"fa fa-link\"></i></a>学習メモ</h2>\n\n<h3>\n<span id=\"01-helloworldjsx\" class=\"fragment\"></span><a href=\"#01-helloworldjsx\"><i class=\"fa fa-link\"></i></a>01-HelloWorld.jsx</h3>\n\n<p>コメントアウトの説明を読むと、どうやらタグに気をつけて文章をちょこっと変えるだけということに気がつくはずです。</p>\n\n<p>最初なんで初心者でも簡単ですね。仮に失敗したとしても、エラーメッセージがテストを動かした結果に出るので修正しやすいと思います。</p>\n\n<h3>\n<span id=\"02-partieslistjsx\" class=\"fragment\"></span><a href=\"#02-partieslistjsx\"><i class=\"fa fa-link\"></i></a>02-PartiesList.jsx</h3>\n\n<p><code>ul</code>内に<code>li</code>を追加してclassName部分を変えるだけです。</p>\n\n<p>ここもまだ簡単ですね。</p>\n\n<h3>\n<span id=\"03-whatsyournamejsx\" class=\"fragment\"></span><a href=\"#03-whatsyournamejsx\"><i class=\"fa fa-link\"></i></a>03-WhatsYourName.jsx</h3>\n\n<p>ちょっと長くなります。<code>State</code>について触れます。以降、大活躍する<code>setState</code>の初登場です。</p>\n\n<p>コメントアウトにあるように、<code>console.log(event.target.value)</code>するとわかりやすいです。</p>\n\n<p>自分は条件分岐の結果、勘違いして<code>\"Hello Hey there. Enter your name.\"</code>のように表示していたので無駄に時間がかかりました…。</p>\n\n<h3>\n<span id=\"04-quizjsx\" class=\"fragment\"></span><a href=\"#04-quizjsx\"><i class=\"fa fa-link\"></i></a>04-Quiz.jsx</h3>\n\n<p>クイズに答えるだけのチャプターです。ブラウザは使いません。</p>\n\n<p><code>true/false</code>で答える問題は適当に答えても50%の確率で正解しますが、ちゃんと考えて答えましょう。</p>\n\n<p>個人的にこの<code>true/false</code>で答える系の問題が比較的難しかったです。わからなかったらきちんと前の１〜３に戻って説明を読むべきです。</p>\n\n<h3>\n<span id=\"05-challenge-grocerylist-part-1jsx\" class=\"fragment\"></span><a href=\"#05-challenge-grocerylist-part-1jsx\"><i class=\"fa fa-link\"></i></a>05-Challenge-GroceryList-part-1.jsx</h3>\n\n<p>最初に</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"c1\">// This exercise is a bit bigger than the previous ones.</span>\n</pre></div></div>\n\n<p>とあるように、これまでに比べ量が増え、一気にReactっぽくなったような気がしました。</p>\n\n<p><code>this.props.hoge</code>といった部分を理解していないときつそうです。どことどこがつながっているか、よく確認しながらやりました。</p>\n\n<h3>\n<span id=\"05-challenge-grocerylist-part-2jsx\" class=\"fragment\"></span><a href=\"#05-challenge-grocerylist-part-2jsx\"><i class=\"fa fa-link\"></i></a>05-Challenge-GroceryList-part-2.jsx</h3>\n\n<p>インプットフォームに文字を入力して追加、という機能を実装します。</p>\n\n<p>自分は配列操作の部分で少し試行錯誤しましたが、慣れている人だと一瞬だと思います。</p>\n\n<h3>\n<span id=\"05-challenge-grocerylist-part-3jsx\" class=\"fragment\"></span><a href=\"#05-challenge-grocerylist-part-3jsx\"><i class=\"fa fa-link\"></i></a>05-Challenge-GroceryList-part-3.jsx</h3>\n\n<p>追加したアイテムを全部消すボタンの実装。前回ができていれば瞬殺かと思います。</p>\n\n<h3>\n<span id=\"05-challenge-grocerylist-part-4jsx\" class=\"fragment\"></span><a href=\"#05-challenge-grocerylist-part-4jsx\"><i class=\"fa fa-link\"></i></a>05-Challenge-GroceryList-part-4.jsx</h3>\n\n<p>追加したアイテムに対して、やった・やっていない（今回だと用意した・用意していない？になるのか）を切り替える機能を実装します。</p>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4efd34f1-fb03-9df0-b12f-1885a8bb257e.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4efd34f1-fb03-9df0-b12f-1885a8bb257e.png\" alt=\"スクリーンショット 2016-03-01 0.53.14.png\"></a></p>\n\n<p>(アイテム自身をクリックすると切り替わります)</p>\n\n<p>これも、前回のとかが出来ていれば楽勝・・・かと思ったのですが、自分は思いの外時間がかかってしまいました。。</p>\n\n<p>最初、<code>map</code>とか使うのかな？と思ったのですが、よく考えたら切り替えたいアイテムに対して<code>groceryIndex</code>が用意されているので直接それだけ切り替えればOKでした。</p>\n\n<p>ちょっと頭が硬かったです。</p>\n\n<h3>\n<span id=\"06-rendercomponentjsx\" class=\"fragment\"></span><a href=\"#06-rendercomponentjsx\"><i class=\"fa fa-link\"></i></a>06-RenderComponent.jsx</h3>\n\n<p><code>ReactElement</code>とか<code>ReactComponent</code>の説明。</p>\n\n<p>今までは特に説明がなかった？ので、確認みたいなものだと思います。<code>build/index.html</code>とか見ると理解が深まる？かもしれません。</p>\n\n<h3>\n<span id=\"07-lifecyclemethodsjsjsx\" class=\"fragment\"></span><a href=\"#07-lifecyclemethodsjsjsx\"><i class=\"fa fa-link\"></i></a>07-LifecycleMethods.js.jsx</h3>\n\n<p>ReactのLifecycleの話。正直あまり良くわかっていないため、今調べると</p>\n\n<ul>\n<li><a href=\"http://qiita.com/koba04/items/66e9c5be8f2e31f28461\" id=\"reference-ff874973357f2db8139f\">React.jsのComponent Lifecycle</a></li>\n</ul>\n\n<p>がヒットしました。やはり<a href=\"http://qiita.com/advent-calendar/2014/reactjs\">一人React.js Advent Calendar 2014</a>はReact初心者にとっては神記事集っぽい。</p>\n\n<p>問題自体は<code>console.log</code>を書くだけなのですぐ終わるでしょう。大切なのは上の記事にあるような説明を理解することだと思います。</p>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>これで一通り終了したわけですが、自分は<code>05-Challenge-GroceryList-part-4.jsx</code>の13行目以降にあるような</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"c1\">// === Tasks below aren't required for proceeding in Koans, but we encourage you to try ===</span>\n</pre></div></div>\n\n<p>には取り組んでおらず、テストが通ることだけ意識してやったので、今後暇な時にでも今回触れなかった部分を確認したいです。</p>\n\n<p>Reactは（ほぼ英語教材だけど）学習資料が多いように思うため、今後も積極的にいろいろ試そうと思います。</p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1456763068,
+    "created_at_in_words": "6ヶ月",
+    "created_at": "2016-03-01 01:24:28 +0900",
+    "gist_url": null,
+    "id": 373844,
+    "private": false,
+    "raw_body": "「[なぜ仮想DOMという概念が俺達の魂を震えさせるのか](http://qiita.com/mizchi/items/4d25bc26def1719d52e6)」という記事の[学習資料](http://qiita.com/mizchi/items/4d25bc26def1719d52e6#%E5%AD%A6%E7%BF%92%E8%B3%87%E6%96%99)にある[Awesome React](https://github.com/enaqx/awesome-react)で、[React General Tutorials](https://github.com/enaqx/awesome-react#react-general-tutorials)の中の[React.js Koans](https://github.com/arkency/reactjs_koans)を一通りやったのでメモを残しておきます。リンクばかりですみません。\n\nReact.js Koansは問題を解く形式で進めていくReactの学習教材です。日本語でざっくりとした概要を知りたい方は以下の記事あたりを読むといいかと思います。\n\n- [Reactに慣れるためにReact.js Koansってのをやってみました（React初心者向け）](http://qiita.com/morizotter/items/af65ec2bc50c2eb31e1e)\n\n## 教材のインストール\n\n```sh\n$ git clone https://github.com/arkency/reactjs_koans.git\n$ cd reactjs_koans\n$ npm run setup\n```\n\nでセットアップをした後は、`npm run start`とか`npm run watch`などとして、後はブラウザとエディタを行き来しながら問題に答えていくだけなので楽です。\n\nexercises内のファイルをいじっていきます。\n\n## 学習メモ\n### 01-HelloWorld.jsx\n\nコメントアウトの説明を読むと、どうやらタグに気をつけて文章をちょこっと変えるだけということに気がつくはずです。\n\n最初なんで初心者でも簡単ですね。仮に失敗したとしても、エラーメッセージがテストを動かした結果に出るので修正しやすいと思います。\n\n### 02-PartiesList.jsx\n\n`ul`内に`li`を追加してclassName部分を変えるだけです。\n\nここもまだ簡単ですね。\n\n### 03-WhatsYourName.jsx\n\nちょっと長くなります。`State`について触れます。以降、大活躍する`setState`の初登場です。\n\nコメントアウトにあるように、`console.log(event.target.value)`するとわかりやすいです。\n\n自分は条件分岐の結果、勘違いして`\"Hello Hey there. Enter your name.\"`のように表示していたので無駄に時間がかかりました…。\n\n### 04-Quiz.jsx\n\nクイズに答えるだけのチャプターです。ブラウザは使いません。\n\n`true/false`で答える問題は適当に答えても50%の確率で正解しますが、ちゃんと考えて答えましょう。\n\n個人的にこの`true/false`で答える系の問題が比較的難しかったです。わからなかったらきちんと前の１〜３に戻って説明を読むべきです。\n\n### 05-Challenge-GroceryList-part-1.jsx\n\n最初に\n\n```js\n// This exercise is a bit bigger than the previous ones.\n```\nとあるように、これまでに比べ量が増え、一気にReactっぽくなったような気がしました。\n\n`this.props.hoge`といった部分を理解していないときつそうです。どことどこがつながっているか、よく確認しながらやりました。\n\n### 05-Challenge-GroceryList-part-2.jsx\n\nインプットフォームに文字を入力して追加、という機能を実装します。\n\n自分は配列操作の部分で少し試行錯誤しましたが、慣れている人だと一瞬だと思います。\n\n### 05-Challenge-GroceryList-part-3.jsx\n\n追加したアイテムを全部消すボタンの実装。前回ができていれば瞬殺かと思います。\n\n### 05-Challenge-GroceryList-part-4.jsx\n\n追加したアイテムに対して、やった・やっていない（今回だと用意した・用意していない？になるのか）を切り替える機能を実装します。\n\n![スクリーンショット 2016-03-01 0.53.14.png](https://qiita-image-store.s3.amazonaws.com/0/90682/4efd34f1-fb03-9df0-b12f-1885a8bb257e.png)\n\n(アイテム自身をクリックすると切り替わります)\n\nこれも、前回のとかが出来ていれば楽勝・・・かと思ったのですが、自分は思いの外時間がかかってしまいました。。\n\n最初、`map`とか使うのかな？と思ったのですが、よく考えたら切り替えたいアイテムに対して`groceryIndex`が用意されているので直接それだけ切り替えればOKでした。\n\nちょっと頭が硬かったです。\n\n### 06-RenderComponent.jsx\n\n`ReactElement`とか`ReactComponent`の説明。\n\n今までは特に説明がなかった？ので、確認みたいなものだと思います。`build/index.html`とか見ると理解が深まる？かもしれません。\n\n### 07-LifecycleMethods.js.jsx\n\nReactのLifecycleの話。正直あまり良くわかっていないため、今調べると\n\n- [React.jsのComponent Lifecycle](http://qiita.com/koba04/items/66e9c5be8f2e31f28461)\n\nがヒットしました。やはり[一人React.js Advent Calendar 2014](http://qiita.com/advent-calendar/2014/reactjs)はReact初心者にとっては神記事集っぽい。\n\n問題自体は`console.log`を書くだけなのですぐ終わるでしょう。大切なのは上の記事にあるような説明を理解することだと思います。\n\n## さいごに\n\nこれで一通り終了したわけですが、自分は`05-Challenge-GroceryList-part-4.jsx`の13行目以降にあるような\n\n```js\n// === Tasks below aren't required for proceeding in Koans, but we encourage you to try ===\n```\n\nには取り組んでおらず、テストが通ることだけ意識してやったので、今後暇な時にでも今回触れなかった部分を確認したいです。\n\nReactは（ほぼ英語教材だけど）学習資料が多いように思うため、今後も積極的にいろいろ試そうと思います。\n",
+    "stock_count": 9,
+    "stock_users": [
+        "morozumi_h",
+        "ossan-engineer",
+        "Ichi1234567@github",
+        "JunSuzukiJapan",
+        "73log",
+        "xkumiyu",
+        "emoyan",
+        "ymiyamae",
+        "masaponjp"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "チュートリアル",
+        "url_name": "%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/5a70092ac765f1a46e2312814489acffc3100e68/medium.jpg?1422719113",
+        "name": "reactjs",
+        "url_name": "reactjs",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/cbf495549d731f9401c87e6cac0f5c88cd21b682/medium.jpg?1438055112",
+        "name": "React",
+        "url_name": "react",
+        "versions": []
+    }],
+    "title": "【React学習教材】React.js Koansのちょっとしたヒントとかメモとか",
+    "tweet": true,
+    "updated_at_in_words": "6ヶ月",
+    "updated_at": "2016-03-01 01:24:28 +0900",
+    "url": "http://qiita.com/y-temp4/items/7ba180465845d3080316",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "7ba180465845d3080316"
+}, {
+    "body": "<p>railsが4系の場合、<code>config/application.rb</code>と<code>config/initializers/session_store.rb</code>を変えるだけで良い。</p>\n\n<div class=\"code-frame\" data-lang=\"ruby\">\n<div class=\"code-lang\"><span class=\"bold\">config/application.rb</span></div>\n<div class=\"highlight\"><pre>\n<span class=\"nb\">require</span> <span class=\"no\">File</span><span class=\"o\">.</span><span class=\"n\">expand_path</span><span class=\"p\">(</span><span class=\"s1\">'../boot'</span><span class=\"p\">,</span> <span class=\"bp\">__FILE__</span><span class=\"p\">)</span>\n\n<span class=\"nb\">require</span> <span class=\"s1\">'rails/all'</span>\n\n<span class=\"c1\"># Require the gems listed in Gemfile, including any gems</span>\n<span class=\"c1\"># you've limited to :test, :development, or :production.</span>\n<span class=\"no\">Bundler</span><span class=\"o\">.</span><span class=\"n\">require</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"no\">Rails</span><span class=\"o\">.</span><span class=\"n\">groups</span><span class=\"p\">)</span>\n\n<span class=\"k\">module</span> <span class=\"nn\">SampleApp</span> <span class=\"c1\">### ここを変える </span>\n  <span class=\"k\">class</span> <span class=\"nc\">Application</span> <span class=\"o\">&lt;</span> <span class=\"no\">Rails</span><span class=\"o\">::</span><span class=\"no\">Application</span>\n    <span class=\"c1\"># Settings in config/environments/* take precedence over those specified here.</span>\n    <span class=\"c1\"># Application configuration should go into files in config/initializers</span>\n    <span class=\"c1\"># -- all .rb files in that directory are automatically loaded.</span>\n\n    <span class=\"c1\"># Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.</span>\n    <span class=\"c1\"># Run \"rake -D time\" for a list of tasks for finding time zone names. Default is UTC.</span>\n    <span class=\"c1\"># config.time_zone = 'Central Time (US &amp; Canada)'</span>\n\n    <span class=\"c1\"># The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.</span>\n    <span class=\"c1\"># config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]</span>\n    <span class=\"c1\"># config.i18n.default_locale = :de</span>\n\n    <span class=\"c1\"># Do not swallow errors in after_commit/after_rollback callbacks.</span>\n    <span class=\"n\">config</span><span class=\"o\">.</span><span class=\"n\">active_record</span><span class=\"o\">.</span><span class=\"n\">raise_in_transactional_callbacks</span> <span class=\"o\">=</span> <span class=\"kp\">true</span>\n  <span class=\"k\">end</span>\n<span class=\"k\">end</span>\n</pre></div>\n</div>\n\n<div class=\"code-frame\" data-lang=\"ruby\">\n<div class=\"code-lang\"><span class=\"bold\">config/initializers/session_store.rb</span></div>\n<div class=\"highlight\"><pre>\n<span class=\"c1\"># Be sure to restart your server when you modify this file.</span>\n\n<span class=\"no\">Rails</span><span class=\"o\">.</span><span class=\"n\">application</span><span class=\"o\">.</span><span class=\"n\">config</span><span class=\"o\">.</span><span class=\"n\">session_store</span> <span class=\"ss\">:cookie_store</span><span class=\"p\">,</span> <span class=\"ss\">key</span><span class=\"p\">:</span> <span class=\"s1\">'_sample_app_session'</span> <span class=\"c1\">### ここを変える</span>\n</pre></div>\n</div>\n\n<p>ただし、<code>config/database.yml</code>にあるDB名は変更されないため、必要であれば手動で変更する。</p>\n\n<p>3系以下の場合は、<a href=\"https://github.com/morshedalam/rename\" rel=\"nofollow\" target=\"_blank\">rename</a>というgemを使う。</p>\n\n<div class=\"code-frame\" data-lang=\"ruby\">\n<div class=\"code-lang\"><span class=\"bold\">Gemfile</span></div>\n<div class=\"highlight\"><pre>\n<span class=\"n\">gem</span> <span class=\"s1\">'rename'</span>\n</pre></div>\n</div>\n\n<p>で<code>bundle install</code>した後に</p>\n\n<div class=\"code-frame\" data-lang=\"shell\"><div class=\"highlight\"><pre>\nrails g rename:app_to New-Name\n</pre></div></div>\n\n<p>とする。ただし、<code>-</code>と<code>_</code>の区別がついていないっぽいことに注意する。名前に<code>-</code>とか<code>_</code>がある場合は<code>rails g rename:app_to New-Name</code>した後の挙動を見て、必要に応じて手動で直す必要がある。</p>\n\n<p>このgemを使った場合でもDB名は変わらないため<code>config/database.yml</code>を必要に応じて手動で編集する。</p>\n\n<h2>\n<span id=\"参考\" class=\"fragment\"></span><a href=\"#%E5%8F%82%E8%80%83\"><i class=\"fa fa-link\"></i></a>参考</h2>\n\n<ul>\n<li><a href=\"http://loumo.jp/wp/archive/20141223002853/\" class=\"autolink\" rel=\"nofollow\" target=\"_blank\">http://loumo.jp/wp/archive/20141223002853/</a></li>\n</ul>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1458634323,
+    "created_at_in_words": "6ヶ月",
+    "created_at": "2016-03-22 17:12:03 +0900",
+    "gist_url": null,
+    "id": 379509,
+    "private": false,
+    "raw_body": "railsが4系の場合、`config/application.rb`と`config/initializers/session_store.rb`を変えるだけで良い。\n\n```ruby:config/application.rb\nrequire File.expand_path('../boot', __FILE__)\n\nrequire 'rails/all'\n\n# Require the gems listed in Gemfile, including any gems\n# you've limited to :test, :development, or :production.\nBundler.require(*Rails.groups)\n\nmodule SampleApp ### ここを変える \n  class Application < Rails::Application\n    # Settings in config/environments/* take precedence over those specified here.\n    # Application configuration should go into files in config/initializers\n    # -- all .rb files in that directory are automatically loaded.\n\n    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.\n    # Run \"rake -D time\" for a list of tasks for finding time zone names. Default is UTC.\n    # config.time_zone = 'Central Time (US & Canada)'\n\n    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.\n    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]\n    # config.i18n.default_locale = :de\n\n    # Do not swallow errors in after_commit/after_rollback callbacks.\n    config.active_record.raise_in_transactional_callbacks = true\n  end\nend\n```\n\n```ruby:config/initializers/session_store.rb\n# Be sure to restart your server when you modify this file.\n\nRails.application.config.session_store :cookie_store, key: '_sample_app_session' ### ここを変える\n``` \n\nただし、`config/database.yml`にあるDB名は変更されないため、必要であれば手動で変更する。\n\n\n3系以下の場合は、[rename](https://github.com/morshedalam/rename)というgemを使う。\n\n```ruby:Gemfile\ngem 'rename'\n```\nで`bundle install`した後に\n\n```shell\nrails g rename:app_to New-Name\n```\n\nとする。ただし、`-`と`_`の区別がついていないっぽいことに注意する。名前に`-`とか`_`がある場合は`rails g rename:app_to New-Name`した後の挙動を見て、必要に応じて手動で直す必要がある。\n\nこのgemを使った場合でもDB名は変わらないため`config/database.yml`を必要に応じて手動で編集する。\n\n## 参考\n- http://loumo.jp/wp/archive/20141223002853/\n",
+    "stock_count": 2,
+    "stock_users": [
+        "noriaki",
+        "morika-t"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/5310a6d3a8555d87a7060deec2c9e128bf3b3372/medium.jpg?1364838150",
+        "name": "Rails",
+        "url_name": "rails",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/a2997c4ff129dfd74fdaba2dcd982d93402f0b00/medium.jpg?1468113628",
+        "name": "Gem",
+        "url_name": "gem",
+        "versions": []
+    }],
+    "title": "Railsアプリの名称を変える方法",
+    "tweet": true,
+    "updated_at_in_words": "6ヶ月",
+    "updated_at": "2016-03-22 17:12:03 +0900",
+    "url": "http://qiita.com/y-temp4/items/b1f2c7843b8223ac386b",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "b1f2c7843b8223ac386b"
+}, {
+    "body": "<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/0f3fe0da-9d95-d5fe-9f49-1a1952b0314d.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/0f3fe0da-9d95-d5fe-9f49-1a1952b0314d.png\" alt=\"logo-29311b97dc1dec1c4262d1e75a94c9db.png\"></a></p>\n\n<p>新生活応援ということで、新しくプログラミングを始める方や、エディタを変えようとしている方を対象に私のおすすめするエディタを紹介しようと思います。</p>\n\n<p>紹介するエディタは<a href=\"https://atom.io/\" rel=\"nofollow\" target=\"_blank\">Atom</a>で、最近（2016/3/17）バージョン1.6.0がリリースされてより使いやすくなりました<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n\n<p>今回はそんなAtomの良さを、一部<a href=\"https://www.sublimetext.com/\" rel=\"nofollow\" target=\"_blank\">Sublime Text</a>とも比較しながら説明していこうと思います。</p>\n\n<h2>\n<span id=\"-私のエディタ事情\" class=\"fragment\"></span><a href=\"#-%E7%A7%81%E3%81%AE%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E4%BA%8B%E6%83%85\"><i class=\"fa fa-link\"></i></a><i class=\"fa fa-pencil-square-o\"></i> 私のエディタ事情</h2>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4c90c197-72cc-4b99-8290-45cb1025d18b.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4c90c197-72cc-4b99-8290-45cb1025d18b.png\" alt=\"Sublime_Text_Logo.png\"></a></p>\n\n<p>個人的な話になりますが、自分はこれまで主にSublime Textを使ってきて、わりと最近Atomを使うようになりました。</p>\n\n<p>Atomが出た当初の感想としては、</p>\n\n<ul>\n<li>起動が遅い</li>\n<li>動作が不安定</li>\n</ul>\n\n<p>ということもあって、少し使ってすぐ「やっぱりSublime最高！」となったのですが、少し前から逆にSublime側の動作の不安定さや、細かい設定などでの不具合が気になってAtomをちょくちょく使うようになりました。</p>\n\n<p>そして、今ではAtomの使用感にどっぷりハマってしまっています...。</p>\n\n<h2>\n<span id=\"-atomエディタを使うメリット\" class=\"fragment\"></span><a href=\"#-atom%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%82%92%E4%BD%BF%E3%81%86%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88\"><i class=\"fa fa-link\"></i></a><i class=\"fa fa-check\"></i> Atomエディタを使うメリット</h2>\n\n<p>それでは、なぜSublime Text ユーザーだった私がAtomに乗り換えるに至ったのか、順に説明していこうと思います<img class=\"emoji\" title=\":sparkles:\" alt=\":sparkles:\" src=\"https://cdn.qiita.com/emoji/unicode/2728.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n\n<h3>\n<span id=\"1-guiによる設定が綺麗で見やすくわかりやすい\" class=\"fragment\"></span><a href=\"#1-gui%E3%81%AB%E3%82%88%E3%82%8B%E8%A8%AD%E5%AE%9A%E3%81%8C%E7%B6%BA%E9%BA%97%E3%81%A7%E8%A6%8B%E3%82%84%E3%81%99%E3%81%8F%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84\"><i class=\"fa fa-link\"></i></a>1. GUIによる設定が綺麗で見やすく、わかりやすい</h3>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4c65947e-af07-56a5-df3a-63e1da730ea7.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/4c65947e-af07-56a5-df3a-63e1da730ea7.png\" alt=\"スクリーンショット 2016-03-22 17.42.04.png\"></a></p>\n\n<p>Atomは<code>command + ,</code>で開くセッティングなど、細かな設定画面が見やすくて重宝しています。</p>\n\n<p>また、よく設定される項目が最初からまとめられており（フォントサイズなど）、設定に関してはSublimeよりも断然しやすくなっているように感じます。</p>\n\n<h3>\n<span id=\"2-パッケージが豊富で管理しやすい\" class=\"fragment\"></span><a href=\"#2-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%8C%E8%B1%8A%E5%AF%8C%E3%81%A7%E7%AE%A1%E7%90%86%E3%81%97%E3%82%84%E3%81%99%E3%81%84\"><i class=\"fa fa-link\"></i></a>2. パッケージが豊富で管理しやすい</h3>\n\n<p>これはSublimeにも言えることですが、Atomもかなりパッケージが豊富で使いやすくカスタマイズできます。</p>\n\n<p>最初は、<a href=\"http://qiita.com/snowsunny/items/f40c3291a580f3215797\" id=\"reference-984a6ba38c6f76d8806d\">【超おすすめ！！】Atomのパッケージ、テーマ、キーバインディング、設定を紹介してみる（※随時更新）</a>あたりを参考にパッケージを入れていけば良いでしょう。</p>\n\n<p>また、<code>apm</code>というパッケージマネージャがあり、</p>\n\n<div class=\"code-frame\" data-lang=\"shell\"><div class=\"highlight\"><pre>\n$ apm install hogehoge\n</pre></div></div>\n\n<p>でパッケージを入れられます<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n\n<p>また、これにより「<a href=\"http://mae.chab.in/archives/2605\" rel=\"nofollow\" target=\"_blank\">Atomの便利なパッケージ管理方法 – GitHubやスターを利用して他の開発環境でも使えるようにしておく</a>」といった記事にあるような管理方法が可能になるので、開発環境を簡単に整えられるのも嬉しいですね。</p>\n\n<h3>\n<span id=\"3-ショートカットが使いやすい\" class=\"fragment\"></span><a href=\"#3-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%84%E3%82%84%E3%81%99%E3%81%84\"><i class=\"fa fa-link\"></i></a>3. ショートカットが使いやすい</h3>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/c2d96018-7b2a-eebd-b718-39b096be2a25.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/c2d96018-7b2a-eebd-b718-39b096be2a25.png\" alt=\"スクリーンショット 2016-03-22 17.43.13.png\"></a></p>\n\n<p>Atomは<code>command + p</code>や<code>command + shift + p</code>で開かれるコマンドパレットを始めとしたショートカットがかなり使いやすく重宝しています。</p>\n\n<p>これらは数があるので最初から全部使いこなすのは大変かもしれませんが、少しずつでも使えるようになってくると作業効率がかなり向上すると思います。</p>\n\n<ul>\n<li><a href=\"http://qiita.com/YusukeHosonuma/items/0f687b16f0d5eeb0c18f\" id=\"reference-a98fe700a5e1eec598c3\">[Atom] キーボードショートカット個人的まとめ（v1.3.2）</a></li>\n<li><a href=\"http://qiita.com/4cres/items/cb3356ea0de2835957f0\" id=\"reference-6f862e576a00a99a0594\">【Atom】ショートカット（Win・Mac）とおすすめパッケージ</a></li>\n<li><a href=\"http://qiita.com/yamagh/items/0fb4e7bbbd3c9ef4d855\" id=\"reference-8cc510375d62d089f58c\">[Mac] Atomの基本的なショートカットキー</a></li>\n</ul>\n\n<p>最後に、特に利用率の高いショートカットを少しだけまとめておきます。</p>\n\n<table>\n<thead>\n<tr>\n<th style=\"text-align: center\">操作</th>\n<th style=\"text-align: center\">キー</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center\">タブの移動</td>\n<td style=\"text-align: center\">command + shift + [ or ]</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">ファイル内検索を開く</td>\n<td style=\"text-align: center\">command + f</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">ファイル横断検索を開く</td>\n<td style=\"text-align: center\">command + shift + f</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">コメントアウトを切り替える</td>\n<td style=\"text-align: center\">command + /</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">行を移動</td>\n<td style=\"text-align: center\">command + control + ↑ or ↓</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">行を複製</td>\n<td style=\"text-align: center\">command + shift + d</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">コマンドパレットを開く</td>\n<td style=\"text-align: center\">command + shift + p</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">設定を開く</td>\n<td style=\"text-align: center\">command + ,</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">インデントを追加・削除</td>\n<td style=\"text-align: center\">command + [ or ]</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">上・下に空行を追加</td>\n<td style=\"text-align: center\">command + shift + enter <br> or <br> command + enter</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">行の削除</td>\n<td style=\"text-align: center\">command + shift + k</td>\n</tr>\n<tr>\n<td style=\"text-align: center\">プロジェクト内のファイルを開く</td>\n<td style=\"text-align: center\">command + p or command + t</td>\n</tr>\n</tbody>\n</table>\n\n<p>かなり適当に思いついた順で挙げたのですが、どれも高頻度で（自分は）使うので覚えておいたほうがいいです。</p>\n\n<h3>\n<span id=\"4-見た目が良い\" class=\"fragment\"></span><a href=\"#4-%E8%A6%8B%E3%81%9F%E7%9B%AE%E3%81%8C%E8%89%AF%E3%81%84\"><i class=\"fa fa-link\"></i></a>4. 見た目が良い</h3>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/a005b68c-d73c-4429-87a1-8699d8f21986.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/a005b68c-d73c-4429-87a1-8699d8f21986.png\" alt=\"スクリーンショット 2016-03-22 17.44.10.png\"></a></p>\n\n<p>Sublimeもなかなかいい感じのデザインだと思いますが、それなりにAtomを使って自分は「Atomは細部までデザインが凝っている」と感じました。</p>\n\n<p>例えば、ボタンにホバーしたときの説明とか、タブを移動した時のエフェクトとかがSumlimeと比べるとかなり凝っているように感じます。</p>\n\n<p>テーマも豊富で、自分は好んでmonokai系のテーマを使うので良かったら以下の記事あたりを参考にしてください。</p>\n\n<ul>\n<li><a href=\"http://qiita.com/y-temp4/items/d9cedcaa44cbd4c118e0\" id=\"reference-55ed349267e5216a474a\">Atomでmonokaiテーマ使いたい人向けのおすすめテーマと組み合わせ集（UI Theme + Syntax Theme）</a></li>\n</ul>\n\n<p>　</p>\n\n<h2>\n<span id=\"さいごに\" class=\"fragment\"></span><a href=\"#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB\"><i class=\"fa fa-link\"></i></a>さいごに</h2>\n\n<p>いかがでしたか？</p>\n\n<p>一応、Atomのデメリットも上げておくと</p>\n\n<ul>\n<li>起動時の動作がまだ少し遅い(Sublimeと比べると差は歴然)</li>\n<li>タブを開き過ぎると固まる</li>\n</ul>\n\n<p>といった感じで、まだ改善すべき部分は多いかもしれません。しかし、これらのデメリットを考慮しても現状Atomの方がSublimeより使いやすいな〜と思っています。</p>\n\n<p>「Atomは前に使って動作が不安定だったしいいかな」という方も、この機会に是非もう一度使ってみることをおすすめします<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1458644953,
+    "created_at_in_words": "6ヶ月",
+    "created_at": "2016-03-22 20:09:13 +0900",
+    "gist_url": null,
+    "id": 379556,
+    "private": false,
+    "raw_body": "![logo-29311b97dc1dec1c4262d1e75a94c9db.png](https://qiita-image-store.s3.amazonaws.com/0/90682/0f3fe0da-9d95-d5fe-9f49-1a1952b0314d.png)\n\n新生活応援ということで、新しくプログラミングを始める方や、エディタを変えようとしている方を対象に私のおすすめするエディタを紹介しようと思います。\n\n紹介するエディタは[Atom](https://atom.io/)で、最近（2016/3/17）バージョン1.6.0がリリースされてより使いやすくなりました:smile:\n\n今回はそんなAtomの良さを、一部[Sublime Text](https://www.sublimetext.com/)とも比較しながら説明していこうと思います。\n\n## <i class=\"fa fa-pencil-square-o\"></i> 私のエディタ事情\n\n![Sublime_Text_Logo.png](https://qiita-image-store.s3.amazonaws.com/0/90682/4c90c197-72cc-4b99-8290-45cb1025d18b.png)\n\n\n個人的な話になりますが、自分はこれまで主にSublime Textを使ってきて、わりと最近Atomを使うようになりました。\n\nAtomが出た当初の感想としては、\n\n- 起動が遅い\n- 動作が不安定\n\nということもあって、少し使ってすぐ「やっぱりSublime最高！」となったのですが、少し前から逆にSublime側の動作の不安定さや、細かい設定などでの不具合が気になってAtomをちょくちょく使うようになりました。\n\nそして、今ではAtomの使用感にどっぷりハマってしまっています...。\n\n## <i class=\"fa fa-check\"></i> Atomエディタを使うメリット\n\nそれでは、なぜSublime Text ユーザーだった私がAtomに乗り換えるに至ったのか、順に説明していこうと思います:sparkles:\n\n### 1. GUIによる設定が綺麗で見やすく、わかりやすい\n\n![スクリーンショット 2016-03-22 17.42.04.png](https://qiita-image-store.s3.amazonaws.com/0/90682/4c65947e-af07-56a5-df3a-63e1da730ea7.png)\n\n\nAtomは`command + ,`で開くセッティングなど、細かな設定画面が見やすくて重宝しています。\n\nまた、よく設定される項目が最初からまとめられており（フォントサイズなど）、設定に関してはSublimeよりも断然しやすくなっているように感じます。\n\n### 2. パッケージが豊富で管理しやすい\n\nこれはSublimeにも言えることですが、Atomもかなりパッケージが豊富で使いやすくカスタマイズできます。\n\n最初は、[【超おすすめ！！】Atomのパッケージ、テーマ、キーバインディング、設定を紹介してみる（※随時更新）](http://qiita.com/snowsunny/items/f40c3291a580f3215797)あたりを参考にパッケージを入れていけば良いでしょう。\n\nまた、`apm`というパッケージマネージャがあり、\n\n```shell\n$ apm install hogehoge\n```\n\nでパッケージを入れられます:smile:\n\nまた、これにより「[Atomの便利なパッケージ管理方法 – GitHubやスターを利用して他の開発環境でも使えるようにしておく](http://mae.chab.in/archives/2605)」といった記事にあるような管理方法が可能になるので、開発環境を簡単に整えられるのも嬉しいですね。\n\n### 3. ショートカットが使いやすい\n\n![スクリーンショット 2016-03-22 17.43.13.png](https://qiita-image-store.s3.amazonaws.com/0/90682/c2d96018-7b2a-eebd-b718-39b096be2a25.png)\n\n\nAtomは`command + p`や`command + shift + p`で開かれるコマンドパレットを始めとしたショートカットがかなり使いやすく重宝しています。\n\nこれらは数があるので最初から全部使いこなすのは大変かもしれませんが、少しずつでも使えるようになってくると作業効率がかなり向上すると思います。\n\n\n\n- [[Atom] キーボードショートカット個人的まとめ（v1.3.2）](http://qiita.com/YusukeHosonuma/items/0f687b16f0d5eeb0c18f)\n- [【Atom】ショートカット（Win・Mac）とおすすめパッケージ](http://qiita.com/4cres/items/cb3356ea0de2835957f0)\n- [[Mac] Atomの基本的なショートカットキー](http://qiita.com/yamagh/items/0fb4e7bbbd3c9ef4d855)\n\n最後に、特に利用率の高いショートカットを少しだけまとめておきます。\n\n| 操作 | キー |\n|:-:|:-:|\n| タブの移動  |  command + shift + [ or ] |\n| ファイル内検索を開く  | command + f  |\n| ファイル横断検索を開く | command + shift + f |\n| コメントアウトを切り替える | command + / |\n| 行を移動 | command + control + ↑ or ↓ |\n| 行を複製 | command + shift + d |\n| コマンドパレットを開く | command + shift + p |\n| 設定を開く | command + , |\n| インデントを追加・削除 | command + [ or ] |\n| 上・下に空行を追加 | command + shift + enter <br> or <br> command + enter|\n| 行の削除 | command + shift + k |\n| プロジェクト内のファイルを開く | command + p or command + t |\n\nかなり適当に思いついた順で挙げたのですが、どれも高頻度で（自分は）使うので覚えておいたほうがいいです。\n\n### 4. 見た目が良い\n\n![スクリーンショット 2016-03-22 17.44.10.png](https://qiita-image-store.s3.amazonaws.com/0/90682/a005b68c-d73c-4429-87a1-8699d8f21986.png)\n\n\nSublimeもなかなかいい感じのデザインだと思いますが、それなりにAtomを使って自分は「Atomは細部までデザインが凝っている」と感じました。\n\n例えば、ボタンにホバーしたときの説明とか、タブを移動した時のエフェクトとかがSumlimeと比べるとかなり凝っているように感じます。\n\nテーマも豊富で、自分は好んでmonokai系のテーマを使うので良かったら以下の記事あたりを参考にしてください。\n\n- [Atomでmonokaiテーマ使いたい人向けのおすすめテーマと組み合わせ集（UI Theme + Syntax Theme）](http://qiita.com/y-temp4/items/d9cedcaa44cbd4c118e0)\n\n　\n## さいごに\n\nいかがでしたか？\n\n一応、Atomのデメリットも上げておくと\n\n- 起動時の動作がまだ少し遅い(Sublimeと比べると差は歴然)\n- タブを開き過ぎると固まる\n\nといった感じで、まだ改善すべき部分は多いかもしれません。しかし、これらのデメリットを考慮しても現状Atomの方がSublimeより使いやすいな〜と思っています。\n\n「Atomは前に使って動作が不安定だったしいいかな」という方も、この機会に是非もう一度使ってみることをおすすめします:smile:\n\n",
+    "stock_count": 54,
+    "stock_users": [
+        "morika-t",
+        "poad1010",
+        "haiju",
+        "nxax@github",
+        "micchyboy",
+        "A-gen",
+        "sayama0402",
+        "kajitack",
+        "perlunit",
+        "robotypetwo",
+        "msx2mac",
+        "juve_534",
+        "shun-k1331",
+        "kaolyn",
+        "Neos21",
+        "okmn",
+        "opponitur",
+        "satomaru326",
+        "cigalecigales",
+        "OniB",
+        "specinef",
+        "Hiroshi_KADOYA",
+        "yamotech",
+        "mik_claire",
+        "piyotaroimo",
+        "CERISIERPURR",
+        "takeyo777",
+        "DaisukeKgr",
+        "chgho",
+        "meathawk",
+        "yano3nora",
+        "babulin99",
+        "koutt6",
+        "konomint",
+        "snona",
+        "watomo",
+        "sndr",
+        "ksk_tngc",
+        "1-AizawaSatoshi",
+        "bullet_life",
+        "ybunkoh",
+        "zintera",
+        "crcrpar",
+        "fujiiiiii",
+        "sakurariri",
+        "katolisa",
+        "tks17g",
+        "Lui",
+        "mogura_t",
+        "yaba",
+        "kizzzzy",
+        "hidetomo117",
+        "kssssk",
+        "nomal"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/eb53674e17b98c67498df8d79f9964569cc516f8/medium.jpg?1423241704",
+        "name": "ATOM",
+        "url_name": "atom",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "エディタ",
+        "url_name": "%e3%82%a8%e3%83%87%e3%82%a3%e3%82%bf",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "移行応援",
+        "url_name": "%e7%a7%bb%e8%a1%8c%e5%bf%9c%e6%8f%b4",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e3a7d38ea9ccda7a71581ce15e198848ce076344/medium.jpg?1468383759",
+        "name": "新人プログラマ応援",
+        "url_name": "%e6%96%b0%e4%ba%ba%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9e%e5%bf%9c%e6%8f%b4",
+        "versions": []
+    }],
+    "title": "元Sublime Text利用者が語る、あなたがAtomエディタを使うべき理由",
+    "tweet": true,
+    "updated_at_in_words": "6ヶ月",
+    "updated_at": "2016-03-22 20:09:13 +0900",
+    "url": "http://qiita.com/y-temp4/items/dcb59f633348031cbae9",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "dcb59f633348031cbae9"
+}, {
+    "body": "\n<h2>\n<span id=\"基本思想\" class=\"fragment\"></span><a href=\"#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3\"><i class=\"fa fa-link\"></i></a>基本思想</h2>\n\n<blockquote>\n<ol>\n<li>関数やコードブロックを見て「<strong>このコードの高レベルの目標は何か？</strong>」と自問する。</li>\n<li>コードの各行に対して「高レベルの目標に直接的に効果があるのか？　あるいは、無関係の下位問題を解決しているのか？」と自問する。</li>\n<li>無関係の下位問題を解決しているコードが相当量あれば、それらを<strong>抽出して別の関数にする</strong>。</li>\n</ol>\n</blockquote>\n\n<p>重要なのは太字の部分で、要は「<strong>その関数に直接関係ない部分を別の関数にする</strong>」ということだと思います。</p>\n\n<h2>\n<span id=\"無関係の下位問題を抽出する例\" class=\"fragment\"></span><a href=\"#%E7%84%A1%E9%96%A2%E4%BF%82%E3%81%AE%E4%B8%8B%E4%BD%8D%E5%95%8F%E9%A1%8C%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%99%E3%82%8B%E4%BE%8B\"><i class=\"fa fa-link\"></i></a>無関係の下位問題を抽出する例</h2>\n\n<p><code>findClosestLocation</code>関数の高レベルの目標は、「与えられた地点から最も近い位置を見つける」ことです。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"c1\">// 与えられた緯度経度に最も近い'array'の要素を返す。</span>\n<span class=\"c1\">// 地球が完全な球体であることを前提としている。</span>\n<span class=\"kd\">var</span> <span class=\"nx\">findClosestLocation</span> <span class=\"o\">=</span> <span class=\"kd\">function</span> <span class=\"p\">(</span><span class=\"nx\">lat</span><span class=\"p\">,</span> <span class=\"nx\">lng</span><span class=\"p\">,</span> <span class=\"nx\">array</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">closest</span><span class=\"p\">;</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">closest_dist</span> <span class=\"o\">=</span> <span class=\"nb\">Number</span><span class=\"p\">.</span><span class=\"nx\">MAX_VALUE</span><span class=\"p\">;</span>\n    <span class=\"k\">for</span> <span class=\"p\">(</span><span class=\"kd\">var</span> <span class=\"nx\">i</span> <span class=\"o\">=</span> <span class=\"mi\">0</span><span class=\"p\">;</span> <span class=\"nx\">i</span> <span class=\"o\">&lt;</span> <span class=\"nx\">array</span><span class=\"p\">.</span><span class=\"nx\">length</span><span class=\"p\">;</span> <span class=\"nx\">i</span> <span class=\"o\">+=</span> <span class=\"mi\">1</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n        <span class=\"c1\">// 2つの地点をラジアンに変換する。</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">lat_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lat</span><span class=\"p\">);</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">lng_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lng</span><span class=\"p\">);</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">lat2_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">].</span><span class=\"nx\">latitude</span><span class=\"p\">);</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">lng2_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">].</span><span class=\"nx\">longitude</span><span class=\"p\">);</span>\n\n        <span class=\"c1\">// 「球面三角法の第二余弦定理」の公式を使う。</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">dist</span> <span class=\"o\">=</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">acos</span><span class=\"p\">(</span><span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">sin</span><span class=\"p\">(</span><span class=\"nx\">lat_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">sin</span><span class=\"p\">(</span><span class=\"nx\">lat2_rad</span><span class=\"p\">)</span> <span class=\"o\">+</span>\n                             <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lat_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lat2_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span>\n                             <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lng2_rad</span> <span class=\"o\">-</span> <span class=\"nx\">lng_rad</span><span class=\"p\">));</span>\n        <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"nx\">dist</span> <span class=\"o\">&lt;</span> <span class=\"nx\">closest_dist</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n            <span class=\"nx\">closest</span> <span class=\"o\">=</span> <span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">];</span>\n            <span class=\"nx\">closest_dist</span> <span class=\"o\">=</span> <span class=\"nx\">dist</span><span class=\"p\">;</span>\n        <span class=\"p\">}</span>\n    <span class=\"p\">}</span>\n    <span class=\"k\">return</span> <span class=\"nx\">closest</span><span class=\"p\">;</span>\n<span class=\"p\">};</span>\n</pre></div></div>\n\n<p>このサンプルの場合、</p>\n\n<ul>\n<li>2つの地点をラジアンに変換する</li>\n<li>「球面三角法の第二余弦定理」の公式を使う</li>\n</ul>\n\n<p>の部分が無関係の下位問題のため、抽出して<code>spherical_distance</code>関数とします。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">spherical_distance</span> <span class=\"o\">=</span> <span class=\"kd\">function</span> <span class=\"p\">(</span><span class=\"nx\">lat1</span><span class=\"p\">,</span> <span class=\"nx\">lng1</span><span class=\"p\">,</span> <span class=\"nx\">lat2</span><span class=\"p\">,</span> <span class=\"nx\">lng2</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">lat1_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lat1</span><span class=\"p\">);</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">lng1_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lng1</span><span class=\"p\">);</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">lat2_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lat2</span><span class=\"p\">);</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">lng2_rad</span> <span class=\"o\">=</span> <span class=\"nx\">radians</span><span class=\"p\">(</span><span class=\"nx\">lng2</span><span class=\"p\">);</span>\n    <span class=\"c1\">// 「球面三角法の第二余弦定理」の公式を使う。</span>\n    <span class=\"k\">return</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">acos</span><span class=\"p\">(</span><span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">sin</span><span class=\"p\">(</span><span class=\"nx\">lat1_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">sin</span><span class=\"p\">(</span><span class=\"nx\">lat2_rad</span><span class=\"p\">)</span> <span class=\"o\">+</span>\n                     <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lat1_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span> <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lat2_rad</span><span class=\"p\">)</span> <span class=\"o\">*</span>\n                     <span class=\"nb\">Math</span><span class=\"p\">.</span><span class=\"nx\">cos</span><span class=\"p\">(</span><span class=\"nx\">lng2_rad</span> <span class=\"o\">-</span> <span class=\"nx\">lng1_rad</span><span class=\"p\">));</span>\n<span class=\"p\">};</span>\n</pre></div></div>\n\n<p>結果的に<code>findClosestLocation</code>関数は高レベルの目標である「与えられた地点から最も近い位置を見つける」ことに集中できるようになりました。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">findClosestLocation</span> <span class=\"o\">=</span> <span class=\"kd\">function</span> <span class=\"p\">(</span><span class=\"nx\">lat</span><span class=\"p\">,</span> <span class=\"nx\">lng</span><span class=\"p\">,</span> <span class=\"nx\">array</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">closest</span><span class=\"p\">;</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">closest_dist</span> <span class=\"o\">=</span> <span class=\"nb\">Number</span><span class=\"p\">.</span><span class=\"nx\">MAX_VALUE</span><span class=\"p\">;</span>\n    <span class=\"k\">for</span> <span class=\"p\">(</span><span class=\"kd\">var</span> <span class=\"nx\">i</span> <span class=\"o\">=</span> <span class=\"mi\">0</span><span class=\"p\">;</span> <span class=\"nx\">i</span> <span class=\"o\">&lt;</span> <span class=\"nx\">array</span><span class=\"p\">.</span><span class=\"nx\">length</span><span class=\"p\">;</span> <span class=\"nx\">i</span> <span class=\"o\">+=</span> <span class=\"mi\">1</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n        <span class=\"kd\">var</span> <span class=\"nx\">dist</span> <span class=\"o\">=</span> <span class=\"nx\">spherical_distance</span><span class=\"p\">(</span><span class=\"nx\">lat</span><span class=\"p\">,</span> <span class=\"nx\">lng</span><span class=\"p\">,</span> <span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">].</span><span class=\"nx\">latitude</span><span class=\"p\">,</span> <span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">].</span><span class=\"nx\">longitude</span><span class=\"p\">);</span>\n        <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"nx\">dist</span> <span class=\"o\">&lt;</span> <span class=\"nx\">closest_dist</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n            <span class=\"nx\">closest</span> <span class=\"o\">=</span> <span class=\"nx\">array</span><span class=\"p\">[</span><span class=\"nx\">i</span><span class=\"p\">];</span>\n            <span class=\"nx\">closest_dist</span> <span class=\"o\">=</span> <span class=\"nx\">dist</span><span class=\"p\">;</span>\n        <span class=\"p\">}</span>\n    <span class=\"p\">}</span>\n    <span class=\"k\">return</span> <span class=\"nx\">closest</span><span class=\"p\">;</span>\n<span class=\"p\">};</span>\n</pre></div></div>\n\n<h2>\n<span id=\"コードを分割するメリット\" class=\"fragment\"></span><a href=\"#%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%88%86%E5%89%B2%E3%81%99%E3%82%8B%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88\"><i class=\"fa fa-link\"></i></a>コードを分割するメリット</h2>\n\n<ul>\n<li>単純に可読性が向上する</li>\n<li>部品に分けることでテストがしやすくなる</li>\n<li>本質的な課題に集中できる</li>\n</ul>\n\n<p>コードを分割することによって、単純にコードが読みやすくなるという利点があります。しかし、そのためにはある程度理解しやすい関数名をつける必要はあると思いますが。</p>\n\n<p>また、部品ごとにテストがしやすくなるというメリットもあります。１つの関数が複雑で長いと、テストも複雑になってしまうでしょう。</p>\n\n<p>一番重要なのは最後の<strong>本質的な課題に集中できる</strong>ことだと思います。先の例では、複雑な数学の計算式を別の関数とすることで、本質的な問題に集中できるようになっています。</p>\n\n<h2>\n<span id=\"コードを分割するデメリット\" class=\"fragment\"></span><a href=\"#%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%88%86%E5%89%B2%E3%81%99%E3%82%8B%E3%83%87%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88\"><i class=\"fa fa-link\"></i></a>コードを分割するデメリット</h2>\n\n<ul>\n<li>分割を過度に行うと関数の処理を追うのが面倒になる</li>\n</ul>\n\n<p>分割後の関数をさらに深い階層に分割していくのはやめておいたほうがいいと思います（縦に広げるイメージ）。</p>\n\n<p>しかし、これを嫌って関数の分割をやめるのは本末転倒なので、普段関数を分けることを意識していない場合は「やりすぎかな？」などと考えすぎずに分割するのも良いかなと思います。</p>\n\n<h2>\n<span id=\"参考\" class=\"fragment\"></span><a href=\"#%E5%8F%82%E8%80%83\"><i class=\"fa fa-link\"></i></a>参考</h2>\n\n<blockquote>\n<ul>\n<li>\n<a href=\"https://www.oreilly.co.jp/books/9784873115658/\" rel=\"nofollow\" target=\"_blank\">リーダブルコード――より良いコードを書くためのシンプルで実践的なテクニック</a>\n\n<ul>\n<li>第III部　コードの再構成\n\n<ul>\n<li>10章　無関係の下位問題を抽出する</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n</blockquote>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1458698119,
+    "created_at_in_words": "6ヶ月",
+    "created_at": "2016-03-23 10:55:19 +0900",
+    "gist_url": null,
+    "id": 379681,
+    "private": false,
+    "raw_body": "## 基本思想\n\n> 1. 関数やコードブロックを見て「**このコードの高レベルの目標は何か？**」と自問する。\n> 2. コードの各行に対して「高レベルの目標に直接的に効果があるのか？　あるいは、無関係の下位問題を解決しているのか？」と自問する。\n> 3. 無関係の下位問題を解決しているコードが相当量あれば、それらを**抽出して別の関数にする**。\n\n重要なのは太字の部分で、要は「**その関数に直接関係ない部分を別の関数にする**」ということだと思います。\n\n\n## 無関係の下位問題を抽出する例\n\n`findClosestLocation`関数の高レベルの目標は、「与えられた地点から最も近い位置を見つける」ことです。\n\n\n```js\n// 与えられた緯度経度に最も近い'array'の要素を返す。\n// 地球が完全な球体であることを前提としている。\nvar findClosestLocation = function (lat, lng, array) {\n\tvar closest;\n\tvar closest_dist = Number.MAX_VALUE;\n\tfor (var i = 0; i < array.length; i += 1) {\n\t\t// 2つの地点をラジアンに変換する。\n\t\tvar lat_rad = radians(lat);\n\t\tvar lng_rad = radians(lng);\n\t\tvar lat2_rad = radians(array[i].latitude);\n\t\tvar lng2_rad = radians(array[i].longitude);\n\n\t\t// 「球面三角法の第二余弦定理」の公式を使う。\n\t\tvar dist = Math.acos(Math.sin(lat_rad) * Math.sin(lat2_rad) +\n\t\t                     Math.cos(lat_rad) * Math.cos(lat2_rad) *\n\t\t                     Math.cos(lng2_rad - lng_rad));\n\t\tif (dist < closest_dist) {\n\t\t\tclosest = array[i];\n\t\t\tclosest_dist = dist;\n\t\t}\n\t}\n\treturn closest;\n};\n```\nこのサンプルの場合、\n\n- 2つの地点をラジアンに変換する\n- 「球面三角法の第二余弦定理」の公式を使う\n\nの部分が無関係の下位問題のため、抽出して`spherical_distance`関数とします。\n\n```js\nvar spherical_distance = function (lat1, lng1, lat2, lng2) {\n\tvar lat1_rad = radians(lat1);\n\tvar lng1_rad = radians(lng1);\n\tvar lat2_rad = radians(lat2);\n\tvar lng2_rad = radians(lng2);\n\t// 「球面三角法の第二余弦定理」の公式を使う。\n\treturn Math.acos(Math.sin(lat1_rad) * Math.sin(lat2_rad) +\n\t                 Math.cos(lat1_rad) * Math.cos(lat2_rad) *\n\t                 Math.cos(lng2_rad - lng1_rad));\n};\n```\n\n結果的に`findClosestLocation`関数は高レベルの目標である「与えられた地点から最も近い位置を見つける」ことに集中できるようになりました。\n\n```js\nvar findClosestLocation = function (lat, lng, array) {\n\tvar closest;\n\tvar closest_dist = Number.MAX_VALUE;\n\tfor (var i = 0; i < array.length; i += 1) {\n\t\tvar dist = spherical_distance(lat, lng, array[i].latitude, array[i].longitude);\n\t\tif (dist < closest_dist) {\n\t\t\tclosest = array[i];\n\t\t\tclosest_dist = dist;\n\t\t}\n\t}\n\treturn closest;\n};\n```\n\n## コードを分割するメリット\n\n- 単純に可読性が向上する\n- 部品に分けることでテストがしやすくなる\n- 本質的な課題に集中できる\n\nコードを分割することによって、単純にコードが読みやすくなるという利点があります。しかし、そのためにはある程度理解しやすい関数名をつける必要はあると思いますが。\n\n\nまた、部品ごとにテストがしやすくなるというメリットもあります。１つの関数が複雑で長いと、テストも複雑になってしまうでしょう。\n\n一番重要なのは最後の**本質的な課題に集中できる**ことだと思います。先の例では、複雑な数学の計算式を別の関数とすることで、本質的な問題に集中できるようになっています。\n\n## コードを分割するデメリット\n\n- 分割を過度に行うと関数の処理を追うのが面倒になる\n\n分割後の関数をさらに深い階層に分割していくのはやめておいたほうがいいと思います（縦に広げるイメージ）。\n\nしかし、これを嫌って関数の分割をやめるのは本末転倒なので、普段関数を分けることを意識していない場合は「やりすぎかな？」などと考えすぎずに分割するのも良いかなと思います。\n\n## 参考\n> - [リーダブルコード――より良いコードを書くためのシンプルで実践的なテクニック](https://www.oreilly.co.jp/books/9784873115658/)\n>     - 第III部　コードの再構成\n>        - 10章　無関係の下位問題を抽出する\n",
+    "stock_count": 7,
+    "stock_users": [
+        "n_slender",
+        "Neos21",
+        "HideNaka",
+        "jTakasuRyuji",
+        "trkbt10",
+        "myblue",
+        "porepore1984"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "リファクタリング",
+        "url_name": "%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "icons/medium/missing.png",
+        "name": "リーダブルコード",
+        "url_name": "%e3%83%aa%e3%83%bc%e3%83%80%e3%83%96%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/e3a7d38ea9ccda7a71581ce15e198848ce076344/medium.jpg?1468383759",
+        "name": "新人プログラマ応援",
+        "url_name": "%e6%96%b0%e4%ba%ba%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9e%e5%bf%9c%e6%8f%b4",
+        "versions": []
+    }],
+    "title": "その関数に直接関係ない部分を別の関数にする（無関係の下位問題を抽出する - リーダブルコードより）",
+    "tweet": true,
+    "updated_at_in_words": "6ヶ月",
+    "updated_at": "2016-03-23 10:57:56 +0900",
+    "url": "http://qiita.com/y-temp4/items/423545151d0eeafe91e2",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "423545151d0eeafe91e2"
+}, {
+    "body": "<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">1</span><span class=\"p\">;</span>\n<span class=\"kd\">function</span> <span class=\"nx\">f</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'x = '</span> <span class=\"o\">+</span> <span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"kd\">var</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span><span class=\"p\">;</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'x = '</span> <span class=\"o\">+</span> <span class=\"nx\">x</span><span class=\"p\">);</span>\n<span class=\"p\">}</span>\n</pre></div></div>\n\n<p>というコードで、関数<code>f</code>を実行すると</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"kc\">undefined</span>\n<span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span>\n</pre></div></div>\n\n<p>という結果が返されます。</p>\n\n<p><a href=\"https://qiita-image-store.s3.amazonaws.com/0/90682/8c1da34c-12a6-6c7b-a5bc-918f7c518c56.png\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://qiita-image-store.s3.amazonaws.com/0/90682/8c1da34c-12a6-6c7b-a5bc-918f7c518c56.png\" alt=\"スクリーンショット 2016-03-27 16.16.28.png\"></a></p>\n\n<p>一見、</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">1</span>\n<span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span>\n</pre></div></div>\n\n<p>のようになると感じるかもしれませんが、これはJavsScriptの変数のスコープが原因で、ローカル変数<code>x</code>のスコープは関数<code>f</code>内のため<code>x = 1</code>となりません。</p>\n\n<p>では、なぜ<code>undefined</code>なのか？というと、先ほどのコードは以下のコードと等しいと考えると納得出来るかと思います。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">var</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">1</span><span class=\"p\">;</span>\n<span class=\"kd\">function</span> <span class=\"nx\">f</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"kd\">var</span> <span class=\"nx\">x</span><span class=\"p\">;</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'x = '</span> <span class=\"o\">+</span> <span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span><span class=\"p\">;</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"s1\">'x = '</span> <span class=\"o\">+</span> <span class=\"nx\">x</span><span class=\"p\">);</span>\n<span class=\"p\">}</span>\n</pre></div></div>\n\n<p>これが俗に言う「変数の巻き上げ」です。この理由から、JavaScriptにおいて変数は関数の先頭でまとめて宣言するとよい、と言われたりします。</p>\n\n<p>しかし、今後（ES6）は<code>var</code>ではなく<code>let</code>が使えるようになるため、これまでのベストプラクティスが通じなくなるかもしれません。</p>\n\n<p><a href=\"http://qiita.com/y-temp4/items/289686fbdde896d22b5e\" id=\"reference-b454893a6e1d7ab6f357\">letとvarの違い</a></p>\n\n<blockquote>\n<p>参考<br>\n<a href=\"http://gihyo.jp/book/2011/978-4-7741-4813-7\" rel=\"nofollow\" target=\"_blank\">パーフェクトJavaScript</a> ｜Part2　JavaScript言語仕様 - 6章　関数とクロージャ - 6-4　スコープ</p>\n</blockquote>\n",
+    "comment_count": 2,
+    "created_at_as_seconds": 1459064103,
+    "created_at_in_words": "5ヶ月",
+    "created_at": "2016-03-27 16:35:03 +0900",
+    "gist_url": null,
+    "id": 380729,
+    "private": false,
+    "raw_body": "```js\nvar x = 1;\nfunction f() {\n  console.log('x = ' + x);\n  var x = 2;\n  console.log('x = ' + x);\n}\n```\nというコードで、関数`f`を実行すると\n\n```js\nx = undefined\nx = 2\n```\n\nという結果が返されます。\n\n![スクリーンショット 2016-03-27 16.16.28.png](https://qiita-image-store.s3.amazonaws.com/0/90682/8c1da34c-12a6-6c7b-a5bc-918f7c518c56.png)\n\n一見、\n\n```js\nx = 1\nx = 2\n```\n\nのようになると感じるかもしれませんが、これはJavsScriptの変数のスコープが原因で、ローカル変数`x`のスコープは関数`f`内のため`x = 1`となりません。\n\nでは、なぜ`undefined`なのか？というと、先ほどのコードは以下のコードと等しいと考えると納得出来るかと思います。\n\n```js\nvar x = 1;\nfunction f() {\n  var x;\n  console.log('x = ' + x);\n  x = 2;\n  console.log('x = ' + x);\n}\n```\n\nこれが俗に言う「変数の巻き上げ」です。この理由から、JavaScriptにおいて変数は関数の先頭でまとめて宣言するとよい、と言われたりします。\n\nしかし、今後（ES6）は`var`ではなく`let`が使えるようになるため、これまでのベストプラクティスが通じなくなるかもしれません。\n\n[letとvarの違い](http://qiita.com/y-temp4/items/289686fbdde896d22b5e)\n\n> 参考\n> [パーフェクトJavaScript](http://gihyo.jp/book/2011/978-4-7741-4813-7) ｜Part2　JavaScript言語仕様 - 6章　関数とクロージャ - 6-4　スコープ\n",
+    "stock_count": 3,
+    "stock_users": [
+        "7of9",
+        "opponitur",
+        "liebe88"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/58f69837141ae3efa0c530ed53de128cacb49b66/medium.jpg?1421232838",
+        "name": "JavaScript",
+        "url_name": "javascript",
+        "versions": []
+    }],
+    "title": "JavaScriptでの変数のスコープと巻き上げ",
+    "tweet": true,
+    "updated_at_in_words": "5ヶ月",
+    "updated_at": "2016-03-29 23:57:39 +0900",
+    "url": "http://qiita.com/y-temp4/items/fe1cf103738de2671e9a",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "fe1cf103738de2671e9a"
+}, {
+    "body": "<p>一言で言うと、変数のスコープがブロックスコープか関数スコープかの違いです。</p>\n\n<p><code>let</code>を使った場合、ブロックレベルで変数のスコープが定義されるため、以下の例のように<code>1,2,1</code>と表示されます。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">function</span> <span class=\"nx\">f</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"kd\">let</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">1</span><span class=\"p\">;</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"p\">{</span>\n    <span class=\"kd\">let</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span><span class=\"p\">;</span>\n    <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"p\">}</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n<span class=\"p\">}</span>\n<span class=\"nx\">f</span><span class=\"p\">()</span>\n<span class=\"c1\">// 1</span>\n<span class=\"c1\">// 2</span>\n<span class=\"c1\">// 1</span>\n</pre></div></div>\n\n<p><code>var</code>は関数でのスコープのため、以下のように<code>1,2,2</code>と表示されます。</p>\n\n<div class=\"code-frame\" data-lang=\"js\"><div class=\"highlight\"><pre>\n<span class=\"kd\">function</span> <span class=\"nx\">f</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"kd\">var</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">1</span><span class=\"p\">;</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"p\">{</span>\n    <span class=\"kd\">var</span> <span class=\"nx\">x</span> <span class=\"o\">=</span> <span class=\"mi\">2</span><span class=\"p\">;</span>\n    <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n  <span class=\"p\">}</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">log</span><span class=\"p\">(</span><span class=\"nx\">x</span><span class=\"p\">);</span>\n<span class=\"p\">}</span>\n<span class=\"nx\">f</span><span class=\"p\">()</span>\n<span class=\"c1\">// 1</span>\n<span class=\"c1\">// 2</span>\n<span class=\"c1\">// 2</span>\n</pre></div></div>\n\n<p>ES6からはletが使えるため、今後は<code>var</code>ではなく好んで<code>let</code>が使われるようになるかと思います。</p>\n\n<blockquote>\n<p>参考<br>\n<a href=\"http://gihyo.jp/book/2011/978-4-7741-4813-7\" rel=\"nofollow\" target=\"_blank\">パーフェクトJavaScript</a> ｜Part2　JavaScript言語仕様 - 6章　関数とクロージャ - 6-4　スコープ - 6-4-3　letとブロックスコープ</p>\n</blockquote>\n",
+    "comment_count": 2,
+    "created_at_as_seconds": 1459065726,
+    "created_at_in_words": "5ヶ月",
+    "created_at": "2016-03-27 17:02:06 +0900",
+    "gist_url": null,
+    "id": 380733,
+    "private": false,
+    "raw_body": "一言で言うと、変数のスコープがブロックスコープか関数スコープかの違いです。\n\n`let`を使った場合、ブロックレベルで変数のスコープが定義されるため、以下の例のように`1,2,1`と表示されます。\n\n```js\nfunction f() {\n  let x = 1;\n  console.log(x);\n  {\n    let x = 2;\n    console.log(x);\n  }\n  console.log(x);\n}\nf()\n// 1\n// 2\n// 1\n```\n\n`var`は関数でのスコープのため、以下のように`1,2,2`と表示されます。\n\n```js\nfunction f() {\n  var x = 1;\n  console.log(x);\n  {\n    var x = 2;\n    console.log(x);\n  }\n  console.log(x);\n}\nf()\n// 1\n// 2\n// 2\n```\n\nES6からはletが使えるため、今後は`var`ではなく好んで`let`が使われるようになるかと思います。\n\n\n> 参考\n> [パーフェクトJavaScript](http://gihyo.jp/book/2011/978-4-7741-4813-7) ｜Part2　JavaScript言語仕様 - 6章　関数とクロージャ - 6-4　スコープ - 6-4-3　letとブロックスコープ\n",
+    "stock_count": 23,
+    "stock_users": [
+        "moonblogger",
+        "toyoc@github",
+        "morizotter",
+        "iskw",
+        "tomookaku",
+        "shshimamo",
+        "shule517",
+        "hamu502",
+        "kuropen",
+        "Neos21",
+        "khiraiwa",
+        "opponitur",
+        "shigemaruu",
+        "diamonddai",
+        "khsk",
+        "madeye",
+        "spinning",
+        "mikeda3",
+        "yuma84",
+        "MikamiHiroaki",
+        "nkztyuta",
+        "d3etbkucsasgy",
+        "sugiwo"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/58f69837141ae3efa0c530ed53de128cacb49b66/medium.jpg?1421232838",
+        "name": "JavaScript",
+        "url_name": "javascript",
+        "versions": []
+    }, {
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/fd10bf1536300af8ebc55869d22e26e1046a2eaa/medium.jpg?1421232818",
+        "name": "es6",
+        "url_name": "es6",
+        "versions": []
+    }],
+    "title": "letとvarの違い",
+    "tweet": true,
+    "updated_at_in_words": "5ヶ月",
+    "updated_at": "2016-03-27 17:02:06 +0900",
+    "url": "http://qiita.com/y-temp4/items/289686fbdde896d22b5e",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "289686fbdde896d22b5e"
+}, {
+    "body": "<p>Atomは<code>cmd + shift + f</code>でプロジェクト内検索（Find in Project）ができるのですが、たまに古いパッケージが原因で検索できないことがあるのでその対処法をメモしておきます。</p>\n\n<h2>\n<span id=\"自分のエラー原因\" class=\"fragment\"></span><a href=\"#%E8%87%AA%E5%88%86%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E5%8E%9F%E5%9B%A0\"><i class=\"fa fa-link\"></i></a>自分のエラー原因</h2>\n\n<p>自分の場合、<a href=\"https://atom.io/packages/default-encoding\" rel=\"nofollow\" target=\"_blank\">default-encoding</a>というパッケージが原因でした。</p>\n\n<p>プロジェクト内検索をした段階で、<code>cmd + shift + i</code>でデベロッパーツールを開き、consoleで警告が出ているのを参考に対処しました。</p>\n\n<p>今は<a href=\"https://atom.io/packages/auto-encoding\" rel=\"nofollow\" target=\"_blank\">auto-encoding</a>を使っています。</p>\n\n<p><a href=\"https://github.com/russlescai/atom-default-encoding/issues/2\" class=\"autolink\" rel=\"nofollow\" target=\"_blank\">https://github.com/russlescai/atom-default-encoding/issues/2</a> あたりが原因かな、と思うのですが正直詳しいところはわかりません。</p>\n\n<p>今はとりあえず原因がわかり、対処できてほっとしています<img class=\"emoji\" title=\":smile:\" alt=\":smile:\" src=\"https://cdn.qiita.com/emoji/unicode/1f604.png\" height=\"20\" width=\"20\" align=\"absmiddle\"></p>\n",
+    "comment_count": 0,
+    "created_at_as_seconds": 1463065062,
+    "created_at_in_words": "4ヶ月",
+    "created_at": "2016-05-12 23:57:42 +0900",
+    "gist_url": null,
+    "id": 392038,
+    "private": false,
+    "raw_body": "Atomは`cmd + shift + f`でプロジェクト内検索（Find in Project）ができるのですが、たまに古いパッケージが原因で検索できないことがあるのでその対処法をメモしておきます。\n\n## 自分のエラー原因\n\n自分の場合、[default-encoding](https://atom.io/packages/default-encoding)というパッケージが原因でした。\n\nプロジェクト内検索をした段階で、`cmd + shift + i`でデベロッパーツールを開き、consoleで警告が出ているのを参考に対処しました。\n\n今は[auto-encoding](https://atom.io/packages/auto-encoding)を使っています。\n\nhttps://github.com/russlescai/atom-default-encoding/issues/2 あたりが原因かな、と思うのですが正直詳しいところはわかりません。\n\n今はとりあえず原因がわかり、対処できてほっとしています:smile:\n\n",
+    "stock_count": 3,
+    "stock_users": [
+        "Noboruhi",
+        "opponitur",
+        "sugra511"
+    ],
+    "stocked": false,
+    "tags": [{
+        "following": false,
+        "icon_url": "https://s3-ap-northeast-1.amazonaws.com/qiita-tag-image/eb53674e17b98c67498df8d79f9964569cc516f8/medium.jpg?1423241704",
+        "name": "ATOM",
+        "url_name": "atom",
+        "versions": []
+    }],
+    "title": "Atomでプロジェクト内検索ができない時の対処法",
+    "tweet": true,
+    "updated_at_in_words": "4ヶ月",
+    "updated_at": "2016-05-12 23:57:42 +0900",
+    "url": "http://qiita.com/y-temp4/items/766b4504685cf0dde512",
+    "user": {
+        "following": false,
+        "id": 90682,
+        "profile_image_url": "https://avatars.githubusercontent.com/u/13657589?v=3",
+        "url_name": "y-temp4"
+    },
+    "uuid": "766b4504685cf0dde512"
+}]
