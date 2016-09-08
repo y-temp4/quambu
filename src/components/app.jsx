@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       username: '',
       items: [],
-      tags: []
+      following_tags: []
     }
   }
 
@@ -35,7 +35,7 @@ export default class App extends Component {
       .then((json) => {
         const tags = []
         json.map((tag) => { tags.push(tag.url_name) })
-        this.setState({tags: tags})
+        this.setState({following_tags: tags})
         console.log('parsed json', this.state.tags)
       }).catch((ex) => { console.log('parsing failed', ex) })
   }
