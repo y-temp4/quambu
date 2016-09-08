@@ -6,7 +6,8 @@ const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
 const USER_DATA_URI = QIITA_API_ENDPOINT + '/users';
 const SEARCH_ITEMS_URI = QIITA_API_ENDPOINT + '/search';
-const BOOKMARK_COUNT_URI = 'http://api.b.st-hatena.com/entry.count?url=';
+const BOOKMARK_COUNT_URI = 'https://b.hatena.ne.jp/entry.count?url=';
+// const BOOKMARK_COUNT_URI = 'http://api.b.st-hatena.com/entry.count?url=';
 
 export default class App extends Component {
   constructor(props) {
