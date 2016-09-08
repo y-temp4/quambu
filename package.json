@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/y-temp4/quambu/issues"
   },
-  "homepage": "https://github.com/y-temp4/quambu#readme"
+  "homepage": "https://github.com/y-temp4/quambu#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.2"
+  }
 }
