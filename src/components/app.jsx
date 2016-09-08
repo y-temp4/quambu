@@ -28,7 +28,14 @@ export default class App extends Component {
     // fetch('../../mock/items.json')
     fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
-      .then((json) => { this.setState({items: json}); })
+      .then((json) => {
+        json.forEach((item) => {
+          fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+            .then((response) => response.json() )
+            .then((jsonp) => {item.bookmark_count = jsonp} );
+        });
+        this.setState({items: json});
+      })
       .catch((ex) => { console.log('parsing failed', ex); });
   }
 
@@ -171,11 +178,22 @@ export default class App extends Component {
         <ol>
           {
             this.state.items.map((item) => {
-              return (
-                <li key={item.id}>
-                  <a href={item.url} target="_blank">{item.title}</a>
-                </li>
-              );
+              if (this.state.refine_by_bookmark <= item.bookmark_count) {
+                return (
+                  <li key={item.id}>
+                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
+                      <img src={item.tags[0].icon_url} alt=""/>
+                      {item.title}
+                    </a>
+                    <span style={{marginRight: '1em'}}>
+                      ストック数：{item.stock_users.length}
+                    </span>
+                    <span>
+                      はてぶ数：{item.bookmark_count}
+                    </span>
+                  </li>
+                );
+              }
             })
           }
         </ol>
