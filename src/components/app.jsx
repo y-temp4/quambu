@@ -85,9 +85,13 @@ export default class App extends Component {
         <ol>
           {
             this.state.following_tags_related_items.map((item) => {
+              console.log(item.tags[0].url_name)
              return (
                <li key={item.id}>
-                 <a href={item.url} target="_blank">{item.title}</a>
+                 <a href={item.url} target="_blank">
+                  <img src={item.tags[0].icon_url} alt=""/>
+                  {item.title}
+                 </a>
                </li>
              )
            })
@@ -107,7 +111,10 @@ export default class App extends Component {
             this.state.following_users_related_items.map((item) => {
              return (
                <li key={item.id}>
-                 <a href={item.url} target="_blank">{item.title}</a>
+                 <a href={item.url} target="_blank">
+                  <img src={item.user.profile_image_url} alt="" width="30"/>
+                  {item.title}
+                 </a>
                </li>
              )
            })
