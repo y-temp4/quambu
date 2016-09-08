@@ -4,6 +4,8 @@ import 'whatwg-fetch';
 const ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = ENDPOINT + '/items';
 const USER_DATA_URI = ENDPOINT + '/users';
+const SEARCH_ITEMS_URI = ENDPOINT + '/search';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class App extends Component {
       username: '',
       items: [],
       following_tags: [],
-      following_users: []
+      following_users: [],
+      following_tags_related_items: []
     }
   }
 
@@ -21,9 +24,8 @@ export default class App extends Component {
     fetch('../../mock/items.json')
     // fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
-      .then((json) => { this.setState({items: json})
-        console.log('parsed json', this.state.items)
-      }).catch((ex) => { console.log('parsing failed', ex) })
+      .then((json) => { this.setState({items: json}) })
+      .catch((ex) => { console.log('parsing failed', ex) })
   }
 
   _handleChange(e) {
@@ -49,14 +51,48 @@ export default class App extends Component {
         json.map((user) => { users.push(user.url_name) })
         this.setState({following_users: users})
       }).catch((ex) => { console.log('parsing failed', ex) })
+
+    let query = '?q='
+    this.state.following_tags.map((tag) => {
+      query += `tag%3A${tag}+OR+`
+    })
+
+    // fetch('../../mock/following_tags_related_items.json')
+    fetch(SEARCH_ITEMS_URI + query)
+      .then((response) => response.json() )
+      .then((json) => {
+        this.setState({following_tags_related_items: json})
+      }).catch((ex) => { console.log('parsing failed', ex) })
+  }
+
+  _showTagRelatedItems() {
+    if (!this.state.following_tags.length) {
+      return <span>タグないです</span>;
+    } else {
+      return (
+        <ol>
+          {
+            this.state.following_tags_related_items.map((item) => {
+             return (
+               <li key={item.id}>
+                 <a href={item.url} target="_blank">{item.title}</a>
+               </li>
+             )
+           })
+         }
+        </ol>
+      )
+    }
   }
 
   render() {
     return (
       <div>
-        <h1>New Articles</h1>
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
+        <h1>User following tags items</h1>
+          {this._showTagRelatedItems()}
+        <h1>New Articles</h1>
         <ol>
           {
             this.state.items.map((item) => {
