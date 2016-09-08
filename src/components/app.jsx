@@ -66,7 +66,7 @@ export default class App extends Component {
       .then((response) => response.json() )
       .then((json) => {
         json.forEach((item) => {
-          fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+          fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
             .then((response) => response.json() )
             .then((jsonp) => {item.bookmark_count = jsonp} );
         });
@@ -83,7 +83,7 @@ export default class App extends Component {
       .then((response) => response.json() )
       .then((json) => {
           json.forEach((item) => {
-            fetch(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+            fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
               .then((response) => response.json() )
               .then((jsonp) => {item.bookmark_count = jsonp} );
           });
