@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from './item';
 import 'whatwg-fetch';
 import fetchJsonp from 'fetch-jsonp';
+import { fetchUserSubData } from '../api/fetch-user-sub-data';
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
@@ -46,24 +47,14 @@ export default class App extends Component {
     this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
-    fetch('../../mock/following_tags.json')
-    // fetch(GOT_USER_DATA_URI + '/following_tags')
-      .then((response) => response.json() )
-      .then((json) => {
-        const tags = [];
-        json.map((tag) => { tags.push(tag.url_name); });
-        this.setState({following_tags: tags});
-      }).catch((ex) => { console.log('parsing failed', ex) });
+    fetchUserSubData('../../mock/following_tags.json')
+    // fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
+    .then((tags) => { this.setState({following_tags: tags}) });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    fetch('../../mock/following_users.json')
-    // fetch(GOT_USER_DATA_URI + '/following_users')
-      .then((response) => response.json() )
-      .then((json) => {
-        const users = [];
-        json.map((user) => { users.push(user.url_name) });
-        this.setState({following_users: users});
-      }).catch((ex) => { console.log('parsing failed', ex); })
+    fetchUserSubData('../../mock/following_users.json')
+    // fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
+    .then((users) => { this.setState({following_users: users}) });
 
     // ユーザーがフォローしているタグに紐づく記事をstateに保存
     let tagQuery = '?q=';
