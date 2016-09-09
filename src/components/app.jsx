@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Item from './item';
 import 'whatwg-fetch';
 import fetchJsonp from 'fetch-jsonp';
 
@@ -112,18 +113,11 @@ export default class App extends Component {
             this.state.following_tags_related_items.map((item) => {
               if (this.state.refine_by_bookmark <= item.bookmark_count) {
                 return (
-                  <li key={item.id}>
-                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
-                      <img src={item.tags[0].icon_url} alt=""/>
-                      {item.title}
-                    </a>
-                    <span style={{marginRight: '1em'}}>
-                      ストック数：{item.stock_users.length}
-                    </span>
-                    <span>
-                      はてぶ数：{item.bookmark_count}
-                    </span>
-                  </li>
+                  <Item
+                    key={item.id}
+                    item={item}
+                    iconTitle={item.tags[0].name}
+                    iconUrl={item.tags[0].icon_url} />
                 )
               }
            })
@@ -143,18 +137,11 @@ export default class App extends Component {
             this.state.following_users_related_items.map((item) => {
               if (this.state.refine_by_bookmark <= item.bookmark_count) {
                 return (
-                  <li key={item.id}>
-                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
-                      <img src={item.user.profile_image_url} alt="" width="30"/>
-                      {item.title}
-                    </a>
-                    <span style={{marginRight: '1em'}}>
-                       ストック数：{item.stock_users.length}
-                    </span>
-                    <span>
-                       はてぶ数：{item.bookmark_count}
-                    </span>
-                  </li>
+                  <Item
+                    key={item.id}
+                    item={item}
+                    iconTitle={item.user.url_name}
+                    iconUrl={item.user.profile_image_url} />
                 )
               }
            })
@@ -180,18 +167,11 @@ export default class App extends Component {
             this.state.items.map((item) => {
               if (this.state.refine_by_bookmark <= item.bookmark_count) {
                 return (
-                  <li key={item.id}>
-                    <a href={item.url} target="_blank" style={{marginRight: '1em'}}>
-                      <img src={item.tags[0].icon_url} alt=""/>
-                      {item.title}
-                    </a>
-                    <span style={{marginRight: '1em'}}>
-                      ストック数：{item.stock_users.length}
-                    </span>
-                    <span>
-                      はてぶ数：{item.bookmark_count}
-                    </span>
-                  </li>
+                  <Item
+                    key={item.id}
+                    item={item}
+                    iconTitle={item.tags[0].name}
+                    iconUrl={item.tags[0].icon_url} />
                 );
               }
             })
