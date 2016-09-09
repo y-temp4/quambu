@@ -81,32 +81,6 @@ export default class App extends Component {
     this.setState({refine_by_bookmark: e.target.value});
   }
 
-  _showTagRelatedItems() {
-    if (!this.state.following_tags.length) {
-      return <span>タグないです</span>;
-    } else {
-      return (
-        <ItemList
-          items={this.state.following_tags_related_items}
-          icon={'tag'}
-          refineByBookmark={this.state.refine_by_bookmark} />
-      );
-    }
-  }
-
-  _showUserRelatedItems() {
-    if (!this.state.following_users.length) {
-      return <span>ユーザーないです</span>;
-    } else {
-      return (
-        <ItemList
-          items={this.state.following_users_related_items}
-          icon={'user'}
-          refineByBookmark={this.state.refine_by_bookmark} />
-      );
-    }
-  }
-
   render() {
     return (
       <div>
@@ -114,14 +88,25 @@ export default class App extends Component {
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
         <h1>User following tags items</h1>
-          {this._showTagRelatedItems()}
+          <ItemList
+            items={this.state.following_tags_related_items}
+            icon={'tag'}
+            refineByBookmark={this.state.refine_by_bookmark}
+            hasSubData={this.state.following_tags.length}
+            message={'タグが登録されていません'} />
         <h1>User following users items</h1>
-          {this._showUserRelatedItems()}
+          <ItemList
+            items={this.state.following_users_related_items}
+            icon={'user'}
+            refineByBookmark={this.state.refine_by_bookmark}
+            hasSubData={this.state.following_users.length}
+            message={'ユーザーが登録されていません'} />
         <h1>New Articles</h1>
         <ItemList
           items={this.state.items}
           icon={'tag'}
-          refineByBookmark={this.state.refine_by_bookmark} />
+          refineByBookmark={this.state.refine_by_bookmark}
+          hasSubData={true} />
       </div>
     );
   }
