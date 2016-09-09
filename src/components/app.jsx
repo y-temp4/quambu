@@ -4,6 +4,7 @@ import ItemList from './item-list';
 import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { setBookmarkCountToItems } from '../api/set-bookmark-count-to-items';
+import { createQuery } from '../utils/create-query';
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
@@ -51,10 +52,7 @@ export default class App extends Component {
     .then((users) => { this.setState({following_users: users}) });
 
     // ユーザーがフォローしているタグに紐づく記事をstateに保存
-    let tagQuery = '?q=';
-    this.state.following_tags.map((tag) => {
-      tagQuery += `tag%3A${tag}+OR+`;
-    });
+    const tagQuery = createQuery(this.state.following_tags, 'tag');
     fetch('../../mock/following_tags_related_items.json')
     // fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
@@ -64,10 +62,7 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex); });
 
     // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
-    let userQuery = '?q=';
-    this.state.following_users.map((tag) => {
-      userQuery += `user%3A${tag}+OR+`;
-    });
+    const userQuery = createQuery(this.state.following_users, 'user');
     fetch('../../mock/following_users_related_items.json')
     // fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
