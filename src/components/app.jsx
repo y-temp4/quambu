@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './item';
+import ItemList from './item-list';
 import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { setBookmarkCountToItems } from '../api/set-bookmark-count-to-items';
@@ -85,21 +86,10 @@ export default class App extends Component {
       return <span>タグないです</span>;
     } else {
       return (
-        <ol>
-          {
-            this.state.following_tags_related_items.map((item) => {
-              if (this.state.refine_by_bookmark <= item.bookmark_count) {
-                return (
-                  <Item
-                    key={item.id}
-                    item={item}
-                    iconTitle={item.tags[0].name}
-                    iconUrl={item.tags[0].icon_url} />
-                )
-              }
-           })
-         }
-        </ol>
+        <ItemList
+          items={this.state.following_tags_related_items}
+          icon={'tag'}
+          refineByBookmark={this.state.refine_by_bookmark} />
       );
     }
   }
@@ -109,21 +99,10 @@ export default class App extends Component {
       return <span>ユーザーないです</span>;
     } else {
       return (
-        <ol>
-          {
-            this.state.following_users_related_items.map((item) => {
-              if (this.state.refine_by_bookmark <= item.bookmark_count) {
-                return (
-                  <Item
-                    key={item.id}
-                    item={item}
-                    iconTitle={item.user.url_name}
-                    iconUrl={item.user.profile_image_url} />
-                )
-              }
-           })
-         }
-        </ol>
+        <ItemList
+          items={this.state.following_users_related_items}
+          icon={'user'}
+          refineByBookmark={this.state.refine_by_bookmark} />
       );
     }
   }
@@ -139,21 +118,10 @@ export default class App extends Component {
         <h1>User following users items</h1>
           {this._showUserRelatedItems()}
         <h1>New Articles</h1>
-        <ol>
-          {
-            this.state.items.map((item) => {
-              if (this.state.refine_by_bookmark <= item.bookmark_count) {
-                return (
-                  <Item
-                    key={item.id}
-                    item={item}
-                    iconTitle={item.tags[0].name}
-                    iconUrl={item.tags[0].icon_url} />
-                );
-              }
-            })
-          }
-        </ol>
+        <ItemList
+          items={this.state.items}
+          icon={'tag'}
+          refineByBookmark={this.state.refine_by_bookmark} />
       </div>
     );
   }
