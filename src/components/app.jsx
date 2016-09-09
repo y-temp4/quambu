@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import Item from './item';
 import 'whatwg-fetch';
-import fetchJsonp from 'fetch-jsonp';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
+import { setBookmarkCountToItems } from '../api/set-bookmark-count-to-items';
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
 const USER_DATA_URI = QIITA_API_ENDPOINT + '/users';
 const SEARCH_ITEMS_URI = QIITA_API_ENDPOINT + '/search';
-const BOOKMARK_COUNT_URI = 'https://b.hatena.ne.jp/entry.count?url=';
-// const BOOKMARK_COUNT_URI = 'http://api.b.st-hatena.com/entry.count?url=';
 
 export default class App extends Component {
   constructor(props) {
@@ -31,13 +29,8 @@ export default class App extends Component {
     // fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
       .then((json) => {
-        json.forEach((item) => {
-          fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
-          // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
-            .then((response) => response.json() )
-            .then((jsonp) => {item.bookmark_count = jsonp} );
-        });
-        this.setState({items: json});
+        const items = setBookmarkCountToItems(json)
+        this.setState({items: items});
       })
       .catch((ex) => { console.log('parsing failed', ex); });
   }
@@ -65,13 +58,8 @@ export default class App extends Component {
     // fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
-        json.forEach((item) => {
-          fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
-          // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
-            .then((response) => response.json() )
-            .then((jsonp) => {item.bookmark_count = jsonp} );
-        });
-        this.setState({following_tags_related_items: json});
+        const items = setBookmarkCountToItems(json)
+        this.setState({following_tags_related_items: items});
       }).catch((ex) => { console.log('parsing failed', ex); });
 
     // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
@@ -83,13 +71,8 @@ export default class App extends Component {
     // fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
-          json.forEach((item) => {
-            fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
-            // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
-              .then((response) => response.json() )
-              .then((jsonp) => {item.bookmark_count = jsonp} );
-          });
-        this.setState({following_users_related_items: json});
+        const items = setBookmarkCountToItems(json)
+        this.setState({following_users_related_items: items});
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
 
