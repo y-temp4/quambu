@@ -6,8 +6,13 @@ export default class ItemList extends Component {
     super(props);
   }
 
+  // ブックマーク数とストック数で表示する記事を絞り込む
+  _refineByCount(item, bookmark_count, stock_count) {
+    return bookmark_count <= item.bookmark_count && stock_count <= item.stock_users.length
+  }
+
   render() {
-    const {items, refineByBookmark, icon, hasSubData, message} = this.props;
+    const {items, refineByBookmark, refineByStock, icon, hasSubData, message} = this.props;
     if (!hasSubData) {
       return <span>{message}</span>;
     } else {
@@ -16,7 +21,7 @@ export default class ItemList extends Component {
           {
             items.map((item) => {
               if (item.bookmark_count === undefined ||
-                refineByBookmark <= item.bookmark_count) {
+                this._refineByCount(item, refineByBookmark, refineByStock)) {
                 if (icon === 'tag') {
                   return (
                     <Item

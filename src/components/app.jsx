@@ -22,7 +22,8 @@ export default class App extends Component {
       following_users: [],
       following_tags_related_items: [],
       following_users_related_items: [],
-      refine_by_bookmark: 0
+      refine_by_bookmark: 0,
+      refine_by_stock: 0
     };
   }
 
@@ -72,14 +73,19 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex); });
   }
 
-  _handleItemChange(e) {
+  _handleBookmarkCountChange(e) {
     this.setState({refine_by_bookmark: e.target.value});
+  }
+
+  _handleStockCountChange(e) {
+    this.setState({refine_by_stock: e.target.value});
   }
 
   render() {
     return (
       <div>
-        <input type="number" onChange={this._handleItemChange.bind(this)} />
+        <input type="number" onChange={this._handleBookmarkCountChange.bind(this)} />
+        <input type="number" onChange={this._handleStockCountChange.bind(this)} />
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
         <h1>User following tags items</h1>
@@ -87,6 +93,7 @@ export default class App extends Component {
             items={this.state.following_tags_related_items}
             icon={'tag'}
             refineByBookmark={this.state.refine_by_bookmark}
+            refineByStock={this.state.refine_by_stock}
             hasSubData={this.state.following_tags.length}
             message={'タグが登録されていません'} />
         <h1>User following users items</h1>
@@ -94,6 +101,7 @@ export default class App extends Component {
             items={this.state.following_users_related_items}
             icon={'user'}
             refineByBookmark={this.state.refine_by_bookmark}
+            refineByStock={this.state.refine_by_stock}
             hasSubData={this.state.following_users.length}
             message={'ユーザーが登録されていません'} />
         <h1>New Articles</h1>
@@ -101,6 +109,7 @@ export default class App extends Component {
           items={this.state.items}
           icon={'tag'}
           refineByBookmark={this.state.refine_by_bookmark}
+          refineByStock={this.state.refine_by_stock}
           hasSubData={true} />
       </div>
     );
