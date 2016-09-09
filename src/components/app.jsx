@@ -26,12 +26,13 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // fetch('../../mock/items.json')
-    fetch(NEW_ITEMS_URI)
+    fetch('../../mock/items.json')
+    // fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
       .then((json) => {
         json.forEach((item) => {
-          fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+          fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
+          // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
             .then((response) => response.json() )
             .then((jsonp) => {item.bookmark_count = jsonp} );
         });
@@ -45,8 +46,8 @@ export default class App extends Component {
     this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
-    // fetch('../../mock/following_tags.json')
-    fetch(GOT_USER_DATA_URI + '/following_tags')
+    fetch('../../mock/following_tags.json')
+    // fetch(GOT_USER_DATA_URI + '/following_tags')
       .then((response) => response.json() )
       .then((json) => {
         const tags = [];
@@ -55,8 +56,8 @@ export default class App extends Component {
       }).catch((ex) => { console.log('parsing failed', ex) });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    // fetch('../../mock/following_users.json')
-    fetch(GOT_USER_DATA_URI + '/following_users')
+    fetch('../../mock/following_users.json')
+    // fetch(GOT_USER_DATA_URI + '/following_users')
       .then((response) => response.json() )
       .then((json) => {
         const users = [];
@@ -69,12 +70,13 @@ export default class App extends Component {
     this.state.following_tags.map((tag) => {
       tagQuery += `tag%3A${tag}+OR+`;
     });
-    // fetch('../../mock/following_tags_related_items.json')
-    fetch(SEARCH_ITEMS_URI + tagQuery)
+    fetch('../../mock/following_tags_related_items.json')
+    // fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
         json.forEach((item) => {
-          fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+          fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
+          // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
             .then((response) => response.json() )
             .then((jsonp) => {item.bookmark_count = jsonp} );
         });
@@ -86,12 +88,13 @@ export default class App extends Component {
     this.state.following_users.map((tag) => {
       userQuery += `user%3A${tag}+OR+`;
     });
-    // fetch('../../mock/following_users_related_items.json')
-    fetch(SEARCH_ITEMS_URI + userQuery)
+    fetch('../../mock/following_users_related_items.json')
+    // fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
           json.forEach((item) => {
-            fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
+            fetch(`../../mock/bookmark_count${['0','1','5'].sort(()=> Math.random()-.5)[0]}.json`)
+            // fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
               .then((response) => response.json() )
               .then((jsonp) => {item.bookmark_count = jsonp} );
           });
