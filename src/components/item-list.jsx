@@ -15,7 +15,8 @@ export default class ItemList extends Component {
         <ol>
           {
             items.map((item) => {
-              if (refineByBookmark <= item.bookmark_count) {
+              if (item.bookmark_count === undefined ||
+                refineByBookmark <= item.bookmark_count) {
                 if (icon === 'tag') {
                   return (
                     <Item
