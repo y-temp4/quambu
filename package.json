@@ -43,7 +43,6 @@
   "dependencies": {
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-tap-event-plugin": "^1.0.0",
     "react-toolbox": "^1.2.1",
     "whatwg-fetch": "^1.0.0"
   }

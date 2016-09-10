@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './item';
+import { List } from 'react-toolbox/lib/list';
 
 export default class ItemList extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class ItemList extends Component {
       return <span>{message}</span>;
     } else {
       return (
-        <ol>
+        <List>
           {
             items.map((item) => {
               if (item.bookmark_count === undefined ||
@@ -42,7 +43,7 @@ export default class ItemList extends Component {
               }
             })
           }
-        </ol>
+        </List>
       );
     }
   }
