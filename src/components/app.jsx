@@ -51,13 +51,13 @@ export default class App extends Component {
     this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
-    fetchUserSubData('../../mock/following_tags.json')
-    // fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
+    // fetchUserSubData('../../mock/following_tags.json')
+    fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
     .then((tags) => { this.setState({following_tags: tags}) });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    fetchUserSubData('../../mock/following_users.json')
-    // fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
+    // fetchUserSubData('../../mock/following_users.json')
+    fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
     .then((users) => { this.setState({following_users: users}) });
 
     // ユーザーがフォローしているタグに紐づく記事をstateに保存
