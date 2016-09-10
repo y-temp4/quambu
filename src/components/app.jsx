@@ -36,8 +36,8 @@ export default class App extends Component {
   componentDidMount() {
     console.log('did')
 
-    fetch('../../mock/items.json')
-    // fetch(NEW_ITEMS_URI)
+    // fetch('../../mock/items.json')
+    fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
       .then((json) => {
         const items = setBookmarkCountToItems(json)
@@ -62,8 +62,8 @@ export default class App extends Component {
 
     // ユーザーがフォローしているタグに紐づく記事をstateに保存
     const tagQuery = createQuery(this.state.following_tags, 'tag');
-    fetch('../../mock/following_tags_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + tagQuery)
+    // fetch('../../mock/following_tags_related_items.json')
+    fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
         const items = setBookmarkCountToItems(json)
@@ -72,8 +72,8 @@ export default class App extends Component {
 
     // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
     const userQuery = createQuery(this.state.following_users, 'user');
-    fetch('../../mock/following_users_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + userQuery)
+    // fetch('../../mock/following_users_related_items.json')
+    fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
         const items = setBookmarkCountToItems(json)
