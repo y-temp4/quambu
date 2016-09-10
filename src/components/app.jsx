@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './item';
 import ItemList from './item-list';
+import Header from './header';
 import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { setBookmarkCountToItems } from '../api/set-bookmark-count-to-items';
@@ -84,6 +85,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Header/>
         <input type="number" onChange={this._handleBookmarkCountChange.bind(this)} />
         <input type="number" onChange={this._handleStockCountChange.bind(this)} />
         <input type="text" ref="userName"/>

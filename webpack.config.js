@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -14,24 +15,31 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.scss', '.css', '.js', '.jsx']
   },
   module: {
     loaders: [
       {
         test: /.jsx?$/,
-        // loader: 'babel',
         loaders: ['react-hot', 'babel-loader'],
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
       }
     ]
   },
+  sassLoader: {
+    data: '@import "theme/_config.scss";',
+    includePaths: [path.resolve(__dirname, './sass')]
+  },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.template.html',
       filename: 'index.html'
-    })
+    }),
+    new ExtractTextPlugin('theme.css', {allChunks: true})
   ],
 };
