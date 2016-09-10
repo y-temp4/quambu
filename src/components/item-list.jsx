@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './item';
-import { List } from 'react-toolbox/lib/list';
+import { List, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
+import { Card } from 'react-toolbox/lib/card';
 
 export default class ItemList extends Component {
   constructor(props) {
@@ -13,16 +14,23 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const {items, refineByBookmark, refineByStock, icon, hasSubData, message} = this.props;
+    const {items, refineByBookmark, refineByStock, icon, hasSubData, message, title} = this.props;
+    // console.log(items[0].bookmark_count)
     if (!hasSubData) {
-      return <span>{message}</span>;
+      return (
+        <Card style={{width: '90%', margin: '2%'}} raised>
+          <List>
+            <ListItem caption={message} />
+          </List>
+        </Card>
+      );
     } else {
       return (
-        <List>
-          {
-            items.map((item) => {
-              if (item.bookmark_count === undefined ||
-                this._refineByCount(item, refineByBookmark, refineByStock)) {
+        <Card style={{width: '90%', margin: '2%'}} raised>
+          <List>
+          <ListSubHeader caption={title} />
+            {
+              items.map((item) => {
                 if (icon === 'tag') {
                   return (
                     <Item
@@ -40,10 +48,10 @@ export default class ItemList extends Component {
                       iconUrl={item.user.profile_image_url} />
                   )
                 }
-              }
-            })
-          }
-        </List>
+              })
+            }
+          </List>
+        </ Card>
       );
     }
   }

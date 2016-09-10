@@ -24,11 +24,18 @@ export default class App extends Component {
       following_tags_related_items: [],
       following_users_related_items: [],
       refine_by_bookmark: 0,
-      refine_by_stock: 0
+      refine_by_stock: 0,
+      refined_items: null
     };
   }
 
+  componentWillMount() {
+    console.log('will')
+  }
+
   componentDidMount() {
+    console.log('did')
+
     fetch('../../mock/items.json')
     // fetch(NEW_ITEMS_URI)
       .then((response) => response.json() )
@@ -76,6 +83,10 @@ export default class App extends Component {
 
   _handleBookmarkCountChange(e) {
     this.setState({refine_by_bookmark: e.target.value});
+    const items = this.state.items.filter((item) => {
+      return item.bookmark_count >= e.target.value;
+    })
+    this.setState({refined_items: items});
   }
 
   _handleStockCountChange(e) {
@@ -91,25 +102,25 @@ export default class App extends Component {
         <input type="number" onChange={this._handleStockCountChange.bind(this)} />
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
-        <h1>User following tags items</h1>
-          <ItemList
-            items={this.state.following_tags_related_items}
-            icon={'tag'}
-            refineByBookmark={this.state.refine_by_bookmark}
-            refineByStock={this.state.refine_by_stock}
-            hasSubData={this.state.following_tags.length}
-            message={'タグが登録されていません'} />
-        <h1>User following users items</h1>
-          <ItemList
-            items={this.state.following_users_related_items}
-            icon={'user'}
-            refineByBookmark={this.state.refine_by_bookmark}
-            refineByStock={this.state.refine_by_stock}
-            hasSubData={this.state.following_users.length}
-            message={'ユーザーが登録されていません'} />
-        <h1>New Articles</h1>
         <ItemList
-          items={this.state.items}
+          title={'User following tags items'}
+          items={this.state.following_tags_related_items}
+          icon={'tag'}
+          refineByBookmark={this.state.refine_by_bookmark}
+          refineByStock={this.state.refine_by_stock}
+          hasSubData={this.state.following_tags.length}
+          message={'タグが登録されていません'} />
+        <ItemList
+          title={'User following users items'}
+          items={this.state.following_users_related_items}
+          icon={'user'}
+          refineByBookmark={this.state.refine_by_bookmark}
+          refineByStock={this.state.refine_by_stock}
+          hasSubData={this.state.following_users.length}
+          message={'ユーザーが登録されていません'} />
+        <ItemList
+          title={'New Items'}
+          items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
           icon={'tag'}
           refineByBookmark={this.state.refine_by_bookmark}
           refineByStock={this.state.refine_by_stock}

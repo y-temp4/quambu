@@ -4,9 +4,17 @@
 $color-primary: $palette-blue-500;
 $color-primary-dark: $palette-blue-700;
 
-// $color-primary: $palette-indigo-500 !default;
-// $color-primary-dark: $palette-indigo-700 !default;
-// $color-accent: $palette-pink-a200 !default;
-// $color-accent-dark: $palette-pink-700 !default;
-// $color-primary-contrast: $color-dark-contrast !default;
-// $color-accent-contrast: $color-dark-contrast !default;
+body {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
