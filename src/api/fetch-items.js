@@ -4,10 +4,10 @@ import 'whatwg-fetch';
 
 const BOOKMARK_COUNT_URI = 'https://b.hatena.ne.jp/entry.count?url=';
 
-export function fetchItems(uri) {
+export function fetchItems(url) {
   return new Promise((resolve, reject) => {
 
-    fetch(uri)
+    fetch(url)
       .then((response) => response.json())
       .then((items) => {
 

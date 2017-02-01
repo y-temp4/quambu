@@ -54,32 +54,30 @@ export default class App extends Component {
     // ユーザーがフォローしているタグをstateに保存
     // fetchUserSubData('../../mock/following_tags.json')
     fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
-    .then((tags) => { this.setState({following_tags: tags}) });
+      .then((tags) => {
+        this.setState({following_tags: tags});
+        // ユーザーがフォローしているタグに紐づく記事をstateに保存
+        const tagQuery = createQuery(this.state.following_tags, 'tag');
+
+        // fetchItems('../../mock/following_tags_related_items.json').then((items) => {
+        fetchItems(SEARCH_ITEMS_URI + tagQuery).then((items) => {
+          this.setState({following_tags_related_items: items});
+        });
+      });
 
     // ユーザーがフォローしているユーザーをstateに保存
     // fetchUserSubData('../../mock/following_users.json')
     fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
-    .then((users) => { this.setState({following_users: users}) });
+      .then((users) => {
+        this.setState({following_users: users});
+        // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
+        const userQuery = createQuery(this.state.following_users, 'user');
 
-    // ユーザーがフォローしているタグに紐づく記事をstateに保存
-    const tagQuery = createQuery(this.state.following_tags, 'tag');
-    // fetch('../../mock/following_tags_related_items.json')
-    fetch(SEARCH_ITEMS_URI + tagQuery)
-      .then((response) => response.json() )
-      .then((json) => {
-        const items = setBookmarkCountToItems(json)
-        this.setState({following_tags_related_items: items});
-      }).catch((ex) => { console.log('parsing failed', ex); });
-
-    // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
-    const userQuery = createQuery(this.state.following_users, 'user');
-    // fetch('../../mock/following_users_related_items.json')
-    fetch(SEARCH_ITEMS_URI + userQuery)
-      .then((response) => response.json() )
-      .then((json) => {
-        const items = setBookmarkCountToItems(json)
-        this.setState({following_users_related_items: items});
-      }).catch((ex) => { console.log('parsing failed', ex); });
+        // fetchItems('../../mock/following_users_related_items.json').then((items) => {
+        fetchItems(SEARCH_ITEMS_URI + userQuery).then((items) => {
+          this.setState({following_users_related_items: items});
+        });
+      });
   }
 
   _handleBookmarkCountChange(e) {
