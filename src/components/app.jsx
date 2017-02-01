@@ -40,8 +40,8 @@ export default class App extends Component {
   componentDidMount() {
     console.log('did')
 
-    // fetchItems(NEW_ITEMS_URI).then((items) => {
-    fetchItems('../../mock/items.json').then((items) => {
+    // fetchItems('../../mock/items.json').then((items) => {
+    fetchItems(NEW_ITEMS_URI).then((items) => {
       this.setState({items: items});
     });
 
@@ -52,19 +52,19 @@ export default class App extends Component {
     this.setState({username: this.refs.userName.value});
 
     // ユーザーがフォローしているタグをstateに保存
-    fetchUserSubData('../../mock/following_tags.json')
-    // fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
+    // fetchUserSubData('../../mock/following_tags.json')
+    fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
     .then((tags) => { this.setState({following_tags: tags}) });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    fetchUserSubData('../../mock/following_users.json')
-    // fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
+    // fetchUserSubData('../../mock/following_users.json')
+    fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
     .then((users) => { this.setState({following_users: users}) });
 
     // ユーザーがフォローしているタグに紐づく記事をstateに保存
     const tagQuery = createQuery(this.state.following_tags, 'tag');
-    fetch('../../mock/following_tags_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + tagQuery)
+    // fetch('../../mock/following_tags_related_items.json')
+    fetch(SEARCH_ITEMS_URI + tagQuery)
       .then((response) => response.json() )
       .then((json) => {
         const items = setBookmarkCountToItems(json)
@@ -73,8 +73,8 @@ export default class App extends Component {
 
     // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
     const userQuery = createQuery(this.state.following_users, 'user');
-    fetch('../../mock/following_users_related_items.json')
-    // fetch(SEARCH_ITEMS_URI + userQuery)
+    // fetch('../../mock/following_users_related_items.json')
+    fetch(SEARCH_ITEMS_URI + userQuery)
       .then((response) => response.json() )
       .then((json) => {
         const items = setBookmarkCountToItems(json)
