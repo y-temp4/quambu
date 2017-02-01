@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListItem } from 'react-toolbox/lib/list';
-import theme from '../../sass/theme/item.scss'
+import theme from '../../sass/theme/item.scss';
 
 export default class item extends Component {
   constructor(props) {
@@ -9,7 +9,6 @@ export default class item extends Component {
 
   render() {
     const {item, iconTitle, iconUrl} = this.props;
-    console.log(item.bookmark_count)
 
     const counts = `ストック：${item.stock_users.length}, ブックマーク：${item.bookmark_count}`;
     return (
