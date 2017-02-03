@@ -29,9 +29,6 @@ export default class App extends Component {
       following_users_related_items: [],
       bookmark_count: 0,
       stock_count: 0,
-      refined_items: [],
-      refined_following_tags_related_items: [],
-      refined_following_users_related_items: [],
       active: false
     };
 
@@ -81,36 +78,9 @@ export default class App extends Component {
   }
 
   filterItemByCountChange(service, value) {
-    if (service === 'bookmark') {
-      this.setState({bookmark_count: value});
-    } else {
-      this.setState({stock_count: value});
-    }
-    const items = this.state.items.filter((item) => {
-      if (service === 'bookmark') {
-        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
-      }{
-        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
-      }
-    });
-    const following_tags_related_items = this.state.following_tags_related_items.filter((item) => {
-      if (service === 'bookmark') {
-        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
-      }{
-        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
-      }
-    });
-    const following_users_related_items = this.state.following_users_related_items.filter((item) => {
-      if (service === 'bookmark') {
-        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
-      }{
-        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
-      }
-    });
-    this.setState({refined_items: items,
-      refined_following_tags_related_items: following_tags_related_items,
-      refined_following_users_related_items: following_users_related_items
-    });
+    const obj = {};
+    obj[`${service}_count`] = value;
+    this.setState(obj);
   }
 
   toggleDrower() {
@@ -135,30 +105,30 @@ export default class App extends Component {
             <Col xs={12} lg={6} style={{padding: 10}}>
               <ItemList
                 title={"User following tag's items"}
-                items={this.state.refined_following_tags_related_items.length === 0 ? this.state.following_tags_related_items : this.state.refined_following_tags_related_items}
+                items={this.state.following_tags_related_items}
                 icon={'tag'}
-                refineByBookmark={this.state.bookmark_count}
-                refineByStock={this.state.stock_count}
+                bookmarkCount={this.state.bookmark_count}
+                stockCount={this.state.stock_count}
                 hasSubData={this.state.following_tags.length}
                 message={'タグが登録されていません'} />
             </Col>
             <Col xs={12} lg={6} style={{padding: 10}}>
               <ItemList
                 title={"User following user's items"}
-                items={this.state.refined_following_users_related_items.length === 0 ? this.state.following_users_related_items : this.state.refined_following_users_related_items}
+                items={this.state.following_users_related_items}
                 icon={'user'}
-                refineByBookmark={this.state.bookmark_count}
-                refineByStock={this.state.stock_count}
+                bookmarkCount={this.state.bookmark_count}
+                stockCount={this.state.stock_count}
                 hasSubData={this.state.following_users.length}
                 message={'ユーザーが登録されていません'} />
             </Col>
             <Col xs={12} style={{padding: 10}}>
               <ItemList
                 title={'New Items'}
-                items={this.state.refined_items.length === 0 ? this.state.items : this.state.refined_items}
+                items={this.state.items}
                 icon={'tag'}
-                refineByBookmark={this.state.bookmark_count}
-                refineByStock={this.state.stock_count}
+                bookmarkCount={this.state.bookmark_count}
+                stockCount={this.state.stock_count}
                 hasSubData={true} />
             </Col>
           </Row>
