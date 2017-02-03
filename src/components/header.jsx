@@ -17,7 +17,7 @@ export default class Header extends Component {
   render() {
     return (
       <AppBar fixed flat>
-        <IconButton icon={'dehaze'} onClick={this._handleToggle}/>
+        <IconButton icon={'dehaze'} onClick={this._handleToggle} style={{color: 'white'}}/>
         <a href="/">Quambu</a>
         <Navigation />
       </AppBar>
