@@ -15,7 +15,6 @@ export default class ItemList extends Component {
 
   render() {
     const {items, refineByBookmark, refineByStock, icon, hasSubData, message, title} = this.props;
-
     if (!hasSubData) {
       return (
         <Card raised>
@@ -31,7 +30,7 @@ export default class ItemList extends Component {
           <ListSubHeader caption={title} />
             {
               items.length === 0 ?
-                <ListItem caption={'記事がありません'} />
+                <ListItem caption={'記事がありません'} disabled />
                 :
                 items.slice(0, 20).map((item) => {
                   return (
