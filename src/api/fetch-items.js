@@ -18,7 +18,6 @@ export function fetchItems(url) {
             .then((response) => response.json())
             .then((jsonp) => {
               item.bookmark_count = jsonp;
-              console.log(jsonp);
               if (index === array.length - 1) {
                 resolve(items);
               }

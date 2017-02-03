@@ -6,43 +6,45 @@ import Slider from 'react-toolbox/lib/slider';
 export default class SideMenu extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      bookmark_count: 0,
-      stock_count: 0
-    };
   }
 
   _handleToggle() {
     this.props.toggleDrower();
   }
 
-  _handleChange(slider, value) {
-    const newState = {};
-    newState[slider] = value;
-    this.setState(newState);
+  _handleUserChange(userName) {
+    this.props.fetchItemsByUserData(userName);
+  }
+
+  _handleCountChange(servise, value) {
+    this.props.filterItemByCountChange(servise, value);
   }
 
   render() {
+    const {active, userName, bookmarkCount, stockCount} = this.props;
     return (
       <Drawer
-        active={this.props.active}
+        active={active}
         onOverlayClick={this._handleToggle.bind(this)}>
         <section style={{padding: 10}}>
           <p>各種設定</p>
-          <Input type='text' label='ユーザーID'/>
+          <Input
+            type='text'
+            label='ユーザーID'
+            value={userName}
+            onChange={this._handleUserChange.bind(this)}/>
           <p>ブックマーク数</p>
           <Slider
-            value={this.state.bookmark_count}
-            onChange={this._handleChange.bind(this, 'bookmark_count')}
+            value={bookmarkCount}
+            onChange={this._handleCountChange.bind(this, 'bookmark')}
             step={1}
             max={100}
             pinned
             editable/>
           <p>ストック数</p>
           <Slider
-            value={this.state.stock_count}
-            onChange={this._handleChange.bind(this, 'stock_count')}
+            value={stockCount}
+            onChange={this._handleCountChange.bind(this, 'stock')}
             step={1}
             max={100}
             pinned

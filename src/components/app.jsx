@@ -26,14 +26,16 @@ export default class App extends Component {
       following_users: [],
       following_tags_related_items: [],
       following_users_related_items: [],
-      refine_by_bookmark: 0,
-      refine_by_stock: 0,
+      bookmark_count: 0,
+      stock_count: 0,
       refined_items: null,
       refined_following_tags_related_items: null,
       refined_following_users_related_items: null,
       active: false
     };
 
+    this.fetchItemsByUserData = this.fetchItemsByUserData.bind(this);
+    this.filterItemByCountChange = this.filterItemByCountChange.bind(this);
     this.toggleDrower = this.toggleDrower.bind(this);
   }
 
@@ -44,9 +46,9 @@ export default class App extends Component {
     });
   }
 
-  _handleChange(e) {
-    const GOT_USER_DATA_URI = `${USER_DATA_URI}/${this.refs.userName.value}`;
-    this.setState({username: this.refs.userName.value});
+  fetchItemsByUserData(userName) {
+    const GOT_USER_DATA_URI = `${USER_DATA_URI}/${userName}`;
+    this.setState({username: userName});
 
     // ユーザーがフォローしているタグをstateに保存
     // fetchUserSubData('../../mock/following_tags.json')
@@ -77,31 +79,31 @@ export default class App extends Component {
       });
   }
 
-  _handleCountChange(service, e) {
+  filterItemByCountChange(service, value) {
     if (service === 'bookmark') {
-      this.setState({refine_by_bookmark: e.target.value});
+      this.setState({bookmark_count: value});
     } else {
-      this.setState({refine_by_stock: e.target.value});
+      this.setState({stock_count: value});
     }
     const items = this.state.items.filter((item) => {
       if (service === 'bookmark') {
-        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
       }{
-        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
       }
     });
     const following_tags_related_items = this.state.following_tags_related_items.filter((item) => {
       if (service === 'bookmark') {
-        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
       }{
-        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
       }
     });
     const following_users_related_items = this.state.following_users_related_items.filter((item) => {
       if (service === 'bookmark') {
-        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+        return item.bookmark_count >= value && item.stock_count >= this.state.stock_count;
       }{
-        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+        return item.bookmark_count >= this.state.bookmark_count && item.stock_count >= value;
       }
     });
     this.setState({refined_items: items,
@@ -112,18 +114,22 @@ export default class App extends Component {
 
   toggleDrower() {
     this.setState({active: !this.state.active});
+    this._c('aaa');
   }
 
   render() {
     return (
       <div>
         <Header toggleDrower={this.toggleDrower}/>
-        <SideMenu active={this.state.active} toggleDrower={this.toggleDrower}/>
+        <SideMenu
+          active={this.state.active}
+          fetchItemsByUserData={this.fetchItemsByUserData}
+          filterItemByCountChange={this.filterItemByCountChange}
+          toggleDrower={this.toggleDrower}
+          userName={this.state.username}
+          bookmarkCount={this.state.bookmark_count}
+          stockCount={this.state.stock_count} />
         <div  style={{marginTop: '8rem'}}></div>
-        <input type="number" onChange={this._handleCountChange.bind(this, 'bookmark')} />
-        <input type="number" onChange={this._handleCountChange.bind(this, 'stock')} />
-        <input type="text" ref="userName"/>
-        <button onClick={this._handleChange.bind(this)}>ok</button>
         <Grid style={{maxWidth: 1000, width: '90%'}}>
           <Row>
             <Col xs={12} lg={6} style={{padding: 15}}>
@@ -131,8 +137,8 @@ export default class App extends Component {
                 title={'User following tags items'}
                 items={this.state.refined_following_tags_related_items === null ? this.state.following_tags_related_items : this.state.refined_following_tags_related_items}
                 icon={'tag'}
-                refineByBookmark={this.state.refine_by_bookmark}
-                refineByStock={this.state.refine_by_stock}
+                refineByBookmark={this.state.bookmark_count}
+                refineByStock={this.state.stock_count}
                 hasSubData={this.state.following_tags.length}
                 message={'タグが登録されていません'} />
             </Col>
@@ -141,8 +147,8 @@ export default class App extends Component {
                 title={'User following users items'}
                 items={this.state.refined_following_users_related_items === null ? this.state.following_users_related_items : this.state.refined_following_users_related_items}
                 icon={'user'}
-                refineByBookmark={this.state.refine_by_bookmark}
-                refineByStock={this.state.refine_by_stock}
+                refineByBookmark={this.state.bookmark_count}
+                refineByStock={this.state.stock_count}
                 hasSubData={this.state.following_users.length}
                 message={'ユーザーが登録されていません'} />
             </Col>
@@ -151,8 +157,8 @@ export default class App extends Component {
                 title={'New Items'}
                 items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
                 icon={'tag'}
-                refineByBookmark={this.state.refine_by_bookmark}
-                refineByStock={this.state.refine_by_stock}
+                refineByBookmark={this.state.bookmark_count}
+                refineByStock={this.state.stock_count}
                 hasSubData={true} />
             </Col>
           </Row>
