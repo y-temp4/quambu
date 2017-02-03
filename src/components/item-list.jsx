@@ -18,7 +18,7 @@ export default class ItemList extends Component {
     // console.log(items[0].bookmark_count)
     if (!hasSubData) {
       return (
-        <Card style={{width: '90%', margin: '2%'}} raised>
+        <Card raised>
           <List>
             <ListItem caption={message} />
           </List>
@@ -26,7 +26,7 @@ export default class ItemList extends Component {
       );
     } else {
       return (
-        <Card style={{width: '90%', margin: '2%'}} raised>
+        <Card raised>
           <List>
           <ListSubHeader caption={title} />
             {

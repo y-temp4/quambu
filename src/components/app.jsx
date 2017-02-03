@@ -3,10 +3,12 @@ import Item from './item';
 import ItemList from './item-list';
 import Header from './header';
 import SideMenu from './side-menu';
+import { Grid, Row, Col } from 'react-flexbox-grid/lib/index';
 import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { fetchItems } from '../api/fetch-items';
 import { createQuery } from '../utils/create-query';
+
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
@@ -106,29 +108,39 @@ export default class App extends Component {
         <input type="number" onChange={this._handleStockCountChange.bind(this)} />
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
-        <ItemList
-          title={'User following tags items'}
-          items={this.state.following_tags_related_items}
-          icon={'tag'}
-          refineByBookmark={this.state.refine_by_bookmark}
-          refineByStock={this.state.refine_by_stock}
-          hasSubData={this.state.following_tags.length}
-          message={'タグが登録されていません'} />
-        <ItemList
-          title={'User following users items'}
-          items={this.state.following_users_related_items}
-          icon={'user'}
-          refineByBookmark={this.state.refine_by_bookmark}
-          refineByStock={this.state.refine_by_stock}
-          hasSubData={this.state.following_users.length}
-          message={'ユーザーが登録されていません'} />
-        <ItemList
-          title={'New Items'}
-          items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
-          icon={'tag'}
-          refineByBookmark={this.state.refine_by_bookmark}
-          refineByStock={this.state.refine_by_stock}
-          hasSubData={true} />
+        <Grid style={{maxWidth: 1000, width: '90%'}}>
+            <Row>
+              <Col xs={12} lg={6} style={{padding: 15}}>
+                <ItemList
+                  title={'User following tags items'}
+                  items={this.state.following_tags_related_items}
+                  icon={'tag'}
+                  refineByBookmark={this.state.refine_by_bookmark}
+                  refineByStock={this.state.refine_by_stock}
+                  hasSubData={this.state.following_tags.length}
+                  message={'タグが登録されていません'} />
+              </Col>
+              <Col xs={12} lg={6} style={{padding: 15}}>
+                <ItemList
+                  title={'User following users items'}
+                  items={this.state.following_users_related_items}
+                  icon={'user'}
+                  refineByBookmark={this.state.refine_by_bookmark}
+                  refineByStock={this.state.refine_by_stock}
+                  hasSubData={this.state.following_users.length}
+                  message={'ユーザーが登録されていません'} />
+              </Col>
+              <Col xs={12} style={{padding: 15}}>
+                <ItemList
+                  title={'New Items'}
+                  items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
+                  icon={'tag'}
+                  refineByBookmark={this.state.refine_by_bookmark}
+                  refineByStock={this.state.refine_by_stock}
+                  hasSubData={true} />
+              </Col>
+            </Row>
+          </Grid>
       </div>
     );
   }

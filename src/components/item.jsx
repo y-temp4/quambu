@@ -12,8 +12,7 @@ export default class item extends Component {
 
     const counts = `ストック：${item.stock_users.length}, ブックマーク：${item.bookmark_count}`;
     return (
-      <a href={item.url} target="_blank" style={{width: '300px'}}>
-
+      <a href={item.url} target="_blank">
         <ListItem
           theme={theme}
           avatar={iconUrl}

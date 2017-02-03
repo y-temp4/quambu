@@ -18,3 +18,15 @@
     }
   }
 }
+
+.itemText {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+}
+
+.itemContentRoot {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+}
