@@ -131,7 +131,7 @@ export default class App extends Component {
         <div  style={{marginTop: '8rem'}}></div>
         <Grid style={{maxWidth: 1000, width: '90%'}}>
           <Row>
-            <Col xs={12} lg={6} style={{padding: 15}}>
+            <Col xs={12} lg={6} style={{padding: 10}}>
               <ItemList
                 title={"User following tag's items"}
                 items={this.state.refined_following_tags_related_items === null ? this.state.following_tags_related_items : this.state.refined_following_tags_related_items}
@@ -141,7 +141,7 @@ export default class App extends Component {
                 hasSubData={this.state.following_tags.length}
                 message={'タグが登録されていません'} />
             </Col>
-            <Col xs={12} lg={6} style={{padding: 15}}>
+            <Col xs={12} lg={6} style={{padding: 10}}>
               <ItemList
                 title={"User following user's items"}
                 items={this.state.refined_following_users_related_items === null ? this.state.following_users_related_items : this.state.refined_following_users_related_items}
@@ -151,7 +151,7 @@ export default class App extends Component {
                 hasSubData={this.state.following_users.length}
                 message={'ユーザーが登録されていません'} />
             </Col>
-            <Col xs={12} style={{padding: 15}}>
+            <Col xs={12} style={{padding: 10}}>
               <ItemList
                 title={'New Items'}
                 items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
