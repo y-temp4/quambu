@@ -29,6 +29,8 @@ export default class App extends Component {
       refine_by_bookmark: 0,
       refine_by_stock: 0,
       refined_items: null,
+      refined_following_tags_related_items: null,
+      refined_following_users_related_items: null,
       active: false
     };
 
@@ -82,9 +84,30 @@ export default class App extends Component {
       this.setState({refine_by_stock: e.target.value});
     }
     const items = this.state.items.filter((item) => {
-      return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= this.state.refine_by_stock;
+      if (service === 'bookmark') {
+        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+      }{
+        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+      }
     });
-    this.setState({refined_items: items});
+    const following_tags_related_items = this.state.following_tags_related_items.filter((item) => {
+      if (service === 'bookmark') {
+        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+      }{
+        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+      }
+    });
+    const following_users_related_items = this.state.following_users_related_items.filter((item) => {
+      if (service === 'bookmark') {
+        return item.bookmark_count >= e.target.value && item.stock_count >= this.state.refine_by_stock;
+      }{
+        return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= e.target.value;
+      }
+    });
+    this.setState({refined_items: items,
+      refined_following_tags_related_items: following_tags_related_items,
+      refined_following_users_related_items: following_users_related_items
+    });
   }
 
   toggleDrower() {
@@ -106,7 +129,7 @@ export default class App extends Component {
             <Col xs={12} lg={6} style={{padding: 15}}>
               <ItemList
                 title={'User following tags items'}
-                items={this.state.following_tags_related_items}
+                items={this.state.refined_following_tags_related_items === null ? this.state.following_tags_related_items : this.state.refined_following_tags_related_items}
                 icon={'tag'}
                 refineByBookmark={this.state.refine_by_bookmark}
                 refineByStock={this.state.refine_by_stock}
@@ -116,7 +139,7 @@ export default class App extends Component {
             <Col xs={12} lg={6} style={{padding: 15}}>
               <ItemList
                 title={'User following users items'}
-                items={this.state.following_users_related_items}
+                items={this.state.refined_following_users_related_items === null ? this.state.following_users_related_items : this.state.refined_following_users_related_items}
                 icon={'user'}
                 refineByBookmark={this.state.refine_by_bookmark}
                 refineByStock={this.state.refine_by_stock}

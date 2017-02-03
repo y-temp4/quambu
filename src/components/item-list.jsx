@@ -15,9 +15,6 @@ export default class ItemList extends Component {
 
   render() {
     const {items, refineByBookmark, refineByStock, icon, hasSubData, message, title} = this.props;
-    console.log(items)
-    console.log(items.length)
-    // console.log(items[0].bookmark_count)
     if (!hasSubData) {
       return (
         <Card raised>
