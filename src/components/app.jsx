@@ -11,7 +11,7 @@ import { createQuery } from '../utils/create-query';
 
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
-const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items';
+const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items?per_page=100';
 const USER_DATA_URI = QIITA_API_ENDPOINT + '/users';
 const SEARCH_ITEMS_URI = QIITA_API_ENDPOINT + '/search';
 
@@ -40,8 +40,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetchItems('../../mock/items.json').then((items) => {
-    // fetchItems(NEW_ITEMS_URI).then((items) => {
+    // fetchItems('../../mock/items.json').then((items) => {
+    fetchItems(NEW_ITEMS_URI).then((items) => {
       this.setState({items: items});
     });
   }
@@ -114,7 +114,6 @@ export default class App extends Component {
 
   toggleDrower() {
     this.setState({active: !this.state.active});
-    this._c('aaa');
   }
 
   render() {
@@ -134,7 +133,7 @@ export default class App extends Component {
           <Row>
             <Col xs={12} lg={6} style={{padding: 15}}>
               <ItemList
-                title={'User following tags items'}
+                title={"User following tag's items"}
                 items={this.state.refined_following_tags_related_items === null ? this.state.following_tags_related_items : this.state.refined_following_tags_related_items}
                 icon={'tag'}
                 refineByBookmark={this.state.bookmark_count}
@@ -144,7 +143,7 @@ export default class App extends Component {
             </Col>
             <Col xs={12} lg={6} style={{padding: 15}}>
               <ItemList
-                title={'User following users items'}
+                title={"User following user's items"}
                 items={this.state.refined_following_users_related_items === null ? this.state.following_users_related_items : this.state.refined_following_users_related_items}
                 icon={'user'}
                 refineByBookmark={this.state.bookmark_count}

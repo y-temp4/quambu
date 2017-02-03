@@ -29,7 +29,7 @@ export default class ItemList extends Component {
           <List>
           <ListSubHeader caption={title} />
             {
-              items.map((item) => {
+              items.slice(0, 20).map((item) => {
                 return (
                   <Item
                     key={item.id}
