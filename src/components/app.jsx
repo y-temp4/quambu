@@ -32,21 +32,14 @@ export default class App extends Component {
       active: false
     };
 
-    this.toggleDrower = this.toggleDrower.bind(this)
-  }
-
-  componentWillMount() {
-    console.log('will')
+    this.toggleDrower = this.toggleDrower.bind(this);
   }
 
   componentDidMount() {
-    console.log('did')
-
-    // fetchItems('../../mock/items.json').then((items) => {
-    fetchItems(NEW_ITEMS_URI).then((items) => {
+    fetchItems('../../mock/items.json').then((items) => {
+    // fetchItems(NEW_ITEMS_URI).then((items) => {
       this.setState({items: items});
     });
-
   }
 
   _handleChange(e) {
@@ -82,16 +75,16 @@ export default class App extends Component {
       });
   }
 
-  _handleBookmarkCountChange(e) {
-    this.setState({refine_by_bookmark: e.target.value});
+  _handleCountChange(service, e) {
+    if (service === 'bookmark') {
+      this.setState({refine_by_bookmark: e.target.value});
+    } else {
+      this.setState({refine_by_stock: e.target.value});
+    }
     const items = this.state.items.filter((item) => {
-      return item.bookmark_count >= e.target.value;
-    })
+      return item.bookmark_count >= this.state.refine_by_bookmark && item.stock_count >= this.state.refine_by_stock;
+    });
     this.setState({refined_items: items});
-  }
-
-  _handleStockCountChange(e) {
-    this.setState({refine_by_stock: e.target.value});
   }
 
   toggleDrower() {
@@ -104,43 +97,43 @@ export default class App extends Component {
         <Header toggleDrower={this.toggleDrower}/>
         <SideMenu active={this.state.active} toggleDrower={this.toggleDrower}/>
         <div  style={{marginTop: '8rem'}}></div>
-        <input type="number" onChange={this._handleBookmarkCountChange.bind(this)} />
-        <input type="number" onChange={this._handleStockCountChange.bind(this)} />
+        <input type="number" onChange={this._handleCountChange.bind(this, 'bookmark')} />
+        <input type="number" onChange={this._handleCountChange.bind(this, 'stock')} />
         <input type="text" ref="userName"/>
         <button onClick={this._handleChange.bind(this)}>ok</button>
         <Grid style={{maxWidth: 1000, width: '90%'}}>
-            <Row>
-              <Col xs={12} lg={6} style={{padding: 15}}>
-                <ItemList
-                  title={'User following tags items'}
-                  items={this.state.following_tags_related_items}
-                  icon={'tag'}
-                  refineByBookmark={this.state.refine_by_bookmark}
-                  refineByStock={this.state.refine_by_stock}
-                  hasSubData={this.state.following_tags.length}
-                  message={'タグが登録されていません'} />
-              </Col>
-              <Col xs={12} lg={6} style={{padding: 15}}>
-                <ItemList
-                  title={'User following users items'}
-                  items={this.state.following_users_related_items}
-                  icon={'user'}
-                  refineByBookmark={this.state.refine_by_bookmark}
-                  refineByStock={this.state.refine_by_stock}
-                  hasSubData={this.state.following_users.length}
-                  message={'ユーザーが登録されていません'} />
-              </Col>
-              <Col xs={12} style={{padding: 15}}>
-                <ItemList
-                  title={'New Items'}
-                  items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
-                  icon={'tag'}
-                  refineByBookmark={this.state.refine_by_bookmark}
-                  refineByStock={this.state.refine_by_stock}
-                  hasSubData={true} />
-              </Col>
-            </Row>
-          </Grid>
+          <Row>
+            <Col xs={12} lg={6} style={{padding: 15}}>
+              <ItemList
+                title={'User following tags items'}
+                items={this.state.following_tags_related_items}
+                icon={'tag'}
+                refineByBookmark={this.state.refine_by_bookmark}
+                refineByStock={this.state.refine_by_stock}
+                hasSubData={this.state.following_tags.length}
+                message={'タグが登録されていません'} />
+            </Col>
+            <Col xs={12} lg={6} style={{padding: 15}}>
+              <ItemList
+                title={'User following users items'}
+                items={this.state.following_users_related_items}
+                icon={'user'}
+                refineByBookmark={this.state.refine_by_bookmark}
+                refineByStock={this.state.refine_by_stock}
+                hasSubData={this.state.following_users.length}
+                message={'ユーザーが登録されていません'} />
+            </Col>
+            <Col xs={12} style={{padding: 15}}>
+              <ItemList
+                title={'New Items'}
+                items={this.state.refined_items === null ? this.state.items : this.state.refined_items}
+                icon={'tag'}
+                refineByBookmark={this.state.refine_by_bookmark}
+                refineByStock={this.state.refine_by_stock}
+                hasSubData={true} />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }

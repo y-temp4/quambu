@@ -15,6 +15,8 @@ export default class ItemList extends Component {
 
   render() {
     const {items, refineByBookmark, refineByStock, icon, hasSubData, message, title} = this.props;
+    console.log(items)
+    console.log(items.length)
     // console.log(items[0].bookmark_count)
     if (!hasSubData) {
       return (
@@ -31,23 +33,13 @@ export default class ItemList extends Component {
           <ListSubHeader caption={title} />
             {
               items.map((item) => {
-                if (icon === 'tag') {
-                  return (
-                    <Item
-                      key={item.id}
-                      item={item}
-                      iconTitle={item.tags[0].name}
-                      iconUrl={item.tags[0].icon_url} />
-                  );
-                } else {
-                  return (
-                    <Item
-                      key={item.id}
-                      item={item}
-                      iconTitle={item.user.url_name}
-                      iconUrl={item.user.profile_image_url} />
-                  )
-                }
+                return (
+                  <Item
+                    key={item.id}
+                    item={item}
+                    iconTitle={icon === 'tag' ? item.tags[0].name : item.user.url_name}
+                    iconUrl={icon === 'tag' ? item.tags[0].icon_url : item.user.profile_image_url} />
+                );
               })
             }
           </List>
