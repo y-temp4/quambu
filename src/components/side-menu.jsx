@@ -1,56 +1,68 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Drawer from 'react-toolbox/lib/drawer';
 import Input from 'react-toolbox/lib/input';
 import Slider from 'react-toolbox/lib/slider';
 
 export default class SideMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  _handleToggle() {
+  handleToggle() {
     this.props.toggleDrower();
   }
 
-  _handleUserChange(userName) {
+  handleUserChange(userName) {
     this.props.fetchItemsByUserData(userName);
   }
 
-  _handleCountChange(servise, value) {
+  handleCountChange(servise, value) {
     this.props.filterItemByCountChange(servise, value);
   }
 
   render() {
-    const {active, userName, bookmarkCount, stockCount} = this.props;
+    const { active, userName, bookmarkCount, stockCount } = this.props;
+
     return (
       <Drawer
         active={active}
-        onOverlayClick={this._handleToggle.bind(this)}>
-        <section style={{padding: 10}}>
+        onOverlayClick={this.handleToggle.bind(this)}
+      >
+        <section style={{ padding: 10 }}>
           <p>各種設定</p>
           <Input
-            type='text'
-            label='ユーザーID'
+            type={'text'}
+            label={'ユーザーID'}
             value={userName}
-            onChange={this._handleUserChange.bind(this)}/>
+            onChange={this.handleUserChange.bind(this)}
+          />
           <p>ブックマーク数</p>
           <Slider
             value={bookmarkCount}
-            onChange={this._handleCountChange.bind(this, 'bookmark')}
+            onChange={this.handleCountChange.bind(this, 'bookmark')}
             step={1}
             max={100}
             pinned
-            editable/>
+            editable
+          />
           <p>ストック数</p>
           <Slider
             value={stockCount}
-            onChange={this._handleCountChange.bind(this, 'stock')}
+            onChange={this.handleCountChange.bind(this, 'stock')}
             step={1}
             max={100}
             pinned
-            editable/>
+            editable
+          />
         </section>
       </Drawer>
     );
   }
 }
+
+SideMenu.propTypes = {
+  active: PropTypes.bool.isRequired,
+  userName: PropTypes.string.isRequired,
+  bookmarkCount: PropTypes.number.isRequired,
+  stockCount: PropTypes.number.isRequired,
+  toggleDrower: PropTypes.func.isRequired,
+  fetchItemsByUserData: PropTypes.func.isRequired,
+  filterItemByCountChange: PropTypes.func.isRequired,
+};

@@ -1,10 +1,7 @@
 export function createQuery(array, param) {
-  let query = '?q=';
-  array.map((elm) => {
-    query += `${param}%3A${elm}+OR+`;
-  });
-  query += '&per_page=100';
-  return query;
+  return `?q=
+    ${array.map(e => `${param}%3A${e}+OR+`).join('').slice(0, -4)}
+    &per_page=100`;
 }
 
 export function handleErrors(response) {

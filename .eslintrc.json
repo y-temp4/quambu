@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "rules": {
+    "react/jsx-no-bind": [
+      2,
+      {
+        "allowBind": true
+      }
+    ],
+    "react/prefer-stateless-function": [0]
+  }
+}

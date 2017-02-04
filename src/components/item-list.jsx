@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
-import Item from './item';
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["refineByCount"] }] */
+
+import React, { Component, PropTypes } from 'react';
 import { List, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
 import { Card } from 'react-toolbox/lib/card';
+import Item from './item';
 import theme from '../../sass/theme/item-list.scss';
 
 export default class ItemList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   // ブックマーク数とストック数で表示する記事を絞り込む
-  _refineByCount(item, bookmarkCount, stockCount) {
+  refineByCount(item, bookmarkCount, stockCount) {
     return bookmarkCount <= item.bookmark_count && stockCount <= item.stock_users.length;
   }
 
   render() {
-    const {items, bookmarkCount, stockCount, icon, hasSubData, message, title} = this.props;
-    const filteredItems = items.slice(0, 20).filter((item) => {
-      return this._refineByCount(item, bookmarkCount, stockCount);
-    });
+    const { items, bookmarkCount, stockCount, icon, hasSubData, message, title } = this.props;
+    const filteredItems =
+      items.slice(0, 20).filter(item => this.refineByCount(item, bookmarkCount, stockCount));
     if (!hasSubData) {
       return (
         <Card raised>
@@ -27,34 +25,41 @@ export default class ItemList extends Component {
           </List>
         </Card>
       );
-    } else {
-      return (
-        <Card raised>
-          <List>
-          <ListSubHeader caption={title} theme={theme} />
-            {
-              filteredItems.length === 0 ?
-                <ListItem caption={'記事がありません'} disabled />
-                :
-                filteredItems
-                  .map((item) => {
-                    return (
-                      <Item
-                        key={item.id}
-                        item={item}
-                        iconTitle={icon === 'tag' ? item.tags[0].name : item.user.url_name}
-                        iconUrl={icon === 'tag' ? item.tags[0].icon_url : item.user.profile_image_url} />
-                    );
-                })
-            }
-          </List>
-        </ Card>
-      );
     }
+    return (
+      <Card raised>
+        <List>
+          <ListSubHeader caption={title} theme={theme} />
+          {
+            filteredItems.length === 0 ?
+              <ListItem caption={'記事がありません'} disabled />
+              :
+              filteredItems
+                .map(item =>
+                  <Item
+                    key={item.id}
+                    item={item}
+                    iconUrl={icon === 'tag' ? item.tags[0].icon_url : item.user.profile_image_url}
+                  />,
+              )
+            }
+        </List>
+      </Card>
+    );
   }
 }
 
 ItemList.defaultProps = {
   hasSubData: false,
-  message: '記事がありません'
-}
+  message: '記事がありません',
+};
+
+ItemList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  bookmarkCount: PropTypes.number.isRequired,
+  stockCount: PropTypes.number.isRequired,
+  icon: PropTypes.string.isRequired,
+  hasSubData: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
