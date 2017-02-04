@@ -137,6 +137,9 @@ export default class App extends Component {
                 stockCount={this.state.stock_count}
                 hasSubData={true} />
             </Col>
+            <Col xs={12} style={{padding: 30, textAlign: 'center'}}>
+              by <a href="https://twitter.com/y_temp4" target="_blank">@y_temp4</a> / <a href="https://github.com/y-temp4/quambu" target="_blank">Github</a>
+            </Col>
           </Row>
         </Grid>
       </div>
