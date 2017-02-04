@@ -25,8 +25,8 @@ export default class App extends Component {
       items: [],
       following_tags_related_items: [],
       following_users_related_items: [],
-      bookmark_count: localStorage.getItem('bookmark_count') || 0,
-      stock_count: localStorage.getItem('stock_count') || 0,
+      bookmark_count: Number(localStorage.getItem('bookmark_count')) || 0,
+      stock_count: Number(localStorage.getItem('stock_count')) || 0,
       active: false
     };
 
