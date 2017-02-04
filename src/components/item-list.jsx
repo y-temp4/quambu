@@ -15,6 +15,9 @@ export default class ItemList extends Component {
 
   render() {
     const {items, bookmarkCount, stockCount, icon, hasSubData, message, title} = this.props;
+    const filteredItems = items.slice(0, 20).filter((item) => {
+      return this._refineByCount(item, bookmarkCount, stockCount);
+    });
     if (!hasSubData) {
       return (
         <Card raised>
@@ -29,13 +32,10 @@ export default class ItemList extends Component {
           <List>
           <ListSubHeader caption={title} />
             {
-              items.length === 0 ?
+              filteredItems.length === 0 ?
                 <ListItem caption={'記事がありません'} disabled />
                 :
-                items.slice(0, 20)
-                  .filter((item) => {
-                    return this._refineByCount(item, bookmarkCount, stockCount);
-                  })
+                filteredItems
                   .map((item) => {
                     return (
                       <Item
