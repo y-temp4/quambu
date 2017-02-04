@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from './item';
 import { List, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
 import { Card } from 'react-toolbox/lib/card';
+import theme from '../../sass/theme/item-list.scss';
 
 export default class ItemList extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class ItemList extends Component {
       return (
         <Card raised>
           <List>
-          <ListSubHeader caption={title} />
+          <ListSubHeader caption={title} theme={theme} />
             {
               filteredItems.length === 0 ?
                 <ListItem caption={'記事がありません'} disabled />
