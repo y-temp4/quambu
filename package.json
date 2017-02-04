@@ -35,7 +35,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "immutability-helper": "^2.0.0",
-    "node-sass": "^3.9.3",
+    "node-sass": "^4.5.0",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^0.13.0",
     "react-addons-css-transition-group": "^15.3.1",
@@ -46,13 +46,13 @@
     "webpack-dev-server": "^1.15.1"
   },
   "dependencies": {
-    "fetch-jsonp": "^1.0.1",
     "classnames": "^2.2.5",
+    "fetch-jsonp": "^1.0.1",
     "flexboxgrid": "^6.3.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-flexbox-grid": "^0.10.2",
     "react-toolbox": "^1.2.1",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^2.0.2"
   }
 }
