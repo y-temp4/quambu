@@ -110,7 +110,7 @@ export default class App extends Component {
           <Row>
             <Col xs={12} lg={4} style={{padding: 10}}>
               <ItemList
-                title={"User following tag's items"}
+                title={`${this.state.username} following tag's items`}
                 items={this.state.following_tags_related_items}
                 icon={'tag'}
                 bookmarkCount={this.state.bookmark_count}
@@ -120,7 +120,7 @@ export default class App extends Component {
             </Col>
             <Col xs={12} lg={4} style={{padding: 10}}>
               <ItemList
-                title={"User following user's items"}
+                title={`${this.state.username} following user's items`}
                 items={this.state.following_users_related_items}
                 icon={'user'}
                 bookmarkCount={this.state.bookmark_count}
