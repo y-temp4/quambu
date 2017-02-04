@@ -7,7 +7,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid/lib/index';
 import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { fetchItems } from '../api/fetch-items';
-import { createQuery } from '../utils/create-query';
+import { createQuery } from '../lib/utils';
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items?per_page=100';
