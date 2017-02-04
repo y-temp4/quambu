@@ -28,5 +28,5 @@ Item.propTypes = {
     url: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
-  iconUrl: PropTypes.string.isRequired
+  iconUrl: PropTypes.string.isRequired,
 };
