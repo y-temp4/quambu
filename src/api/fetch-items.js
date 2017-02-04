@@ -6,7 +6,6 @@ const BOOKMARK_COUNT_URI = 'https://b.hatena.ne.jp/entry.count?url=';
 
 export function fetchItems(url) {
   return new Promise((resolve, reject) => {
-
     fetch(url)
       .then((response) => response.json())
       .then((items) => {
@@ -27,7 +26,5 @@ export function fetchItems(url) {
       .catch((ex) => {
         console.log('parsing failed', ex);
       });
-
   });
-
 }

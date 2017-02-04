@@ -8,8 +8,6 @@ import 'whatwg-fetch';
 import { fetchUserSubData } from '../api/fetch-user-sub-data';
 import { fetchItems } from '../api/fetch-items';
 import { createQuery } from '../utils/create-query';
-import reactMixin from 'react-mixin';
-import LocalStorageMixin from 'react-localstorage';
 
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
 const NEW_ITEMS_URI = QIITA_API_ENDPOINT + '/items?per_page=100';
@@ -21,14 +19,14 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      username: localStorage.getItem('username') || '',
+      following_tags: localStorage.getItem('following_tags') || [],
+      following_users: localStorage.getItem('following_users') || [],
       items: [],
-      following_tags: [],
-      following_users: [],
       following_tags_related_items: [],
       following_users_related_items: [],
-      bookmark_count: 0,
-      stock_count: 0,
+      bookmark_count: localStorage.getItem('bookmark_count') || 0,
+      stock_count: localStorage.getItem('stock_count') || 0,
       active: false
     };
 
@@ -42,17 +40,23 @@ export default class App extends Component {
     fetchItems(NEW_ITEMS_URI).then((items) => {
       this.setState({items: items});
     });
+
+    if (this.state.username) {
+      this.fetchItemsByUserData(this.state.username);
+    }
   }
 
   fetchItemsByUserData(userName) {
     const GOT_USER_DATA_URI = `${USER_DATA_URI}/${userName}`;
     this.setState({username: userName});
+    localStorage.setItem('username', userName);
 
     // ユーザーがフォローしているタグをstateに保存
     // fetchUserSubData('../../mock/following_tags.json')
     fetchUserSubData(GOT_USER_DATA_URI + '/following_tags')
       .then((tags) => {
         this.setState({following_tags: tags});
+        localStorage.setItem('following_tags', tags);
         // ユーザーがフォローしているタグに紐づく記事をstateに保存
         const tagQuery = createQuery(this.state.following_tags, 'tag');
 
@@ -67,6 +71,7 @@ export default class App extends Component {
     fetchUserSubData(GOT_USER_DATA_URI + '/following_users')
       .then((users) => {
         this.setState({following_users: users});
+        localStorage.setItem('following_users', users);
         // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
         const userQuery = createQuery(this.state.following_users, 'user');
 
@@ -81,6 +86,7 @@ export default class App extends Component {
     const obj = {};
     obj[`${service}_count`] = value;
     this.setState(obj);
+    localStorage.setItem(`${service}_count`, value);
   }
 
   toggleDrower() {
@@ -100,9 +106,9 @@ export default class App extends Component {
           bookmarkCount={this.state.bookmark_count}
           stockCount={this.state.stock_count} />
         <div  style={{marginTop: '8rem'}}></div>
-        <Grid style={{maxWidth: 1000, width: '90%'}}>
+        <Grid style={{width: '90%'}}>
           <Row>
-            <Col xs={12} lg={6} style={{padding: 10}}>
+            <Col xs={12} lg={4} style={{padding: 10}}>
               <ItemList
                 title={"User following tag's items"}
                 items={this.state.following_tags_related_items}
@@ -112,7 +118,7 @@ export default class App extends Component {
                 hasSubData={this.state.following_tags.length}
                 message={'タグが登録されていません'} />
             </Col>
-            <Col xs={12} lg={6} style={{padding: 10}}>
+            <Col xs={12} lg={4} style={{padding: 10}}>
               <ItemList
                 title={"User following user's items"}
                 items={this.state.following_users_related_items}
@@ -122,7 +128,7 @@ export default class App extends Component {
                 hasSubData={this.state.following_users.length}
                 message={'ユーザーが登録されていません'} />
             </Col>
-            <Col xs={12} style={{padding: 10}}>
+            <Col xs={12} lg={4} style={{padding: 10}}>
               <ItemList
                 title={'New Items'}
                 items={this.state.items}
@@ -137,5 +143,3 @@ export default class App extends Component {
     );
   }
 }
-
-reactMixin(App.prototype, LocalStorageMixin);
