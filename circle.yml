@@ -14,4 +14,4 @@ dependencies:
 test:
   override:
     - ./node_modules/.bin/eslint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml src/**/*.js*
-    - ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/ava -t | tap-xunit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
+    - ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/ava -t | ./node_modules/.bin/tap-xunit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
