@@ -6,7 +6,7 @@
   "scripts": {
     "test": "ava",
     "start": "node server.js",
-    "lint": "eslint src/**/*.js* || exit 0",
+    "lint": "eslint src/**/*.js*",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
     "build": "webpack",
     "build:prod": "webpack --config webpack.production.config.js --progress"

@@ -10,7 +10,8 @@ dependencies:
     - yarn --version
   override:
     - yarn install
+    - yarn run lint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
+
 test:
   override:
-    - ./node_modules/.bin/eslint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml src/**/*.js*
-    - yarn run cover --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
+    - yarn run cover
