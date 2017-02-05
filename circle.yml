@@ -12,7 +12,8 @@ dependencies:
     - yarn install
 
 test:
+  pre:
+    - mkdir $CIRCLE_TEST_REPORTS/test
   override:
     - ./node_modules/.bin/eslint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml src/**/*.js*
-    - touch $CIRCLE_TEST_REPORTS/test/test.xml
     - ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/ava -t | ./node_modules/.bin/tap-xunit > $CIRCLE_TEST_REPORTS/test/test.xml
