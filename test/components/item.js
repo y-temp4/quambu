@@ -39,6 +39,6 @@ describe('<Item />', it => {
           ripple
         />
       </a>
-    ), false);
+    ), true);
   });
 });
