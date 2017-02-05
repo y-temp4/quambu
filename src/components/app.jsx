@@ -36,7 +36,6 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // fetchItems('../../mock/items.json').then((items) => {
     fetchItems(NEW_ITEMS_URI).then((items) => {
       this.setState({ items });
     });
@@ -52,7 +51,6 @@ export default class App extends Component {
     localStorage.setItem('username', username);
 
     // ユーザーがフォローしているタグをstateに保存
-    // fetchUserSubData('../../mock/following_tags.json')
     fetchUserSubData(`${GOT_USER_DATA_URI}/following_tags`)
       .then((tags) => {
         this.setState({ following_tags: tags });
@@ -60,14 +58,12 @@ export default class App extends Component {
         // ユーザーがフォローしているタグに紐づく記事をstateに保存
         const tagQuery = createQuery(this.state.following_tags, 'tag');
 
-        // fetchItems('../../mock/following_tags_related_items.json').then((items) => {
         fetchItems(SEARCH_ITEMS_URI + tagQuery).then((items) => {
           this.setState({ following_tags_related_items: items });
         });
       });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    // fetchUserSubData('../../mock/following_users.json')
     fetchUserSubData(`${GOT_USER_DATA_URI}/following_users`)
       .then((users) => {
         this.setState({ following_users: users });
@@ -75,7 +71,6 @@ export default class App extends Component {
         // ユーザーがフォローしているユーザーに紐づく記事をstateに保存
         const userQuery = createQuery(this.state.following_users, 'user');
 
-        // fetchItems('../../mock/following_users_related_items.json').then((items) => {
         fetchItems(SEARCH_ITEMS_URI + userQuery).then((items) => {
           this.setState({ following_users_related_items: items });
         });

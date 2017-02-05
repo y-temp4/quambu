@@ -15,8 +15,6 @@ export default function fetchItems(url) {
       .then((items) => {
         // はてなブックマーク数情報を追加
         items.forEach((item, index, array) => {
-          // fetch(`../../mock/bookmark_count${['0', '1', '5'].sort(
-          //   () => Math.random() - 0.5)[0]}.json`)
           fetchJsonp(BOOKMARK_COUNT_URI + encodeURIComponent(item.url))
             .then(response => response.json())
             .then((jsonp) => {
