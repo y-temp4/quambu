@@ -1,5 +1,9 @@
 # quambu
 
+[![CircleCI](https://circleci.com/gh/y-temp4/quambu.svg?style=shield)](https://circleci.com/gh/y-temp4/quambu)
+[![Code Climate](https://codeclimate.com/github/y-temp4/quambu/badges/gpa.svg)](https://codeclimate.com/github/y-temp4/quambu)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/y-temp4/quambu/blob/master/LICENSE)
+
 ## Overview
 
 Show Qiita's items filtered by user's data and counts of bookmark and stock. 
