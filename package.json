@@ -8,6 +8,7 @@
     "start": "node server.js",
     "lint": "eslint src/**/*.js*",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
+    "cover:tap": "nyc --reporter=lcov --reporter=text ava -t | tap-xunit",
     "build": "webpack",
     "build:prod": "webpack --config webpack.production.config.js --progress"
   },
@@ -52,6 +53,7 @@
     "sass-loader": "^4.0.2",
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
+    "tap-xunit": "^1.7.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1"
   },
