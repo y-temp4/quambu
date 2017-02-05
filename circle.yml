@@ -13,4 +13,7 @@ dependencies:
 
 test:
   override:
-    - yarn run cover:tap > $CIRCLE_TEST_REPORTS/eslint/eslint.xml
+    - ls $CIRCLE_TEST_REPORTS
+    - yarn run lint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
+    - ls $CIRCLE_TEST_REPORTS
+    - yarn run cover
