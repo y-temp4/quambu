@@ -1,5 +1,5 @@
 /* global fetch */
-/* eslint no-param-reassign: ["error", { "props": false }] */
+/* eslint no-param-reassign: [2, { "props": false }] */
 
 import 'whatwg-fetch';
 import fetchJsonp from 'fetch-jsonp';
