@@ -13,7 +13,5 @@ dependencies:
 
 test:
   override:
-    - ls $CIRCLE_TEST_REPORTS
-    - yarn run lint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
-    - ls $CIRCLE_TEST_REPORTS
-    - yarn run cover
+    - ./node_modules/.bin/eslint --format=junit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml src/**/*.js*
+    - ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/ava -t | tap-xunit -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml
