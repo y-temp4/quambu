@@ -1,4 +1,4 @@
-# quambu
+# Quambu
 
 [![CircleCI](https://circleci.com/gh/y-temp4/quambu.svg?style=shield)](https://circleci.com/gh/y-temp4/quambu)
 [![Code Climate](https://codeclimate.com/github/y-temp4/quambu/badges/gpa.svg)](https://codeclimate.com/github/y-temp4/quambu)
@@ -6,7 +6,7 @@
 
 ## Overview
 
-Show Qiita's items filtered by user's data and counts of bookmark and stock. 
+Show items of Qiita, filtered by user's data and counts of bookmark and stock.
 
 [https://y-temp4.github.io/quambu/](https://y-temp4.github.io/quambu/)
 
