@@ -1,4 +1,5 @@
 /* global fetch */
+/* eslint-disable no-console */
 
 import 'whatwg-fetch';
 import { handleErrors } from '../lib/utils';
