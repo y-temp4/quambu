@@ -88,6 +88,20 @@ export default class App extends Component {
     this.setState({ active: !this.state.active });
   }
 
+  getItemList(options) {
+    return (
+      <ItemList
+        title={options.title}
+        items={options.items}
+        icon={options.icon}
+        bookmarkCount={this.state.bookmark_count}
+        stockCount={this.state.stock_count}
+        hasSubData={options.hasSubData}
+        message={options.message}
+      />
+    );
+  }
+
   render() {
     return (
       <div>
@@ -104,36 +118,34 @@ export default class App extends Component {
         <Grid style={{ width: '90%', marginTop: '8rem' }} >
           <Row>
             <Col xs={12} lg={4} style={{ padding: 10 }}>
-              <ItemList
-                title={`${this.state.username} following tag's items`}
-                items={this.state.following_tags_related_items}
-                icon={'tag'}
-                bookmarkCount={this.state.bookmark_count}
-                stockCount={this.state.stock_count}
-                hasSubData={!!this.state.following_tags.length}
-                message={'タグが登録されていません'}
-              />
+              {
+                this.getItemList({
+                  title: `${this.state.username} following tag's items`,
+                  items: this.state.following_tags_related_items,
+                  icon: 'tag',
+                  hasSubData: !!this.state.following_tags.length,
+                  message: 'タグが登録されていません' })
+              }
             </Col>
             <Col xs={12} lg={4} style={{ padding: 10 }}>
-              <ItemList
-                title={`${this.state.username} following user's items`}
-                items={this.state.following_users_related_items}
-                icon={'user'}
-                bookmarkCount={this.state.bookmark_count}
-                stockCount={this.state.stock_count}
-                hasSubData={!!this.state.following_users.length}
-                message={'ユーザーが登録されていません'}
-              />
+              {
+                this.getItemList({
+                  title: `${this.state.username} following user's items`,
+                  items: this.state.following_users_related_items,
+                  icon: 'user',
+                  hasSubData: !!this.state.following_users.length,
+                  message: 'ユーザーが登録されていません' })
+              }
             </Col>
             <Col xs={12} lg={4} style={{ padding: 10 }}>
-              <ItemList
-                title={'New Items'}
-                items={this.state.items}
-                icon={'tag'}
-                bookmarkCount={this.state.bookmark_count}
-                stockCount={this.state.stock_count}
-                hasSubData
-              />
+              {
+                this.getItemList({
+                  title: 'New Items',
+                  items: this.state.items,
+                  icon: 'tag',
+                  hasSubData: true,
+                  message: '' })
+              }
             </Col>
             <Col xs={12} style={{ padding: 30, textAlign: 'center' }}>
               by <a href="https://twitter.com/y_temp4" target="_blank" rel="noopener noreferrer">@y_temp4</a> / <a href="https://github.com/y-temp4/quambu" target="_blank" rel="noopener noreferrer">Github</a>
