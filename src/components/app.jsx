@@ -45,6 +45,20 @@ export default class App extends Component {
     }
   }
 
+  getItemList(options) {
+    return (
+      <ItemList
+        title={options.title}
+        items={options.items}
+        icon={options.icon}
+        bookmarkCount={this.state.bookmark_count}
+        stockCount={this.state.stock_count}
+        hasSubData={options.hasSubData}
+        message={options.message}
+      />
+    );
+  }
+
   fetchItemsByUserData(username) {
     const GOT_USER_DATA_URI = `${USER_DATA_URI}/${username}`;
     this.setState({ username });
@@ -86,20 +100,6 @@ export default class App extends Component {
 
   toggleDrower() {
     this.setState({ active: !this.state.active });
-  }
-
-  getItemList(options) {
-    return (
-      <ItemList
-        title={options.title}
-        items={options.items}
-        icon={options.icon}
-        bookmarkCount={this.state.bookmark_count}
-        stockCount={this.state.stock_count}
-        hasSubData={options.hasSubData}
-        message={options.message}
-      />
-    );
   }
 
   render() {
