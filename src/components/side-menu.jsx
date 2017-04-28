@@ -5,6 +5,19 @@ import Slider from 'react-toolbox/lib/slider';
 
 export default class SideMenu extends Component {
 
+  static getSlider(value, onChange) {
+    return (
+      <Slider
+        value={value}
+        onChange={onChange}
+        step={1}
+        max={100}
+        pinned
+        editable
+      />
+    );
+  }
+
   handleToggle() {
     this.props.toggleDrower();
   }
@@ -34,23 +47,9 @@ export default class SideMenu extends Component {
             onChange={this.handleUserChange.bind(this)}
           />
           <p>ブックマーク数</p>
-          <Slider
-            value={bookmarkCount}
-            onChange={this.handleCountChange.bind(this, 'bookmark')}
-            step={1}
-            max={100}
-            pinned
-            editable
-          />
+          {SideMenu.getSlider(bookmarkCount, this.handleCountChange.bind(this, 'bookmark'))}
           <p>ストック数</p>
-          <Slider
-            value={stockCount}
-            onChange={this.handleCountChange.bind(this, 'stock')}
-            step={1}
-            max={100}
-            pinned
-            editable
-          />
+          {SideMenu.getSlider(stockCount, this.handleCountChange.bind(this, 'stock'))}
         </section>
       </Drawer>
     );
