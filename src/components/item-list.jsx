@@ -10,7 +10,7 @@ export default class ItemList extends Component {
 
   // ブックマーク数とストック数で表示する記事を絞り込む
   refineByCount(item, bookmarkCount, stockCount) {
-    return bookmarkCount <= item.bookmark_count && stockCount <= item.stock_users.length;
+    return bookmarkCount <= item.bookmark_count && stockCount <= item.likes_count;
   }
 
   render() {
@@ -39,7 +39,7 @@ export default class ItemList extends Component {
                   <Item
                     key={item.id}
                     item={item}
-                    iconUrl={icon === 'tag' ? item.tags[0].icon_url : item.user.profile_image_url}
+                    iconUrl={item.user.profile_image_url}
                   />,
               )
             }

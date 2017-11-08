@@ -9,10 +9,10 @@ import fetchItems from '../api/fetch-items';
 import fetchUserSubData from '../api/fetch-user-sub-data';
 import { createQuery } from '../lib/utils';
 
-const QIITA_API_ENDPOINT = 'https://qiita.com/api/v1';
+const QIITA_API_ENDPOINT = 'https://qiita.com/api/v2';
 const NEW_ITEMS_URI = `${QIITA_API_ENDPOINT}/items?per_page=100`;
 const USER_DATA_URI = `${QIITA_API_ENDPOINT}/users`;
-const SEARCH_ITEMS_URI = `${QIITA_API_ENDPOINT}/search`;
+const SEARCH_ITEMS_URI = `${QIITA_API_ENDPOINT}/items`;
 
 export default class App extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ export default class App extends Component {
       });
 
     // ユーザーがフォローしているユーザーをstateに保存
-    fetchUserSubData(`${GOT_USER_DATA_URI}/following_users`)
+    fetchUserSubData(`${GOT_USER_DATA_URI}/followees`)
       .then((users) => {
         this.setState({ following_users: users });
         localStorage.setItem('following_users', users);

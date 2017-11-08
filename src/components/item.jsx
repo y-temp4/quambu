@@ -6,7 +6,7 @@ export default class Item extends Component {
 
   render() {
     const { item, iconUrl } = this.props;
-    const counts = `ストック：${item.stock_users.length}, ブックマーク：${item.bookmark_count}`;
+    const counts = `ストック：${item.likes_count}, ブックマーク：${item.bookmark_count}`;
 
     return (
       <a href={item.url} target="_blank" rel="noopener noreferrer">

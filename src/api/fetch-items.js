@@ -6,7 +6,7 @@ import 'whatwg-fetch';
 import fetchJsonp from 'fetch-jsonp';
 import { handleErrors } from '../lib/utils';
 
-const BOOKMARK_COUNT_URI = 'https://b.hatena.ne.jp/entry.count?url=';
+const BOOKMARK_COUNT_URI = 'http://api.b.st-hatena.com/entry.count?url=';
 
 export default function fetchItems(url) {
   return new Promise((resolve) => {

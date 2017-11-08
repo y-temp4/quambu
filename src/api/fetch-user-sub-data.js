@@ -11,7 +11,7 @@ export default function fetchUserSubData(url) {
       .then(response => response.json())
       .then((json) => {
         const data = [];
-        json.map(datum => data.push(datum.url_name));
+        json.map(datum => data.push(datum.id));
         resolve(data);
       })
       .catch((ex) => { console.log('parsing failed', ex); });
