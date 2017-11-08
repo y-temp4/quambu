@@ -14,7 +14,7 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const { items, bookmarkCount, stockCount, icon, hasSubData, message, title } = this.props;
+    const { items, bookmarkCount, stockCount, hasSubData, message, title } = this.props;
     const filteredItems =
       items.slice(0, 20).filter(item => this.refineByCount(item, bookmarkCount, stockCount));
     if (!hasSubData) {
@@ -58,7 +58,6 @@ ItemList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   bookmarkCount: PropTypes.number.isRequired,
   stockCount: PropTypes.number.isRequired,
-  icon: PropTypes.string.isRequired,
   hasSubData: PropTypes.bool.isRequired,
   message: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
