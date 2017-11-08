@@ -9,11 +9,11 @@ import theme from '../../sass/theme/item.scss';
 const wrapper = shallow(
   <Item
     item={{
-      stock_users: ['a', 'b', 'c'],
+      likes_count: 3,
       bookmark_count: 1,
       url: 'http://item-url.com',
       title: 'item-title',
-      user: { url_name: 'url-name' },
+      user: { id: 'url-name' },
     }}
     iconUrl={'http://icon-url.com'}
   />

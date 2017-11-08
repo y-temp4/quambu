@@ -14,7 +14,7 @@ export default class Item extends Component {
           theme={theme}
           avatar={iconUrl}
           caption={item.title}
-          legend={`by ${item.user.url_name} | ${counts}`}
+          legend={`by ${item.user.id} | ${counts}`}
           selectable
           ripple
         />
